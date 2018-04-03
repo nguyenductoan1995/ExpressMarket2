@@ -14,7 +14,7 @@
 				@foreach($SanPham as $sp)
                 <div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="breadcrumbs">
-                    	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Computers &amp; Tablets</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
+                    	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="{{route('loaisanpham',$sp->id_loai)}}">{{$typeProduct[0]->ten_loai}}</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
                     </div>
                 </div>
                 

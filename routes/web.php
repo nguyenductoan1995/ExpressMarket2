@@ -44,3 +44,8 @@ Route::get('xoa-gio-hang/{id}',[
     'as' => 'xoagiohang',
     'uses' => 'PageController@getDeleteItemCart'
 ]);
+//Tìm kiếm sản phẩm
+Route::get('tim-kiem-sp',[
+    'as'=> 'searchProduct',
+    'uses'=> 'PageController@getProduct'
+]);
