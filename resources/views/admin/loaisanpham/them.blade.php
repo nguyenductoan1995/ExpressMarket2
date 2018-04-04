@@ -2,16 +2,7 @@
 @extends('admin.layout.index')
 @section('content')
 			
-					<!-- PAGE CONTENT BEGINS -->
-	@if(count($errors) > 0 )
-		<div class="alert alert-danger">
-			@foreach($errors-> all() as err)
-				{{$err}}</br>
-
-			@endforeach
-		</div>
-	@endif
-
+	
 	@if(session('thongbao'))
 		<div class= "alert alert-success">
 			{{session('thongbao')}}
