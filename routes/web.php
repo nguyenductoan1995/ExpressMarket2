@@ -15,6 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/loaisanpham', function () {
+    return view('admin.loaisanpham.index');
+});
+
+Route::get('/admin/themloaisanpham', function () {
+    return view('admin.loaisanpham.them');
+});
+
+Route::get('/admin/sualoaisanpham', function () {
+    return view('admin.loaisanpham.sua');
+});
+
+Route::get('/admin/sanpham', function () {
+    return view('admin.sanpham.index');
+});
+
+Route::get('/admin/themsanpham', function () {
+    return view('admin.sanpham.them');
+});
+
+Route::get('/admin/loaisanpham', function () {
+    return view('admin.sanpham.sua');
+});
+
+
 Route::get('index', [
     'as' => 'trang-chu',
     'uses' => 'PageController@getIndex'
