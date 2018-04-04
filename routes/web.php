@@ -10,33 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Use App\LoaiSanPham;
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/loaisanpham', function () {
-    return view('admin.loaisanpham.index');
-});
-
-Route::get('/admin/themloaisanpham', function () {
-    return view('admin.loaisanpham.them');
-});
-
-Route::get('/admin/sualoaisanpham', function () {
-    return view('admin.loaisanpham.sua');
-});
-
-Route::get('/admin/sanpham', function () {
-    return view('admin.sanpham.index');
-});
-
-Route::get('/admin/themsanpham', function () {
-    return view('admin.sanpham.them');
-});
-
-Route::get('/admin/loaisanpham', function () {
-    return view('admin.sanpham.sua');
+Route::group(['prefix'=> 'admin'], function(){
+    Route::group(['prefix'=> 'loaisanpham'],function(){
+        Route::get('danhsach','LoaispController@getDanhSach');
+        Route::get('them','LoaispController@getThemLoai');
+        Route::get('xoa','LoaispController@getXoaLoai');
+        Route::get('sua','LoaispController@getSuaLoai');
+        Route::post('them','LoaispController@postThemLoai');
+    });
 });
 
 Route::get('index', [

@@ -1,24 +1,23 @@
-
-@extends('admin.layout.index')
-@section('content')
+<?php $__env->startSection('content'); ?>
 			
 					<!-- PAGE CONTENT BEGINS -->
-	@if(count($errors) > 0 )
+	<?php if(count($errors) > 0 ): ?>
 		<div class="alert alert-danger">
-			@foreach($errors-> all() as err)
-				{{$err}}</br>
+			<?php $__currentLoopData = $errors-> all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<?php echo e($err); ?></br>
 
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		</div>
-	@endif
+	<?php endif; ?>
 
-	@if(session('thongbao'))
+	<?php if(session('thongbao')): ?>
 		<div class= "alert alert-success">
-			{{session('thongbao')}}
+			<?php echo e(session('thongbao')); ?>
+
 		</div>
-	@endif
+	<?php endif; ?>
 	<form action="admin/loaisanpham/them" method="POST">
-		<input type="hidden" name="_token" value="{{csrf_token()}}" />
+		<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
 			<div class="form-group">
 				<label >Tên Thể Loại</label>
 				<input class="form-control" name="ten_loai"  placeholder="Nhập tên thể loại" >
@@ -36,4 +35,5 @@
 			</div>
 	</form>				
 																
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
