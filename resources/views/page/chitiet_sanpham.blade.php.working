@@ -6,13 +6,7 @@
                 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="breadcrumbs">
-<<<<<<< .working
                     	<p><a href="#">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Computers &amp; Tablets</a> <i class="icons icon-right-dir"></i> Product Name</p>
-||||||| .merge-left.r5
-                    	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="{{route('loaisanpham',$sp->id_loai)}}">{{$typeProduct[0]->ten_loai}}</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
-=======
-                    	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Computers &amp; Tablets</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
->>>>>>> .merge-right.r5
                     </div>
                 </div>
                 

@@ -1,11 +1,10 @@
-@extends('master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     			<!-- Content -->
 			<div class="row content">
 				
                 <div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="breadcrumbs">
-                    	<p><a href="{{route('trang-chu')}}">Trang chủ</a> <i class="icons icon-right-dir"></i> {{$ten_theoloai[0] -> ten_loai}}</p>
+                    	<p><a href="<?php echo e(route('trang-chu')); ?>">Trang chủ</a> <i class="icons icon-right-dir"></i> <?php echo e($ten_theoloai[0] -> ten_loai); ?></p>
                     </div>
                 </div>
                 
@@ -19,7 +18,8 @@
 					<div class="col-lg-12 col-md-12 col-sm-12">		
 						<div class="carousel-heading">
 							<h4>
-							{{$ten_theoloai[0] -> ten_loai}}
+							<?php echo e($ten_theoloai[0] -> ten_loai); ?>
+
 							</h4>
 						</div>
 					</div>
@@ -32,7 +32,7 @@
                         	<div class="pagination">
                             	<a href="#"><div class="previous"><i class="icons icon-left-dir"></i></div></a>
 								
-                                <a href="{{route('loaisanpham',1)}}"><div class="page-button">1</div></a>
+                                <a href="<?php echo e(route('loaisanpham',1)); ?>"><div class="page-button">1</div></a>
 							
                                 <a href="#"><div class="next"><i class="icons icon-right-dir"></i></div></a>
                             </div>
@@ -43,19 +43,19 @@
                    <div class="row"> 
                         <!-- LAY DANH SACH SAN PHAM THEO LOAI -->
                         <!-- Product Item -->
-                        @foreach($sp_theoloai as $sp)
+                        <?php $__currentLoopData = $sp_theoloai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-lg-4 col-md-4 col-sm-4 product">
                             
                             <div class="product-image">
-                                <img src="source/img/products/{{$sp -> url_hinh}}" alt="Product1">
-                                <a href="products_page_v1.html" class="product-hover">
+                                <img src="source/img/products/<?php echo e($sp -> url_hinh); ?>" alt="Product1">
+                                <a href="<?php echo e(route('chitietsanpham',$sp->id_sp)); ?>" class="product-hover">
 														<i class="icons icon-eye-1"></i> Xem ngay
 													</a>
                             </div>
                             
                             <div class="product-info">
-                                <h5><a href="products_page_v1.html">{{$sp -> ten_sp}}</a></h5>
-                                <span class="price">{{number_format($sp -> gia,0)}} VND</span>
+                                <h5><a href="<?php echo e(route('chitietsanpham',$sp->id_sp)); ?>"><?php echo e($sp -> ten_sp); ?></a></h5>
+                                <span class="price"><?php echo e(number_format($sp -> gia,0)); ?> VND</span>
                                 <div class="rating readonly-rating" data-score="4"></div>
                             </div>
                             
@@ -69,7 +69,7 @@
 							</div>
                             
                         </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <!-- /Product Item -->
                         <!-- END LAY DANH SACH SAN PHAM THEO LOAI -->
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -380,4 +380,6 @@
 			</div>
 			<!-- /Content -->
 			
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

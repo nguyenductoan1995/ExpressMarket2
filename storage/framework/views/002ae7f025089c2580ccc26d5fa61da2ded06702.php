@@ -1,5 +1,4 @@
-@extends('master')
-@section('content')
+<?php $__env->startSection('content'); ?>
         <div class="row content">
 				<!-- Main Content -->
 				<section class="main-content col-lg-12 col-md-12 col-sm-12">
@@ -157,22 +156,22 @@
 							<div class="owl-carousel" data-max-items="4">
 								<!-- START SHOW PRODUCT COMPUTER -->
 									<!-- Slide -->
-									@foreach($new_product_computer as $new)
+									<?php $__currentLoopData = $new_product_computer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
 												<span class="product-tag">Sale</span>
-												<img src="source/img/products/{{$new -> url_hinh}}" alt="Product1">
+												<img src="source/img/products/<?php echo e($new -> url_hinh); ?>" alt="Product1">
 												<a href="products_page_v1.html" class="product-hover">
 													<i class="icons icon-eye-1"></i> Xem
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">{{$new -> ten_sp}}</a></h5>
-												<span class="price">{{$new -> gia}}</span>
+												<h5><a href="<?php echo e(route('chitietsanpham',$new->id_sp)); ?>"><?php echo e($new -> ten_sp); ?></a></h5>
+												<span class="price"><?php echo e(number_format($new->gia,0)); ?> vnđ</span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
@@ -180,7 +179,7 @@
 												<span class="add-to-cart">
 													<span class="action-wrapper">
 														<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
-														<a href="{{route('themgiohang',$new -> id_sp)}}">
+														<a href="<?php echo e(route('themgiohang',$new -> id_sp)); ?>">
 														<span class="action-name">Add to cart</span>
 														</a>
 													</span >
@@ -190,7 +189,7 @@
 										</div>
 										<!-- /Carousel Item -->
 									</div>
-									@endforeach
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									<!-- /Slide -->
 								<!-- END SHOW PRODUCT COMPUTER -->		
 									
@@ -939,4 +938,6 @@
 				</section>
                 <!-- /Main Content -->
         </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -21,6 +21,7 @@
 						</div>
 						
 					</div>
+		
 					<!-- /Top Header -->
 					
 					
@@ -31,13 +32,13 @@
 						<div class="row">
 							
 							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
-								<a href="home_v1.html"><img src="source/img/logo.png" alt="Logo"></a>
+								<a href="<?php echo e(route('trang-chu')); ?>"><img src="source/img/logo.png" alt="Logo"></a>
 							</div>
 							
 							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
 								<ul class="pull-right">
-									@if(Session::has('cart'))
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>{{Session('cart')->totalQty}}</a>
+									<?php if(Session::has('cart')): ?>
+									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i><?php echo e(Session('cart')->totalQty); ?></a>
                                     	<ul id="cart-dropdown" class="box-dropdown parent-arrow">
 											<li>
                                             	<div class="box-wrapper parent-border">
@@ -45,19 +46,19 @@
                                                     
                                                     <table class="cart-table">
 														
-														@foreach($product_cart as $p)
+														<?php $__currentLoopData = $product_cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     	<tr>
-                                                    		<td><img src="source/img/products/{{$p['item']['url_hinh']}}" alt="product"></td>
+                                                    		<td><img src="source/img/products/<?php echo e($p['item']['url_hinh']); ?>" alt="product"></td>
                                                             <td>
-                                                                <h6>{{$p['item']['ten_sp']}}</h6>
-                                                                <p>{{$p['item']['ten_sp']}}</p>
+                                                                <h6><?php echo e($p['item']['ten_sp']); ?></h6>
+                                                                <p><?php echo e($p['item']['ten_sp']); ?></p>
                                                             </td>
                                                             <td>
-                                                            	<span class="quantity"><span class="light">{{$p['qty']}} x</span> {{$p['item']['gia']}}</span>
-                                                                <a href="{{route('xoagiohang',$p['item']['id_sp'])}}" class="parent-color">Xóa</a>
+                                                            	<span class="quantity"><span class="light"><?php echo e($p['qty']); ?> x</span> <?php echo e($p['item']['gia']); ?></span>
+                                                                <a href="<?php echo e(route('xoagiohang',$p['item']['id_sp'])); ?>" class="parent-color">Xóa</a>
                                                             </td>
                                                         </tr>
-														@endforeach
+														<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </table>
                                                     
                                                     <br class="clearfix">
@@ -67,7 +68,7 @@
 													<table class="checkout-table pull-right">
                                                         <tr>
                                                         	<td class="align-right"><strong>Tổng tiền:</strong></td>
-                                                            <td><strong class="parent-color">{{Session('cart')->totalPrice}}</strong></td>
+                                                            <td><strong class="parent-color"><?php echo e(Session('cart')->totalPrice); ?></strong></td>
                                                         </tr>
                                                     </table>
 												</div>
@@ -79,10 +80,10 @@
 											</li>
 										</ul>
                                     </li>
-									@else
+									<?php else: ?>
 									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>0</a>
                                     </li>
-									@endif
+									<?php endif; ?>
 									<li class="login-create purple">
                                     	<i class="icons icon-user"></i>
                                         <p>Xin chào! <a href="#">Đăng nhập</a> hoặc<br><a href="#">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
@@ -133,7 +134,7 @@
 						<ul>
 							
 							<li class="home-green current-item">
-								<a href="{{route('trang-chu')}}">
+								<a href="<?php echo e(route('trang-chu')); ?>">
 									<span class="nav-caption">Trang chủ</span>
 									<span class="nav-description">Sản phẩm mới nhất</span>
 								</a>
@@ -178,7 +179,7 @@
 							</li>
 							
 							<li class="red">
-								<a href="{{route('loaisanpham',1)}}">
+								<a href="<?php echo e(route('loaisanpham',1)); ?>">
 									<span class="nav-caption">Điện thoại</span>
 									<span class="nav-description">Điện thoại & Tablet</span>
 								</a>
@@ -215,14 +216,14 @@
 							</li>
 							
 							<li class="blue">
-								<a href="{{route('loaisanpham',2)}}">
+								<a href="<?php echo e(route('loaisanpham',2)); ?>">
 									<span class="nav-caption">Tivi - Video</span>
 									<span class="nav-description">Tivi - Đầu đĩa karaoke</span>
 								</a>
 							</li>
 							
 							<li class="orange">
-								<a href="{{route('loaisanpham',3)}}">
+								<a href="<?php echo e(route('loaisanpham',3)); ?>">
 									<span class="nav-caption">Phụ kiện</span>
 									<span class="nav-description">Phụ kiện công nghệ</span>
 								</a>
@@ -247,35 +248,45 @@
 							</li>
 							
 						</ul>
-						
-						<div id="search-bar">
-							
-							<div class="col-lg-12 col-md-12 col-sm-12">
-                            	<table id="search-bar-table">
-                                    <tr>
-                                    	<td class="search-column-1">
-                                            <p><span class="grey">Popular Searches:</span> <a href="#">accessories</a>, <a href="#">audio</a>, <a href="#">camera</a>, <a href="#">phone</a>, <a href="#">storage</a>, <a href="#">more</a></p>
-                                            <input type="text" placeholder="Enter your keyword">
-                                        </td>
-                                        <td class="search-column-2">
-                                        	<p class="align-right"><a href="#">Advanced Search</a></p>
-                                        	<select class="chosen-select-search">
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                            </select>
-                                		</td>
-                                    </tr>
-                                </table>
+					
+							<div id="search-bar">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+                            		<table id="search-bar-table">
+									<form action="<?php echo e(route('searchProduct')); ?>" method="get" role ="search" >
+                                    	<tr>
+                                    		<td class="search-column-1">
+                                         	   <input type="text" name ="key" placeholder="Nhập vào từ khoá"  >
+                                     	   </td>
+											
+                                     	   <td class="search-column-2">
+                                       		 	<select class="chosen-select-search" name = 'chosetype'>
+													<?php $__currentLoopData = $search_type; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $search_type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+												  	  <option  value ="<?php echo e($search_type->id_loai); ?>" ><?php echo e($search_type->ten_loai); ?></option>
+													<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
+												</select>
+                               	 			</td>
+											
+                                    	</tr>
+                                	</table>
+								</div>
+								
+								<div id="search-button" >
+									<input type="submit" value="" >
+									<i class="icons icon-search-1" type = 'submit' ></i>
+								</div>
+								</form>
 							</div>
-							<div id="search-button">
-								<input type="submit" value="">
-								<i class="icons icon-search-1"></i>
-							</div>
-						</div>
-						
+							 <!-- <form action="<?php echo e(route('searchProduct')); ?>" method="get" role ="search" > 
+							 	<input type ='text' name = 'keys' >
+								 <select name = 'chosetype'>
+										<option  value =1 > Dien Thoai</option>
+										<option  value =2 > May tinh</option>
+										<option  value =3 > Dien Tu</option>
+								</select>
+								<button type='submit'>Search</button>
+							</form> -->
+					
+
 					</nav>
 					<!-- /Main Navigation -->
 					
