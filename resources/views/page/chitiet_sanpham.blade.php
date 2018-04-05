@@ -1,18 +1,20 @@
 @extends('master')
 @section('content')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=366216237081722&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
             <!-- Content -->
 			<div class="row content">
-            	
-                
+            
+				@foreach($SanPham as $sp)
                 <div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="breadcrumbs">
-<<<<<<< .working
-                    	<p><a href="#">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Computers &amp; Tablets</a> <i class="icons icon-right-dir"></i> Product Name</p>
-||||||| .merge-left.r5
                     	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="{{route('loaisanpham',$sp->id_loai)}}">{{$typeProduct[0]->ten_loai}}</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
-=======
-                    	<p><a href="{{route('trang-chu')}}">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Computers &amp; Tablets</a> <i class="icons icon-right-dir"></i>{{$sp->ten_sp}}</p>
->>>>>>> .merge-right.r5
                     </div>
                 </div>
                 
@@ -33,8 +35,8 @@
 								<div id="product-slider">
 									<ul class="slides">
 										<li>
-											<img class="cloud-zoom" src="source/img/products/single1.jpg" data-large="img/products/sample1.jpg"  alt=""/>
-											<a class="fullscreen-button" href="img/products/single1.jpg">
+											<img class="cloud-zoom" src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}"  alt=""/>
+											<a class="fullscreen-button" href="source/img/products/{{$sp->url_hinh}}">
 												<div class="product-fullscreen">
 													<i class="icons icon-resize-full-1"></i>
 												</div>
@@ -45,25 +47,26 @@
 								<div id="product-carousel">
 									<ul class="slides">
 										<li>
-											<a class="fancybox" rel="product-images" href="img/products/single1.jpg"></a>
-											<img src="source/img/products/single1.jpg" data-large="img/products/single1.jpg" alt=""/>
+											<a class="fancybox" rel="product-images" href="source/img/products/{{$sp->url_hinh}}"></a>
+											<img src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}" alt=""/>
 										</li>
 										<li>
-											<a class="fancybox" rel="product-images" href="img/products/single2.jpg"></a>
-											<img src="source/img/products/single2.jpg" data-large="img/products/single2.jpg" alt="" />
+											<a class="fancybox" rel="product-images" href="source/img/products/{{$sp->url_hinh}}"></a>
+											<img src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}" alt=""/>
 										</li>
 										<li>
-											<a class="fancybox" rel="product-images" href="img/products/single3.jpg"></a>
-											<img src="source/img/products/single3.jpg" data-large="img/products/single3.jpg" alt="" />
+											<a class="fancybox" rel="product-images" href="source/img/products/{{$sp->url_hinh}}"></a>
+											<img src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}" alt=""/>
 										</li>
 										<li>
-											<a class="fancybox" rel="product-images" href="img/products/single4.jpg"></a>
-											<img src="source/img/products/single4.jpg" data-large="img/products/single4.jpg" alt="" />
+											<a class="fancybox" rel="product-images" href="source/img/products/{{$sp->url_hinh}}"></a>
+											<img src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}" alt=""/>
 										</li>
 										<li>
-											<a class="fancybox" rel="product-images" href="img/products/single5.jpg"></a>
-											<img src="source/img/products/single5.jpg" data-large="img/products/single5.jpg" alt="" />
+											<a class="fancybox" rel="product-images" href="source/img/products/{{$sp->url_hinh}}"></a>
+											<img src="source/img/products/{{$sp->url_hinh}}" data-large="source/img/products/{{$sp->url_hinh}}" alt=""/>
 										</li>
+										
 									</ul>
 									<div class="product-arrows">
 										<div class="left-arrow">
@@ -79,49 +82,48 @@
                             
                             <div class="col-lg-8 col-md-8 col-sm-8 product-single-info full-size">
                             	
-                                <h2>Lorem ipsum dolor sit amet</h2>
-                                <div class="rating-box">
-									<div class="rating readonly-rating" data-score="4"></div>
-									2 Review(s)
-								</div>
+                                <h2>{{$sp->ten_sp}}</h2>
                                 <table>
                                 	<tr>
-                                    	<td>Manufacturer</td>
-                                        <td><a href="#">Manufacturer 1</a></td>
+                                    	<td>Nhà sản xuất</td>
+                                        <td><a href="#">Không có</a></td>
                                     </tr>
                                     <tr>
-                                    	<td>Availability</td>
-                                        <td><span class="green">in stock</span> 20 items</td>
+                                    	<td>Kho</td>
+										@if($sp->so_luong_ton>0)
+											<td><span class="green">còn hàng</span> {{$sp->so_luong_ton}} items</td>
+										
+                                      @else
+										<td><span class="green">hết hàng</span> </td>
+									   
+									@endif
+                                    </tr>
+                                    
+                                </table>
+                                
+                                <strong>Thông số </strong>
+                                <table>
+                                	<tr>
+                                    	<td>chiều cao sản phẩm</td>
+                                        <td>200cm</td>
                                     </tr>
                                     <tr>
-                                    	<td>Product code</td>
-                                        <td>PBS173</td>
+                                    	<td>Chiều rộng sản phẩm</td>
+                                        <td>100cm</td>
                                     </tr>
                                 </table>
                                 
-                                <strong>Product Dimensions</strong>
-                                <table>
-                                	<tr>
-                                    	<td>Product Width</td>
-                                        <td>10.00000M</td>
-                                    </tr>
-                                    <tr>
-                                    	<td>Product Length</td>
-                                        <td>10.00000M</td>
-                                    </tr>
-                                </table>
-                                
-                            	<span class="price"><del>$381.00</del> $281.00</span>
+                            	<span class="price"><del>{{ number_format($sp->gia + 100000,0)}} vnđ</del>{{ number_format($sp->gia,0)}} vnđ</span>
                                 
                                 <table class="product-actions-single">
                                 	<tr>
                                     	<td>Color:</td>
                                         <td>
                                         	<select class="chosen-select">
-                                            	<option>Red +$25.00</option>
-                                                <option>Red +$25.00</option>
-                                                <option>Red +$25.00</option>
-                                                <option>Red +$25.00</option>
+                                            	<option>Đỏ</option>
+                                                <option>Vàng</option>
+                                                <option>Xanh</option>
+                                                <option>Đen</option>
                                             </select>
                                         </td>
                                     	<td>Quantity:</td>
@@ -131,11 +133,11 @@
 												<span class="arrow-up"><i class="icons icon-up-dir"></i></span>
 												<span class="arrow-down"><i class="icons icon-down-dir"></i></span>
 											</div>
-                                            <a href="#">
+                                            <a href="{{route('themgiohang',$sp -> id_sp)}}">
                                                 <span class="add-to-cart">
                                                     <span class="action-wrapper">
                                                         <i class="icons icon-basket-2"></i>
-                                                        <span class="action-name">Add to cart</span>
+                                                        <span class="action-name">+ Giỏ hàng</span>
                                                     </span>
                                                 </span>
                                             </a>
@@ -164,9 +166,9 @@
 										</span>
 									</span>
 								</div>
-                                
+                    
                                 <div class="social-share">
-                                    	<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21"style="border:none; overflow:hidden; height:21px; width:100px;"></iframe>
+								<div class="fb-like" data-href="https://www.facebook.com/printer3dsv/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                                         
                                         <iframe
         src="https://platform.twitter.com/widgets/tweet_button.html"
@@ -211,10 +213,11 @@
 									<li>
 									
 										<div class="accordion-header">
-											<h4>Description</h4>
+											<h4>Thông tin chi tiết</h4>
 											<span class="accordion-button">
 												<i class="icons icon-plus-1"></i>
 											</span>
+											
 										</div>
 										<div class="accordion-content page-content">
 											<p>Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. </p>
@@ -248,152 +251,13 @@
 										</div>
 										
 										<div class="accordion-content page-content">
-											<ul class="comments">
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons green icon-thumbs-up-alt"></i>
-													<i class="icons sum no-pointer green-sum">1</i>
-													<i class="icons red icon-thumbs-down-alt"></i>
-													<i class="icons icon-reply"></i>
-													<div class="rating-box">
-														<div class="rating readonly-rating" data-score="4"></div>
-													</div>
-													<br>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-													
-												</li>
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons green icon-thumbs-up-alt"></i>
-													<i class="icons sum no-pointer">0</i>
-													<i class="icons red icon-thumbs-down-alt"></i>
-													<i class="icons icon-reply"></i>
-													<div class="rating-box">
-														<div class="rating readonly-rating" data-score="4"></div>
-													</div>
-													<br>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-													
-													<ul>
-														<li>
-															<p><strong><a href="#">Anna Doe</a></strong></p>
-															<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-														</li>
-													</ul>
-												</li>
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons green icon-thumbs-up-alt"></i>
-													<i class="icons sum no-pointer red-sum">-2</i>
-													<i class="icons red icon-thumbs-down-alt"></i>
-													<i class="icons icon-reply"></i>
-													<div class="rating-box">
-														<div class="rating readonly-rating" data-score="4"></div>
-													</div>
-													<br>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-													
-												</li>
-											</ul>
-											
-											<h3>WRITE A REVIEW</h3>
-											<p>Now please write a (short) review....(min. 200, max. 2000 characters)</p>
-											<textarea></textarea>
-											<p>First: Rate the product. Please select a rating between 0 (poorest) and 5 stars (best)</p>
-											<div class="rating-box">
-												<div class="rating rate" data-score="3"></div>
-											</div>
-											<div class="char-counter">
-												<label>Characters written</label>
-												<input data-target="#review-textarea" type="text">
-											</div>
-											<br>
-											<input type="submit" class="dark-blue big" value="Submit a review">
+										<div class="fb-comments" data-href="https://www.facebook.com/photo.php?fbid=1435235433272502&amp;set=a.122794481183277.17940.100003581783196&amp;type=3&amp;theater" data-width="600" data-numposts="5"></div>
 										</div>
 										
 									</li>
 									<!-- /Item -->
 									
-									<!-- Item -->
-									<li>
-										<div class="accordion-header">
-											<h4>Comments</h4>
-											<span class="accordion-button">
-												<i class="icons icon-plus-1"></i>
-											</span>
-										</div>
-										<div class="accordion-content page-content">
-											<ul class="comments">
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons icon-reply"></i>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-													
-												</li>
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons icon-reply"></i>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-													
-													<ul>
-														<li>
-															<p><strong><a href="#">Anna Doe</a></strong></p>
-															<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-														</li>
-													</ul>
-												</li>
-												<li>
-													<p><strong><a href="#">Anna Doe</a></strong></p>
-													<span class="date">2013-10-09 09:23</span>
-													<i class="icons icon-reply"></i>
-													<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-												</li>
-											</ul>
-											<a href="#" class="button home-green"><i class="icons icon-spinner"></i> Refresh comments list</a>
-											<a href="#" class="button orange"><i class="icons icon-rss"></i> RSS feed for comments to this post</a>
-											<br/><br/>
-											<div class="row">
-												
-												<div class="col-lg-6 col-md-6 col-sm-8">
-													<h3>ADD A COMMENT</h3>
-													<label>Name (required)</label>
-													<input type="text">
-													<br><br>
-													<label>E-mail (required, but will not display)</label>
-													<input type="text">
-													<br><br>
-													<label>Website (required)</label>
-													<input type="text">
-													<br><br>
-													<label>Comment (required)</label>
-													<textarea></textarea>
-													<br><br>
-													<input id="comments-checkbox" type="checkbox"><label for="comments-checkbox">Notify me of follow-up comments</label>
-													<br><br>
-													<img src="source/img/captcha.jpg" alt="">
-													<br><br>
-													<div class="row">
-														
-														<div class="col-lg-6 col-md-6 col-sm-6">
-															<label><a href="#">Refresh</a></label>
-															<input type="text">
-														</div>
-														
-													</div>
-													<br>
-													<input type="submit" value="Submit comment" class="dark-blue big">
-													
-												</div>
-												
-											</div>
-										</div>
-									</li>
-									<!-- /Item -->
+									
 									
 								</ul>
 								<!-- /Accordion -->
@@ -413,7 +277,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>Related Products</h4>
+								<h4>Sản Phẩm Cùng Loại</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -429,31 +293,34 @@
 							<div class="owl-carousel" data-max-items="4">
 									
 									<!-- Slide -->
+								@foreach($SanPhamCL as $cl)
 									<div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
-												<img src="source/img/products/sample1.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
+												<img src="source/img/products/{{$cl->url_hinh}}" alt="Product1">
+												<a href="{{route('chitietsanpham',$cl->id_sp)}}" class="product-hover">
+													<i class="icons icon-eye-1"></i> Xem Nhanh
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
+												<h5><a href="{{route('chitietsanpham',$cl->id_sp)}}">{{$cl->ten_sp}}</a></h5>
+												<span class="price">{{ number_format($cl->gia,0)}} vnđ</span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
 											<div class="product-actions">
 												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
+													<a href="{{route('themgiohang',$sp -> id_sp)}}">
+														<span class="action-wrapper">
+														<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
 														<span class="action-name">Add to cart</span>
-													</span >
+														</span>
+													</a>
 												</span>
-												<span class="add-to-favorites">
+												<!-- <span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
 														<span class="action-name">Add to wishlist</span>
@@ -464,249 +331,14 @@
 														<i class="icons icon-docs"></i>
 														<span class="action-name">Add to Compare</span>
 													</span>
-												</span>
+												</span> -->
 											</div>
 											
 										</div>
 										<!-- /Carousel Item -->
 									</div>
 									<!-- /Slide -->
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<span class="product-tag">Sale</span>
-												<img src="source/img/products/sample2.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample3.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample1.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample2.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample3.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
+								@endforeach
 							</div>
 						</div>
 						<!-- /Carousel -->
@@ -725,7 +357,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>Recently Viewed Products</h4>
+								<h4> >>> Hot <<< </h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -739,153 +371,52 @@
 						<div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="owl-carousel" data-max-items="4">
-									
+								@foreach($SanPhamHot as $hot)	
 									<!-- Slide -->
 									<div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
-												<img src="source/img/products/sample4.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
+												<img src="source/img/products/{{$hot->url_hinh}}" alt="Product1">
+												<a href="{{route('chitietsanpham',$hot->id_sp)}}" class="product-hover">
+													<i class="icons icon-eye-1"></i> Xem Nhanh
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
+												<h5><a href="{{route('chitietsanpham',$hot->id_sp)}}">{{$hot->ten_sp}}</a></h5>
+												<span class="price">{{ number_format($hot->gia,0)}} vnđ</span>
+												<div class="rating readonly-rating" data-score="4"></div>
+											</div>
+											
+											<div class="product-actions">
+												<span class="add-to-cart">
+													<a href="{{route('themgiohang',$sp -> id_sp)}}">
+														<span class="action-wrapper">
+															<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
+															<span class="action-name">Add to cart</span>
+														</span >
+													</a>
+														</span>
+												<!-- <span class="add-to-favorites">
+													<span class="action-wrapper">
+														<i class="icons icon-heart-empty"></i>
+														<span class="action-name">Add to wishlist</span>
+													</span>
+												</span>
+												<span class="add-to-compare">
+													<span class="action-wrapper">
+														<i class="icons icon-docs"></i>
+														<span class="action-name">Add to Compare</span>
+													</span>
+												</span> -->
 											</div>
 											
 										</div>
 										<!-- /Carousel Item -->
 									</div>
-									<!-- /Slide -->
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample5.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample6.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample7.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample8.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="source/img/products/sample9.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<p class="product-categories"><a href="#">Computers &amp; Tablets</a></p>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
+								@endforeach									
 							</div>
 						</div>
 						<!-- /Carousel -->
@@ -944,7 +475,8 @@
 					
 				</section>
 				<!-- /Banner -->
-				
+			
+			@endforeach
 			</div>
             <!-- /Content -->
 @endsection

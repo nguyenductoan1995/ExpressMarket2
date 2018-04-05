@@ -21,6 +21,7 @@
 						</div>
 						
 					</div>
+		
 					<!-- /Top Header -->
 					
 					
@@ -31,7 +32,7 @@
 						<div class="row">
 							
 							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
-								<a href="home_v1.html"><img src="source/img/logo.png" alt="Logo"></a>
+								<a href="{{route('trang-chu')}}"><img src="source/img/logo.png" alt="Logo"></a>
 							</div>
 							
 							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
@@ -247,35 +248,46 @@
 							</li>
 							
 						</ul>
-						
-						<div id="search-bar">
-							
-							<div class="col-lg-12 col-md-12 col-sm-12">
-                            	<table id="search-bar-table">
-                                    <tr>
-                                    	<td class="search-column-1">
-                                            <p><span class="grey">Popular Searches:</span> <a href="#">accessories</a>, <a href="#">audio</a>, <a href="#">camera</a>, <a href="#">phone</a>, <a href="#">storage</a>, <a href="#">more</a></p>
-                                            <input type="text" placeholder="Enter your keyword">
-                                        </td>
-                                        <td class="search-column-2">
-                                        	<p class="align-right"><a href="#">Advanced Search</a></p>
-                                        	<select class="chosen-select-search">
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                                <option>All Categories</option>
-                                            </select>
-                                		</td>
-                                    </tr>
-                                </table>
+					
+							<div id="search-bar">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+                            		<table id="search-bar-table">
+									<form action="{{route('searchProduct')}}" method="get" role ="search" >
+                                    	<tr>
+                                    		<td class="search-column-1">
+                                         	   <input type="text" name ="key" placeholder="Nhập vào từ khoá"  >
+                                     	   </td>
+											
+                                     	   <td class="search-column-2">
+                                       		 	<select class="chosen-select-search" name = 'chosetype'>
+													@foreach($search_type as $search_type)
+												  	  <option  value ="{{$search_type->id_loai}}" >{{$search_type->ten_loai}}</option>
+													@endforeach	
+												</select>
+                               	 			</td>
+											
+                                    	</tr>
+                                	</table>
+								</div>
+								
+								<div id="search-button" type ="submit" >
+									<!-- <i class="icons icon-search-1" action = "submit" ></i> -->
+									<input type="submit"  value = "" />
+									
+								</div>
+								</form>
 							</div>
-							<div id="search-button">
-								<input type="submit" value="">
-								<i class="icons icon-search-1"></i>
-							</div>
-						</div>
-						
+							 <!-- <form action="{{route('searchProduct')}}" method="get" role ="search" > 
+							 	<input type ='text' name = 'keys' >
+								 <select name = 'chosetype'>
+										<option  value =1 > Dien Thoai</option>
+										<option  value =2 > May tinh</option>
+										<option  value =3 > Dien Tu</option>
+								</select>
+								<button type='submit'>Search</button>
+							</form> -->
+					
+
 					</nav>
 					<!-- /Main Navigation -->
 					

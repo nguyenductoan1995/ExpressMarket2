@@ -48,13 +48,13 @@
                             
                             <div class="product-image">
                                 <img src="source/img/products/{{$sp -> url_hinh}}" alt="Product1">
-                                <a href="products_page_v1.html" class="product-hover">
+                                <a href="{{route('chitietsanpham',$sp->id_sp)}}" class="product-hover">
 														<i class="icons icon-eye-1"></i> Xem ngay
 													</a>
                             </div>
                             
                             <div class="product-info">
-                                <h5><a href="products_page_v1.html">{{$sp -> ten_sp}}</a></h5>
+                                <h5><a href="{{route('chitietsanpham',$sp->id_sp)}}">{{$sp -> ten_sp}}</a></h5>
                                 <span class="price">{{number_format($sp -> gia,0)}} VND</span>
                                 <div class="rating readonly-rating" data-score="4"></div>
                             </div>
@@ -62,9 +62,11 @@
                             <div class="product-actions">
 													<span class="add-to-cart">
                                                         <span class="action-wrapper">
-                                                            <i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
-                                                            <span class="action-name">Add to cart</span>
-                                                        </span >
+															<a href="{{route('themgiohang',$sp -> id_sp)}}">
+                                                           		<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+                                                           		<span class="action-name">Add to cart</span>
+															</a>
+														</span >
                                                     </span>
 							</div>
                             

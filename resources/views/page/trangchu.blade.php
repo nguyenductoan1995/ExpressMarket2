@@ -171,16 +171,16 @@
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">{{$new -> ten_sp}}</a></h5>
-												<span class="price">{{$new -> gia}}</span>
+												<h5><a href="{{route('chitietsanpham',$new->id_sp)}}">{{$new -> ten_sp}}</a></h5>
+												<span class="price">{{ number_format($new->gia,0)}} vnđ</span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
 											<div class="product-actions">
 												<span class="add-to-cart">
 													<span class="action-wrapper">
-														<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
-														<a href="{{route('themgiohang',$new -> id_sp)}}">
+													<a href="{{route('themgiohang',$new -> id_sp)}}">
+														<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>	
 														<span class="action-name">Add to cart</span>
 														</a>
 													</span >

@@ -49,12 +49,14 @@
 											
 											<div class="product-actions">
 												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
+													<span class="action-wrapper" >
+														<a  href="{{route('themgiohang',$spt -> id_sp)}}">
+														<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
 														<span class="action-name">Add to cart</span>
+														</a>
 													</span >
 												</span>
-												<span class="add-to-favorites">
+												<!-- <span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
 														<span class="action-name">Add to wishlist</span>
@@ -65,7 +67,7 @@
 														<i class="icons icon-docs"></i>
 														<span class="action-name">Add to Compare</span>
 													</span>
-												</span>
+												</span> -->
 											</div>
                                            
 										</div>
@@ -124,13 +126,17 @@
 											</div>
 											
 											<div class="product-actions">
+											
 												<span class="add-to-cart">
+												<a href="{{route('themgiohang',$spt2 -> id_sp)}}">
 													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
+															<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
+															<span class="action-name">Add to cart</span>
 													</span >
+												</a>	
 												</span>
-												<span class="add-to-favorites">
+											
+												<!-- <span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
 														<span class="action-name">Add to wishlist</span>
@@ -141,7 +147,7 @@
 														<i class="icons icon-docs"></i>
 														<span class="action-name">Add to Compare</span>
 													</span>
-												</span>
+												</span> -->
 											</div>
                                            
 										</div>
