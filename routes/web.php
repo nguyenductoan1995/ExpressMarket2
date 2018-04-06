@@ -49,3 +49,8 @@ Route::get('tim-kiem-sp',[
     'as'=> 'searchProduct',
     'uses'=> 'PageController@getProduct'
 ]);
+// Blog 
+Route::get('blog',[
+    'as'=>'blog',
+    'uses' =>'PageController@Blog'
+]);

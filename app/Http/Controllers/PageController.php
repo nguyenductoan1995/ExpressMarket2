@@ -17,12 +17,17 @@ class PageController extends Controller
         // exit;
 
         // show new product computer
-        $new_product_computer = SanPham::where('sp_moi',1)-> where('id_loai',1) -> get();
+        $case1 = SanPham::where('sp_moi',1)-> where('id_loai',1) -> get();
+        // Tiêu đề ngoài trang chủ + chỉnh lai query phù hợp 
+        $case2 = SanPham::where('sp_moi',1)-> where('id_loai',2) -> get();
+        // Tiêu đề ngoài trang chủ + chỉnh lai query phù hợp 
+        $case3 = SanPham::where('sp_moi',1)-> where('id_loai',3) -> get();
+        
         //print_r($new_product_computer);
         //Lấy loại sản phẩm 
         $search_type =LoaiSanPham::all();
         // end show new product
-        return view('page.trangchu',compact('slide','new_product_computer','search_type'));
+        return view('page.trangchu',compact('slide','case1','case2','case3','search_type'));
     }
     // loai san pham
     public function getCategory($type) {
@@ -53,7 +58,8 @@ class PageController extends Controller
     }
     // lien he
     public function getContact() {
-        return view('page.lienhe');
+        $search_type =LoaiSanPham::all();
+        return view('page.lienhe',compact('search_type'));
     }
     // cart 
     public function getAddToCart(Request $req, $id) {
@@ -85,5 +91,10 @@ class PageController extends Controller
         // các loại sản phẩm cho thanh search
         $search_type =LoaiSanPham::all();
         return view('page.search_product',compact('sp_theoloai','SanPhamTim','SanPhamTim2','search_type'));
+    }
+    //Blog
+    public function Blog(){
+        $search_type =LoaiSanPham::all();
+        return view('page.blog',compact('search_type'));
     }
 }

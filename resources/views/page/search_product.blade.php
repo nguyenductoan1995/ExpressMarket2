@@ -35,10 +35,9 @@
 										<div class="product">
                                         
 											<div class="product-image">
+											<a href="{{route('chitietsanpham',$spt->id_sp)}}">
 												<img src="source/img/products/{{$spt->url_hinh}}" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Xem nhanh
-												</a>
+											</a>	
 											</div>
 											
 											<div class="product-info">
