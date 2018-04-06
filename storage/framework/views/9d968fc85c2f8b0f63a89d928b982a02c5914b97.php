@@ -89,7 +89,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
+						<a href="admin/trangchu">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text">QUẢN LÝ </span>
 						</a>
@@ -132,30 +132,13 @@
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="admin/loaisanpham/xoa">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Xoá
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="admin/loaisanpham/sua">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Sửa
-								</a>
-
-								<b class="arrow"></b>
-							</li>
 						</ul>
 					</li>
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
+							<span class="menu-text"> Sản Phẩm </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
@@ -164,18 +147,18 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="tables.html">
+								<a href="admin/sanpham/danhsach">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Simple &amp; Dynamic
+									Danh Sách
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
 							<li class="">
-								<a href="jqgrid.html">
+								<a href="admin/sanpham/them">
 									<i class="menu-icon fa fa-caret-right"></i>
-									jqGrid plugin
+									Thêm
 								</a>
 
 								<b class="arrow"></b>
@@ -186,7 +169,7 @@
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Forms </span>
+							<span class="menu-text"> Người dùng</span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
@@ -197,7 +180,7 @@
 							<li class="">
 								<a href="form-elements.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements
+									Danh sách
 								</a>
 
 								<b class="arrow"></b>
@@ -206,7 +189,7 @@
 							<li class="">
 								<a href="form-elements-2.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements 2
+									Thêm 
 								</a>
 
 								<b class="arrow"></b>
@@ -215,47 +198,107 @@
 							<li class="">
 								<a href="form-wizard.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Wizard &amp; Validation
+									Phân Quyền
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="wysiwyg.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wysiwyg &amp; Markdown
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="dropzone.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Dropzone File Upload
-								</a>
-
-								<b class="arrow"></b>
-							</li>
+						
 						</ul>
 					</li>
 
 					<li class="">
-						<a href="widgets.html">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Widgets </span>
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-picture-o"></i>
+							<span class="menu-text">
+								Hình Ảnh
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
 						</a>
 
 						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="admin/loaisanpham/danhsach" >
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Danh Sách
+								
+								</a>
+
+								<b class="arrow"></b>
+
+							
+							</li>
+
+							<li class="">
+								<a href="admin/loaisanpham/them">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Thêm
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+						</ul>
 					</li>
 
+
+<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-list-alt"></i>
+							<span class="menu-text">
+								Thống Kê
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="admin/loaisanpham/danhsach" >
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Sản Phẩm
+								
+								</a>
+
+								<b class="arrow"></b>
+
+							
+							</li>
+
+							<li class="">
+								<a href="admin/loaisanpham/them">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Người Dùng
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="admin/loaisanpham/them">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Doanh Thu
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+						</ul>
+					</li>
 					<li class="">
 						<a href="calendar.html">
 							<i class="menu-icon fa fa-calendar"></i>
 
 							<span class="menu-text">
-								Calendar
+								Lịch Trình
 
 								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
 									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
@@ -264,163 +307,6 @@
 						</a>
 
 						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="gallery.html">
-							<i class="menu-icon fa fa-picture-o"></i>
-							<span class="menu-text"> Gallery </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> More Pages </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="profile.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									User Profile
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="inbox.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Inbox
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="pricing.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Pricing Tables
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="invoice.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Invoice
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="timeline.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Timeline
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="search.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Search Results
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="email.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Email Templates
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="login.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Login &amp; Register
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-file-o"></i>
-
-							<span class="menu-text">
-								Other Pages
-
-								<span class="badge badge-primary">5</span>
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="faq.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="error-404.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Error 404
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="error-500.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Error 500
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="grid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Grid
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="blank.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Blank Page
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
 					</li>
 				</ul><!-- /.nav-list -->
 
@@ -435,9 +321,8 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="admin/trangchu">Home</a>
 							</li>
-							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -488,7 +373,7 @@
 		<script src="admin/assets/js/jquery.flot.min.js"></script>
 		<script src="admin/assets/js/jquery.flot.pie.min.js"></script>
 		<script src="admin/assets/js/jquery.flot.resize.min.js"></script>
-
+		<script type="text/javascript" language="javascript" src="admin/ckeditor/ckeditor.js	"></script>
 		<!-- ace scripts -->
 		<script src="admin/assets/js/ace-elements.min.js"></script>
 		<script src="admin/assets/js/ace.min.js"></script>

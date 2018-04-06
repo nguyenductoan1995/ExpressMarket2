@@ -270,9 +270,10 @@
                                 	</table>
 								</div>
 								
-								<div id="search-button" >
-									<input type="submit" value="" >
-									<i class="icons icon-search-1" type = 'submit' ></i>
+								<div id="search-button" type ="submit" >
+									<!-- <i class="icons icon-search-1" action = "submit" ></i> -->
+									<input type="submit"  value = "" />
+									
 								</div>
 								</form>
 							</div>

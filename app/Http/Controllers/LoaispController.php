@@ -23,16 +23,29 @@ class LoaispController extends Controller
         return view ('admin.loaisanpham.them',['loaisanpham' => $loaisp]);
     }
 
-    public function getXoaLoai()
+    public function getXoaLoai($id)
     {
-        $loaisp = LoaiSanPham::all();
-        return view ('admin.loaisanpham.xoa',['loaisanpham' => $loaisp]);
+        $loaisp = LoaiSanPham:: where('id_loai','=',$id) ;
+        $loaisp ->delete();
+        return redirect('admin/loaisanpham/danhsach') -> with('thongbao', 'Xoá Thành Công!');
     }
 
-    public function getSuaLoai()
+    public function getSuaLoai($id)
     {
-        $loaisp = LoaiSanPham::all();
+        
+        $loaisp = LoaiSanPham:: where('id_loai','=',$id) ->first();
         return view ('admin.loaisanpham.sua',['loaisanpham' => $loaisp]);
+    }
+
+    public function postSuaLoai(Request $request, $id)
+    {
+        $loaisp = LoaiSanPham:: where('id_loai','=',$id) ->first();
+        return view ('admin.loaisanpham.sua',['loaisanpham' => $loaisp]);
+
+        $loaisp = new LoaiSanPham;
+        $loaisp-> ten_loai = $request -> tenloai;
+        $loaisp -> save();
+        return redirect('admin/loaisanpham/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemLoai(Request $request)

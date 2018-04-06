@@ -11,7 +11,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="admin/trangchu" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
 							Expressmarket
@@ -278,10 +278,10 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/19598806_1664747923637928_6783697668629122671_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeE63p-De2YqyO3po82DOOKlWrhP10_HV_9cGd0DXzasOdtxBABp9dUhWLyJ3XXaKU50JGu2MjYp6NSDcLxJ-pJiJfLicVq2CJzVWZbl81vMRA&oh=38f597e1352e9283291b8259b0b5e085&oe=5B6C644C" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									Jason
+									Ka3L~
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>

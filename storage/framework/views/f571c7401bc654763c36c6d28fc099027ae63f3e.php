@@ -62,9 +62,11 @@
                             <div class="product-actions">
 													<span class="add-to-cart">
                                                         <span class="action-wrapper">
-                                                            <i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
-                                                            <span class="action-name">Add to cart</span>
-                                                        </span >
+															<a href="<?php echo e(route('themgiohang',$sp -> id_sp)); ?>">
+                                                           		<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+                                                           		<span class="action-name">Add to cart</span>
+															</a>
+														</span >
                                                     </span>
 							</div>
                             
