@@ -39,17 +39,15 @@ class SlideController extends Controller
     public function postSuaSlide(Request $request, $id)
     {
         $slide = Slide:: where('id_slide','=',$id) ->first();
-        return view ('admin.slide.sua',['sld' => $slide]);
 
-        $slide = new slide;
         $slide-> link = $request -> link;
         if($request->hasFile('image'))
         {
             $file  = $request ->file('image');
             $name = $file-> getClientOriginalName();
-            $imageh = str_random(3)."_".$name;
+            $image = str_random(3)."_".$name;
             $file ->move("source/img/products", $image);
-            unlink("source/img/products/".$sanpham->$image);
+            unlink("source/img/products/".$slide->image);
             $slide -> image = $image;
         };
         $slide -> save();

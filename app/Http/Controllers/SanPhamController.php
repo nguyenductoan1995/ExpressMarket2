@@ -70,9 +70,7 @@ class SanPhamController extends Controller
     {
         $loaisp = LoaiSanPham::all();
         $sp = SanPham:: where('id_sp','=',$id)->first() ;
-        return view ('admin.sanpham.sua',['sanpham' => $sp,'loaisanpham' => $loaisp]);
 
-        $sanpham = new SanPham;
         $sanpham-> ten_sp = $request -> ten_sp;
         $sanpham-> gia  = $request ->gia ;
         if($request->hasFile('urlanh'))
@@ -81,7 +79,7 @@ class SanPhamController extends Controller
             $name = $file-> getClientOriginalName();
             $urlanh = str_random(3)."_".$name;
             $file ->move("source/img/products", $urlanh);
-            unlink("source/img/products/".$sanpham->$url_hinh);
+            unlink("source/img/products/".$sanpham->url_hinh);
             $sanpham -> url_hinh = $urlanh;
         }
         
