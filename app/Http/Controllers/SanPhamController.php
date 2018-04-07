@@ -69,7 +69,7 @@ class SanPhamController extends Controller
     public function postSuaSp(Request $request, $id)
     {
         $loaisp = LoaiSanPham::all();
-        $sp = SanPham:: where('id_sp','=',$id)->first() ;
+        $sanpham = SanPham:: where('id_sp','=',$id)->first() ;
 
         $sanpham-> ten_sp = $request -> ten_sp;
         $sanpham-> gia  = $request ->gia ;
