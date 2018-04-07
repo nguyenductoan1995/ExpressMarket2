@@ -9,7 +9,7 @@
     <script src="admin/assets/js/Chart.min.js"></script>
 </head>
 <body>
-   
+   {{!!$stas_loaisanpham!!}}
 <!-- line chart canvas element -->
         <canvas id="buyers" width="600" height="400"></canvas>
         <!-- pie chart canvas element -->

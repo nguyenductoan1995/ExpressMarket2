@@ -49,16 +49,18 @@ class SlideController extends Controller
             $file ->move("source/img/products", $image);
             unlink("source/img/products/".$slide->image);
             $slide -> image = $image;
+            dd($slide -> image);
+            exit();
         };
         $slide -> save();
-        return redirect('admin/slide/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        return redirect('admin/slide/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemSlide(Request $request)
     {
         
         $sld = new Slide;
-        $sld-> link = $request -> link;
+        $sld-> link = $request ->link;
         if($request->hasFile('image'))
         {
             $file  = $request ->file('image') ;

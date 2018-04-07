@@ -51,7 +51,7 @@ class AnhController extends Controller
             $anh -> url_hinh = $image;
         };
         $anh -> save();
-        return redirect('admin/anh/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        return redirect('admin/anh/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemAnh(Request $request)
@@ -66,17 +66,19 @@ class AnhController extends Controller
             'ten_anh.max' => 'Tên loại sản phẩm có độ dài từ 3 tới 100 ký tự!'
         ]);
         $img = new Anh;
-        $img-> id_sp = $request -> id_sp;
         if($request->hasFile('image'))
         {
             $file  = $request ->file('image') ;
             $name = $file-> getClientOriginalName();
             $image = str_random(3)."_".$name;
             $file ->move("source/img/products/chitiet/", $image);
-            $img -> url_hinh = $link;
+            $img -> url_hinh = $image;
         }
         else    
         $img -> url_hinh =" ";
+        $img-> id_sp = $request -> id_sp;      
+        dd('$img');
+        exit();  
         $img -> save();
         return redirect('admin/anh/them') -> with('thongbao', 'Thêm Thành Công!');
 

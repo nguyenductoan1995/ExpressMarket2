@@ -294,7 +294,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/thongke/danhmuc" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Sản Phẩm

@@ -90,7 +90,7 @@ class SanPhamController extends Controller
         $sanpham-> sp_sale = $request ->sale ;
         $sanpham-> id_loai = $request -> idloai; 
         $sanpham -> save();
-        return redirect('admin/sanpham/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        return redirect('admin/sanpham/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function getXoaSp($id)

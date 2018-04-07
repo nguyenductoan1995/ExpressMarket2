@@ -66,7 +66,10 @@ Route::group(['prefix'=> 'admin'], function(){
 
 
     Route::group(['prefix'=> 'thongke'],function(){
-        Route::get('danhmuc','ThongKeController@getDanhMuc');
+        Route::get('/danhmuc',function(){
+            $stas_loaisanpham = DB::talbe('loaisanpham')-> count();
+            return view('admin.thongke.danhmuc', ['stas_loaisanpham' -> $stas_loaisanpham ]);
+        });
     });
 
 });

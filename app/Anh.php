@@ -10,4 +10,6 @@ class Anh extends Model
     public function sanpham(){
         return $this->belongsTo('App/SanPham','id_sp','id_hinh');
     }
+    public $timestamps = false;
+    protected $primaryKey = "id_hinh";
 }

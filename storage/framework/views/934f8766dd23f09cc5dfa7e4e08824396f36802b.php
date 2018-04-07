@@ -12,7 +12,7 @@
 		<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
 			<div class="form-group">
 				<label >Đường dẫn: </label>
-				<input class="form-control" name="tenloai"  placeholder=" <?php echo e($sld-> link); ?>" 
+				<input class="form-control" name="link"  placeholder=" <?php echo e($sld-> link); ?>" 
 				value="<?php echo e($sld-> link); ?>" />
 			</div>
             <div class="form-group">

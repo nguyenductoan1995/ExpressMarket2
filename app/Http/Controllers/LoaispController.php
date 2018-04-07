@@ -39,10 +39,10 @@ class LoaispController extends Controller
 
     public function postSuaLoai(Request $request, $id)
     {
-        $loaisp = LoaiSanPham:: where('id_loai','=',$id) ->first();
-        $loaisp-> ten_loai = $request -> tenloai;
-        $loaisp -> save();
-        return redirect('admin/loaisanpham/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        $loaisp = LoaiSanPham:: where('id_loai',$id) ->first();
+        $loaisp->ten_loai = $request->tenloai;
+        $loaisp->save();
+        return redirect('admin/loaisanpham/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemLoai(Request $request)

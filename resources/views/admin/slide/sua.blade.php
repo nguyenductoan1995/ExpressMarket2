@@ -13,7 +13,7 @@
 		<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="form-group">
 				<label >Đường dẫn: </label>
-				<input class="form-control" name="tenloai"  placeholder=" {{$sld-> link}}" 
+				<input class="form-control" name="link"  placeholder=" {{$sld-> link}}" 
 				value="{{$sld-> link}}" />
 			</div>
             <div class="form-group">
