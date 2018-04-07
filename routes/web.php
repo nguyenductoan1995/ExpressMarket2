@@ -36,6 +36,30 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::post('them','SanPhamController@postThemSp');
         Route::post('sua/{id}','SanPhamController@postSuaSp');
     });
+
+    Route::group(['prefix'=> 'slide'],function(){
+        Route::get('danhsach','SlideController@getDanhSach');
+        Route::get('them','SlideController@getThemSlide');
+        Route::get('xoa/{id}','SlideController@getXoaSlide');
+        Route::get('sua/{id}','SlideController@getSuaSlide');
+        Route::post('them','SlideController@postThemSlide');
+        Route::post('sua/{id}','SlideController@postSuaSlide');
+    });
+
+    Route::group(['prefix'=> 'user'],function(){
+        Route::get('danhsach','UserController@getDanhSach');
+        Route::get('them','UserController@getThemUser');
+        Route::get('xoa/{id}','UserController@getXoaUser');
+        Route::get('sua/{id}','UserController@getSuaUser');
+        Route::post('them','UserController@postThemUser');
+        Route::post('sua/{id}','UserController@postSuaUser');
+    });
+
+
+    Route::group(['prefix'=> 'thongke'],function(){
+        Route::get('danhmuc','ThongKeController@getDanhMuc');
+    });
+
 });
 
 Route::get('index', [

@@ -116,7 +116,7 @@ Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, sceler
 						<div class="row">
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
-								<p class="copyright">Copyright 2014 <a href="#">HomeShop</a>. All Rights Reserved.</p>
+								<p class="copyright">Copyright 2018 <a href="#">HomeShop</a>. All Rights Reserved.</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">

@@ -230,14 +230,14 @@
 							</li>
 							
 							<li class="green">
-								<a href="blog.html">
+								<a href="<?php echo e(route('blog')); ?>">
 									<span class="nav-caption">Giới Thiệu</span>
 									<span class="nav-description">Express market</span>
 								</a>
 							</li>
 							
 							<li class="purple">
-								<a href="contact.html">
+								<a href="<?php echo e(route('lienhe')); ?>">
 									<span class="nav-caption">Liên hệ</span>
 									<span class="nav-description">19001060</span>
 								</a>
@@ -271,9 +271,8 @@
 								</div>
 								
 								<div id="search-button" type ="submit" >
-									<!-- <i class="icons icon-search-1" action = "submit" ></i> -->
-									<input type="submit"  value = "" />
-									
+									<input type="submit"  value = ""/>	
+									<!-- <div class="icons icon-search-1" type ='submit' / > -->
 								</div>
 								</form>
 							</div>
