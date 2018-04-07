@@ -68,8 +68,9 @@ class SanPhamController extends Controller
 
     public function postSuaSp(Request $request, $id)
     {
+        $loaisp = LoaiSanPham::all();
         $sp = SanPham:: where('id_sp','=',$id)->first() ;
-        return view ('admin.sanpham.sua',['sanpham' => $sp]);
+        return view ('admin.sanpham.sua',['sanpham' => $sp,'loaisanpham' => $loaisp]);
 
         $sanpham = new SanPham;
         $sanpham-> ten_sp = $request -> ten_sp;

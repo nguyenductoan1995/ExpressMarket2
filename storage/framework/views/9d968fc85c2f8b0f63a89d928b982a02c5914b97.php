@@ -255,7 +255,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/anh/danhsach" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Danh Sách
@@ -268,7 +268,7 @@
 							</li>
 
 							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/anh/them">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Thêm
 								</a>

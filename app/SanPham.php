@@ -13,4 +13,8 @@ class SanPham extends Model
     public function chitietdonhang(){
         return $this->hasMany('app/chitietdonhang','id_sp','id_sp');
     }
+    public function anh(){
+        
+        return $this->hasMany('app/Anh','id_sp','id_hinh');
+    }
 }

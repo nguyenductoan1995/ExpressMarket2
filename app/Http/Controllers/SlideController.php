@@ -58,30 +58,20 @@ class SlideController extends Controller
 
     public function postThemSlide(Request $request)
     {
-        $this -> validate($request,
-        [
-            'ten_slide' => 'required|min:3| max:100'
-        ],
-        [
-            'ten_slide.required' => 'Bạn chưa nhập tên loại',
-            'ten_slide.min' => 'Tên loại sản phẩm có độ dài từ 3 tới 100 ký tự!',
-            'ten_slide.max' => 'Tên loại sản phẩm có độ dài từ 3 tới 100 ký tự!'
-        ]);
-        $sld = new slide;
+        
+        $sld = new Slide;
         $sld-> link = $request -> link;
-        if($request->hasFile('link'))
+        if($request->hasFile('image'))
         {
-            $file  = $request ->file('link') ;
+            $file  = $request ->file('image') ;
             $name = $file-> getClientOriginalName();
-            $link = str_random(3)."_".$name;
-            $file ->move("source/img/products", $link);
-            $sld -> link = $link;
+            $image = str_random(3)."_".$name;
+            $file ->move("source/img/products", $image);
+            $sld -> image = $image;
         }
         else    
-        $sld -> link =" ";
+        $sld -> image =" ";
         $sld -> save();
         return redirect('admin/slide/them') -> with('thongbao', 'Thêm Thành Công!');
-
-
     }
 }

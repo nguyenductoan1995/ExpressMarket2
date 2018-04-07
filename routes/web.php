@@ -55,6 +55,15 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::post('sua/{id}','UserController@postSuaUser');
     });
 
+    Route::group(['prefix'=> 'anh'],function(){
+        Route::get('danhsach','AnhController@getDanhSach');
+        Route::get('them','AnhController@getThemAnh');
+        Route::get('xoa/{id}','AnhController@getXoaAnh');
+        Route::get('sua/{id}','AnhController@getSuaAnh');
+        Route::post('them','AnhController@postThemAnh');
+        Route::post('sua/{id}','AnhController@postSuaAnh');
+    });
+
 
     Route::group(['prefix'=> 'thongke'],function(){
         Route::get('danhmuc','ThongKeController@getDanhMuc');
