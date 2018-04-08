@@ -26,7 +26,7 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::get('xoa/{id}','LoaispController@getXoaLoai');
         Route::get('sua/{id}','LoaispController@getSuaLoai');
         Route::post('them','LoaispController@postThemLoai');
-        Route::post('sua/{id}','LoaispController@postSuaLoai');
+        Route::post('sua/{id}','LoaispControll  er@postSuaLoai');
     });
     Route::group(['prefix'=> 'sanpham'],function(){
         Route::get('danhsach','SanPhamController@getDanhSach');
@@ -110,7 +110,6 @@ Route::get('blog',[
     'as'=>'blog',
     'uses' =>'PageController@Blog'
 ]);
-<<<<<<< HEAD
 // Create account
 Route::get('create-account',[
     'as'=> 'createaccount',
@@ -141,5 +140,3 @@ Route::get('cart',[
 ]);
 
 
-=======
->>>>>>> b3f190b70ec04e9c0e52ddb9f705bf4df18653ea

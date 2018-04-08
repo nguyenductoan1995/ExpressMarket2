@@ -11,4 +11,5 @@ class LoaiSanPham extends Model
         
         return $this->hasMany('app/SanPham','id_loai','id_loai');
     }
+    protected $primaryKey = "id_loai";
 }

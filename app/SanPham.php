@@ -13,4 +13,5 @@ class SanPham extends Model
     public function chitietdonhang(){
         return $this->hasMany('app/chitietdonhang','id_sp','id_sp');
     }
+    protected $primaryKey = "id_sp";
 }
