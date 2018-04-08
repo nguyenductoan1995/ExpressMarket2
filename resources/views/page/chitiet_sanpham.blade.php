@@ -333,28 +333,29 @@
 								<div class="rating readonly-rating" data-score="4"></div>
 							</div>
 
+							@if(Session::has('cart'))
 							<div class="product-actions">
 								<span class="add-to-cart">
-									<a href="{{route('themgiohang',$sp -> id_sp)}}">
-										<span class="action-wrapper">
-											<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
+									<span class="action-wrapper" onclick="AddToCart({{$cl->id_sp}},{{Session('cart')->totalQty}})">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
 											<span class="action-name">Add to cart</span>
-										</span>
-									</a>
+										</a>
+									</span>
 								</span>
-								<!-- <span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span> -->
 							</div>
+							@else
+							<div class="product-actions">
+								<span class="add-to-cart" onclick="AddToCart({{$cl->id_sp}},0)">
+									<span class="action-wrapper">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
+									</span>
+								</span>
+							</div>
+							@endif
 
 						</div>
 						<!-- /Carousel Item -->
@@ -414,28 +415,29 @@
 								<div class="rating readonly-rating" data-score="4"></div>
 							</div>
 
+							@if(Session::has('cart'))
 							<div class="product-actions">
 								<span class="add-to-cart">
-									<a href="{{route('themgiohang',$sp -> id_sp)}}">
-										<span class="action-wrapper">
-											<i class="icons icon-basket-2">Thêm vào giỏ hàng</i>
+									<span class="action-wrapper" onclick="AddToCart({{$hot->id_sp}},{{Session('cart')->totalQty}})">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
 											<span class="action-name">Add to cart</span>
-										</span>
-									</a>
+										</a>
+									</span>
 								</span>
-								<!-- <span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span> -->
 							</div>
+							@else
+							<div class="product-actions">
+								<span class="add-to-cart" onclick="AddToCart({{$hot->id_sp}},0)">
+									<span class="action-wrapper">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
+									</span>
+								</span>
+							</div>
+							@endif
 
 						</div>
 						<!-- /Carousel Item -->
