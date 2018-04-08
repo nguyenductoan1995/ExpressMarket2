@@ -2,15 +2,14 @@
 			<header class="row">
 				
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					
-					<!-- Top Header -->
+					<!-- Top Header
 					<div id="top-header" class="style2">
 						
 						<div class="row">
 							
 							<nav id="top-navigation" class="col-lg-12 col-md-12 col-sm-12">
 								<ul class="pull-right">
-									<li><a href="create_an_account.html">My Account</a></li>
+									<li><a href="create_an_account.html">XXXX</a></li>
 									<li><a href="orders_list.html">List Order</a></li>
 									<li><a href="order_info.html">Checkout</a></li>
 									<li><a href="text_page.html">About Us</a></li>
@@ -21,16 +20,17 @@
 						</div>
 						
 					</div>
-		
-					<!-- /Top Header -->
-					
+					 -->
 					
 					
 					<!-- Main Header -->
 					<div id="main-header" class="style2">
 						
 						<div class="row">
-							
+							<!-- Region ajax -->
+								<input type="hidden" id="temp" value="-1"/>
+							<!-- End region ajax -->
+
 							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
 								<a href="{{route('trang-chu')}}"><img src="source/img/logo.png" alt="Logo"></a>
 							</div>
@@ -38,7 +38,9 @@
 							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
 								<ul class="pull-right">
 									@if(Session::has('cart'))
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>{{Session('cart')->totalQty}}</a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart">{{Session('cart')->totalQty}}</div>
+									</a>
                                     	<ul id="cart-dropdown" class="box-dropdown parent-arrow">
 											<li>
                                             	<div class="box-wrapper parent-border">
@@ -81,7 +83,9 @@
 										</ul>
                                     </li>
 									@else
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>0</a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart">0</div>
+									</a>
                                     </li>
 									@endif
 									<li class="login-create purple">

@@ -4,8 +4,8 @@
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<div class="breadcrumbs">
 			<p>
-				<a href="#">Home</a>
-				<i class="icons icon-right-dir"></i> Orders List</p>
+				<a href="#">Trang chủ</a>
+				<i class="icons icon-right-dir"></i> Giỏ hàng</p>
 		</div>
 	</div>
 
@@ -18,7 +18,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 
 				<div class="carousel-heading">
-					<h4>Orders List</h4>
+					<h4>Danh sách sản phẩm có trong giỏ hàng</h4>
 					<div class="carousel-arrows">
 						<a href="#">
 							<i class="icons icon-reply"></i>
@@ -39,133 +39,47 @@
 				<table class="order-table">
 
 					<tr>
-						<th>Order Number</th>
-						<th>Order Date</th>
-						<th class="order-status">Order Status</th>
-						<th>Total</th>
+						<th>Tên sản phẩm</th>
+						<th>Hình ảnh</th>
+						<th>Số lượng</th>
+						<th>Thành tiền</th>
+						<th>Tùy chọn</th>
 					</tr>
-
+					@if(Session::has('cart'))
 					<tr>
-						<td class="order-number">
+					@foreach($product_cart as $p)
+					<td class="order-number">
 							<p>
-								<a href="#">0123264</a>
+								<a href="#">
+									<p>{{$p['item']['ten_sp']}}</p>
+								</a>
 							</p>
 						</td>
 						<td>
-							<p>2013-07-21</p>
+							<img style="width:100px;height:120px" src="source/img/products/{{$p['item']['url_hinh']}}" alt="Flowers in Chania">
 						</td>
 						<td>
-							<p>Confirmed by shopper</p>
+							<p>{{$totalQty}}</p>
 						</td>
 						<td>
-							<span class="price">$280.00</span>
+							<span class="price">{{$totalPrice}}</span>
+						</td>
+						<td>
+							
 						</td>
 					</tr>
-
+					@endforeach
 					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
+						<td class="align-right" colspan="5">TỔNG TIỀN</td>
+						<td><strong>{{$totalPrice}} VND</strong></td>
 					</tr>
-
-					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="order-number">
-							<p>
-								<a href="#">0123264</a>
-							</p>
-						</td>
-						<td>
-							<p>2013-07-21</p>
-						</td>
-						<td>
-							<p>Confirmed by shopper</p>
-						</td>
-						<td>
-							<span class="price">$280.00</span>
-						</td>
-					</tr>
-
 				</table>
-
+				<div class="box-wrapper no-border">
+					<a class="button pull-right parent-background" href="#">Mua hàng</a>
+                </div>
+				@else
+					<div>Chưa có quần què gì trong giỏ hàng hết!</div>
+				@endif
 			</div>
 
 		</div>

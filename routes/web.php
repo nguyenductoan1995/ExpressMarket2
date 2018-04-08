@@ -110,7 +110,6 @@ Route::get('blog',[
     'as'=>'blog',
     'uses' =>'PageController@Blog'
 ]);
-<<<<<<< HEAD
 // Create account
 Route::get('create-account',[
     'as'=> 'createaccount',
@@ -141,5 +140,4 @@ Route::get('cart',[
 ]);
 
 
-=======
->>>>>>> b3f190b70ec04e9c0e52ddb9f705bf4df18653ea
+

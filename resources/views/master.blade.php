@@ -106,6 +106,52 @@
         <script defer src="source/js/bootstrap.min.js"></script>
         <script src="source/js/main-script.js"></script>
 		
+		<script>
+		$(document).ready(function(){
+    		console.log("111111")
+		});
+		$(window).on('load', function() {
+			console.log("started abcd")
+        	});
+		// region ajax add to cart
+		function AddToCart(id, quantity) {
+			$temp = parseInt($('#temp').val());
+			$.ajax({
+					type: 'get',
+					url: '<?php echo url('/them-gio-hang');?>' + '/' + id,
+					success: function () {
+						if(parseInt(quantity) == 0 && $temp == -1) {
+							 $('#temp').val("1");
+							 $("#quantityCart").text("1");
+							 console.log("chay vo day 1");
+							 
+						}
+						if(parseInt(quantity) != 0 && $temp == -1) {
+							console.log($temp);
+							$('#temp').val(quantity + 1);
+							$("#quantityCart").text(quantity + 1);
+							console.log("chay vo day 2");
+						
+						} 
+						if(parseInt(quantity) != 0 && $temp != -1){
+							$('#temp').val($temp + 1)
+							$("#quantityCart").text($temp + 1);
+							console.log("chay vo day 3");
+							
+						}
+
+						if(parseInt(quantity) == 0 && $temp != -1){
+							$('#temp').val($temp + 1)
+							$("#quantityCart").text($temp + 1);
+							console.log("chay vo day 4");
+							
+						}
+
+					}
+				});
+		}
+		// end region ajax
+    	</script>
 
 		
     </body>

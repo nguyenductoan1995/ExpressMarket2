@@ -67,13 +67,13 @@ class PageController extends Controller
     // cart 
     public function getAddToCart(Request $req, $id) {
         $product = SanPham::where("id_sp",$id)->first();
-        print_r($product);
+       // print_r($product);
         // get Session
         $oldCart = Session('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->add($product, $id);
         $req->session()->put('cart',$cart);
-        return redirect()->back();
+       // return redirect()->back();
     }
     // delete
     public function getDeleteItemCart($id) {
@@ -159,7 +159,7 @@ class PageController extends Controller
             'password.required'=>"vui lòng nhập mật khẩu"
         ]);
         $credentials =array("email"=>$req->email,"password"=>$req->password);
-        $user = new \App\KhachHang;
+        // $user = new \App\KhachHang;
         if(Auth::attempt($credentials)){
           //  return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
             return redirect()->route('trang-chu');
@@ -183,7 +183,16 @@ class PageController extends Controller
     public function cart()
     {
         $search_type =LoaiSanPham::all();
-
+        if(Session('cart')){
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+          //  $view->with(['cart'=> Session::get('cart'), 'product_cart' => $cart -> items, 'totalPrice'=> $cart->totalPrice, 'totalQty' => $cart->totalQty]);
+            //$cart = Session::get('cart');
+            $product_cart = $cart -> items;
+            $totalPrice = $cart->totalPrice;
+            $totalQty = $cart->totalQty;
+          return view('page.cart',compact('search_type','product_cart','totalPrice','totalQty'));
+        }
         return view('page.cart',compact('search_type'));
     }
 }
