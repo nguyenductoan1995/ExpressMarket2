@@ -106,3 +106,4 @@ Route::get('cart',[
     'uses'=>'PageController@cart'
 ]);
 
+
