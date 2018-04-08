@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class ThongKeController extends Controller
 {
-    public function getDanhMuc()
+    public function getSanPham()
     {
         $sp = SanPham::all();
         return view ('admin.thongke.danhmuc',['sanpham' => $sp]);

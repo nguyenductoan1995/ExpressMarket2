@@ -168,7 +168,7 @@
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<i class="menu-icon glyphicon glyphicon-user"></i>
 							<span class="menu-text"> Người dùng</span>
 
 							<b class="arrow fa fa-angle-down"></b>
@@ -178,7 +178,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="form-elements.html">
+								<a href="admin/user/danhsach">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Danh sách
 								</a>
@@ -187,7 +187,7 @@
 							</li>
 
 							<li class="">
-								<a href="form-elements-2.html">
+								<a href="admin/user/them">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Thêm 
 								</a>
@@ -196,7 +196,7 @@
 							</li>
 
 							<li class="">
-								<a href="form-wizard.html">
+								<a href="admin/user/quyen">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Phân Quyền
 								</a>
@@ -207,6 +207,39 @@
 						
 						</ul>
 					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon glyphicon glyphicon-facetime-video"></i>
+							<span class="menu-text"> Slide</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="admin/slide/danhsach">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Danh sách
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="admin/slide/them">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Thêm 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						
+						</ul>
+					</li>
+
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
@@ -222,7 +255,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/anh/danhsach" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Danh Sách
@@ -235,7 +268,7 @@
 							</li>
 
 							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/anh/them">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Thêm
 								</a>
@@ -247,7 +280,7 @@
 					</li>
 
 
-<li class="">
+					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text">
@@ -261,7 +294,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/thongke/sanpham" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Sản Phẩm
@@ -274,7 +307,7 @@
 							</li>
 
 							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/thongke/user">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Người Dùng
 								</a>
@@ -283,7 +316,7 @@
 							</li>
 
 							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/thongke/danhthu">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Doanh Thu
 								</a>

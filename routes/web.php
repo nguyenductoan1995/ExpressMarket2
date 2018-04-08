@@ -36,6 +36,39 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::post('them','SanPhamController@postThemSp');
         Route::post('sua/{id}','SanPhamController@postSuaSp');
     });
+
+    Route::group(['prefix'=> 'slide'],function(){
+        Route::get('danhsach','SlideController@getDanhSach');
+        Route::get('them','SlideController@getThemSlide');
+        Route::get('xoa/{id}','SlideController@getXoaSlide');
+        Route::get('sua/{id}','SlideController@getSuaSlide');
+        Route::post('them','SlideController@postThemSlide');
+        Route::post('sua/{id}','SlideController@postSuaSlide');
+    });
+
+    Route::group(['prefix'=> 'user'],function(){
+        Route::get('danhsach','UserController@getDanhSach');
+        Route::get('them','UserController@getThemUser');
+        Route::get('xoa/{id}','UserController@getXoaUser');
+        Route::get('sua/{id}','UserController@getSuaUser');
+        Route::post('them','UserController@postThemUser');
+        Route::post('sua/{id}','UserController@postSuaUser');
+    });
+
+    Route::group(['prefix'=> 'anh'],function(){
+        Route::get('danhsach','AnhController@getDanhSach');
+        Route::get('them','AnhController@getThemAnh');
+        Route::get('xoa/{id}','AnhController@getXoaAnh');
+        Route::get('sua/{id}','AnhController@getSuaAnh');
+        Route::post('them','AnhController@postThemAnh');
+        Route::post('sua/{id}','AnhController@postSuaAnh');
+    });
+
+
+    Route::group(['prefix'=> 'thongke'],function(){
+        Route::get('sanpham','ThongKeController@getSanPham');
+    });
+
 });
 
 Route::get('index', [
@@ -77,32 +110,3 @@ Route::get('blog',[
     'as'=>'blog',
     'uses' =>'PageController@Blog'
 ]);
-// Create account
-Route::get('create-account',[
-    'as'=> 'createaccount',
-    'uses'=>'PageController@createAccount'
-]);
-Route::post('create-account',[
-    'as'=> 'createaccount',
-    'uses'=>'PageController@saveAccount'
-]);
-//Login
-Route::get('login',[
-    'as'=> 'login',
-    'uses'=>'PageController@getLogin'
-]);
-Route::post('login',[
-    'as'=> 'login',
-    'uses'=>'PageController@postLogin'
-]);
-// logout
-Route::get('logout',[
-    'as'=> 'logout',
-    'uses'=>'PageController@postLogout'
-]);
-// Giỏ Hàng
-Route::get('cart',[
-    'as'=> 'cart',
-    'uses'=>'PageController@cart'
-]);
-
