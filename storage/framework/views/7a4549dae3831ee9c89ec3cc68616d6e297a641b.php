@@ -8,7 +8,7 @@
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<base href="{{asset('')}}">
+		<base href="<?php echo e(asset('')); ?>">
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="admin/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="admin/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -45,7 +45,7 @@
 	</head>
 
 	<body class="no-skin">
-		@include('admin.layout.header')
+		<?php echo $__env->make('admin.layout.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 		<div class="main-container ace-save-state" id="main-container">
 			<script type="text/javascript">
@@ -187,30 +187,6 @@
 							</li>
 
 						
-
-						
-						</ul>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon glyphicon glyphicon-pencil"></i>
-							<span class="menu-text"> Đơn Hàng</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="admin/donhang/danhsach">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Danh sách
-								</a>
-
-								<b class="arrow"></b>
-							</li>
 
 						
 						</ul>
@@ -376,11 +352,11 @@
 						</div><!-- /.nav-search -->
 					</div>
 
-                        @yield('content')
+                        <?php echo $__env->yieldContent('content'); ?>
 					
 			</div><!-- /.main-content -->
 
-			@include('admin.layout.footer')
+			<?php echo $__env->make('admin.layout.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
