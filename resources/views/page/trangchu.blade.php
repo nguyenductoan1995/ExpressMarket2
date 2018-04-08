@@ -22,21 +22,14 @@
 
 						<div class="title">
 							<h2>
-								<strong>Lorem Ipsum Dolor</strong>
+								<strong style = 'color: white'>HomeShop</strong>
 							</h2>
 						</div>
 
 						<div class="desc">
-							<h3>All the power in your hands!</h3>
-							<span>From
-								<span class="price">$960.00</span>
-							</span>
+						<br/>
+							<h3 style = 'color: white'>Nghệ thuật thay đổi thế giới</h3>
 						</div>
-
-						<div class="button">
-							<a class="button big red" href="#">Buy Now</a>
-						</div>
-
 					</div>
 
 				</div>
@@ -119,25 +112,23 @@
 		<section class="banner">
 
 			<div class="left-side-banner banner-item icon-on-right gray">
-				<h4>8(802)234-5678</h4>
-				<p>Monday - Saturday: 8am - 5pm PST</p>
+				<h4>0962525354</h4>
+				<p>Thứ 2- Thứ 7: 8am - 5pm</p>
 				<i class="icons icon-phone-outline"></i>
 			</div>
 
 			<a href="#">
 				<div class="middle-banner banner-item icon-on-left light-blue">
-					<h4>Free shipping</h4>
-					<p>on all orders over $99</p>
-					<span class="button">Learn more</span>
+					<h4>Miễn phí giao hàng </h4>
+					<p>cho hoá đơn trên 1.000.000 vnđ</p>
 					<i class="icons icon-truck-1"></i>
 				</div>
 			</a>
 
 			<a href="#">
 				<div class="right-side-banner banner-item orange">
-					<h4>Crazy sale!</h4>
+					<h4>Fast Sale</h4>
 					<p>on selected items</p>
-					<span class="button">Shop now</span>
 				</div>
 			</a>
 

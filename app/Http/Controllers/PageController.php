@@ -6,8 +6,11 @@ use App\SanPham;
 use App\LoaiSanPham;
 use App\Cart;
 use Session;
+use App\KhachHang;
 use Illuminate\Http\Request;
-
+use App\User;
+use Hash ;
+use Auth;
 class PageController extends Controller
 {
     public function getIndex() {
@@ -96,5 +99,91 @@ class PageController extends Controller
     public function Blog(){
         $search_type =LoaiSanPham::all();
         return view('page.blog',compact('search_type'));
+    }
+    //SignUp
+    public function createAccount(){                
+        $search_type =LoaiSanPham::all();
+
+        return view('page.create_an_account',compact('search_type'));
+    }
+    //signUp save
+    public function saveAccount(Request $req)
+    {
+        $this ->validate($req,
+            [
+                'email' => 'required|email|unique:khachhang,email',
+                'password' => 'required|min:6|max:20',
+                'fullname' => 'required',
+                're_password' => 'required|same:password',
+                'phone'=>'required',
+                // 'address'=>'required',
+                // 'city'=>'required',
+                // 'country'=>'required'
+            ]
+            ,[
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Nhập sai định dạng email',
+                'email.unique'=>'email đã được đăng kí',
+                'password.required'=>'vui lòng nhập mật khẩu',
+                'password.min'=>'password phải có ít nhất 6 kí tự',
+                'password.max'=>'password có nhiều nhất 20 kí tự ',
+                'fullmame.required'=>'vui lòng nhập tên người dùng',
+                're_password.required'=>'vui lòng nhập lại mật khẩu',
+                're_password.same'=>'xác nhận lại mật khẩu không chính xác',
+                'phone.required'=>'vui lòng nhập số điện thoại',
+                // 'address'=>'vui lòng nhập địa chỉ',
+                // 'city'=>'vui lòng nhập thành phố',
+                // 'address'=>'vui lòng nhập quốc gia'
+            ]);
+
+            $user = new User();
+            $user -> full_name = $req -> fullname;
+            $user -> password = Hash::make($req -> password);
+            $user -> email = $req -> email;
+            $user -> address = $req -> address.','.$req -> city.','.$req->country ;
+            $user -> phone = $req -> phone; 
+            $user ->save();
+            return redirect()->back()->with('thanhcong','Đã Tạo Tài Khoản Thành Công'); 
+    }
+    // Login
+     public function postLogin(Request $req)
+    { 
+        $this->validate($req,
+        [
+            'email'=>'required|email',
+            'password'=>'required|min:6|max:20'
+        ],
+        [
+            'email.required'=>'vui lòng nhập email',
+            'email.email'=>"sai định dạng email",
+            'password.required'=>"vui lòng nhập mật khẩu"
+        ]);
+        $credentials =array("email"=>$req->email,"password"=>$req->password);
+        $user = new \App\KhachHang;
+        if(Auth::attempt($credentials)){
+          //  return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
+            return redirect()->route('trang-chu');
+        }
+        else{
+            return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập thất bại']);
+        } 
+    }
+    public function getLogin()
+    {
+        $search_type =LoaiSanPham::all();
+        return view('page.login',compact('search_type'));
+    }
+    //logout
+    public function postLogout()
+    {
+        Auth::logout();
+        return redirect()->route('trang-chu');
+    }
+    //cart
+    public function cart()
+    {
+        $search_type =LoaiSanPham::all();
+
+        return view('page.cart',compact('search_type'));
     }
 }

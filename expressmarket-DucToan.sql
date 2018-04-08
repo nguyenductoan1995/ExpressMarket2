@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2018 at 05:19 PM
+-- Generation Time: Apr 08, 2018 at 05:45 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -39,6 +39,123 @@ CREATE TABLE `chitietdonhang` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chitiethinhanh`
+--
+
+CREATE TABLE `chitiethinhanh` (
+  `id_hinh` int(5) NOT NULL,
+  `url_hinh` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `id_sp` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chitiethinhanh`
+--
+
+INSERT INTO `chitiethinhanh` (`id_hinh`, `url_hinh`, `id_sp`) VALUES
+(1, '1_1.jpg', 1),
+(2, '1_2.jpg', 1),
+(3, '1_3.jpg', 1),
+(4, '2_1.jpg', 2),
+(5, '2_2.jpg', 2),
+(6, '2_3.jpg', 2),
+(7, '3_1.jpg', 3),
+(8, '3_2.jpg', 3),
+(9, '3_3.jpg', 3),
+(10, '4_1.jpg', 4),
+(11, '4_2.jpg', 4),
+(12, '4_3.jpg', 4),
+(13, '5_1.jpg', 5),
+(14, '5_2.jpg', 5),
+(15, '5_3.jpg', 5),
+(16, '6_1.jpg', 6),
+(17, '6_2.jpg', 6),
+(18, '6_3.jpg', 6),
+(19, '7_1.jpg', 7),
+(20, '7_2.jpg', 7),
+(21, '7_3.jpg', 7),
+(22, '8_1.jpg', 8),
+(23, '8_2.jpg', 8),
+(24, '8_3.jpg', 8),
+(25, '9_1.jpg', 9),
+(26, '9_2.jpg', 9),
+(27, '9_3.jpg', 9),
+(28, '10_1.jpg', 10),
+(29, '10_2.jpg', 10),
+(30, '10_3.jpg', 10),
+(31, '11_1.jpg', 11),
+(32, '11_2.jpg', 11),
+(33, '11_3.jpg', 11),
+(34, '12_1.jpg', 12),
+(35, '12_2.jpg', 12),
+(36, '12_3.jpg', 12),
+(37, '13_1.jpg', 13),
+(38, '13_2.jpg', 13),
+(39, '13_3.jpg', 13),
+(40, '14_1.jpg', 14),
+(41, '14_2.jpg', 14),
+(42, '14_3.jpg', 14),
+(43, '15_1.jpg', 15),
+(44, '15_2.jpg', 15),
+(45, '15_3.jpg', 15),
+(46, '16_1.jpg', 16),
+(47, '16_2.jpg', 16),
+(48, '16_3.jpg', 16),
+(49, '17_1.jpg', 17),
+(50, '17_2.jpg', 17),
+(51, '17_3.jpg', 17),
+(61, '21_1.jpg', 21),
+(62, '21_2.jpg', 21),
+(63, '21_3.jpg', 21),
+(64, '22_1.jpg', 22),
+(65, '22_2.jpg', 22),
+(66, '22_3.jpg', 22),
+(67, '23_1.jpg', 23),
+(68, '23_2.jpg', 23),
+(69, '23_3.jpg', 23),
+(70, '24_1.jpg', 24),
+(71, '24_2.jpg', 24),
+(72, '24_3.jpg', 24),
+(73, '25_1.jpg', 25),
+(74, '25_2.jpg', 25),
+(75, '25_3.jpg', 25),
+(76, '26_1.jpg', 26),
+(77, '26_2.jpg', 26),
+(78, '26_3.jpg', 26),
+(79, '27_1.jpg', 27),
+(80, '27_2.jpg', 27),
+(81, '27_3.jpg', 27),
+(82, '28_1.jpg', 28),
+(83, '28_2.jpg', 28),
+(84, '28_3.jpg', 28),
+(85, '29_1.jpg', 29),
+(86, '29_2.jpg', 29),
+(87, '29_3.jpg', 29),
+(88, '30_1.jpg', 30),
+(89, '30_2.jpg', 30),
+(90, '30_3.jpg', 30),
+(91, '31_1.jpg', 31),
+(92, '31_2.jpg', 31),
+(93, '31_3.jpg', 31),
+(94, '32_1.jpg', 32),
+(95, '32_2.jpg', 32),
+(96, '32_3.jpg', 32),
+(97, '33_1.jpg', 33),
+(98, '33_2.jpg', 33),
+(99, '33_3.jpg', 33),
+(100, '34_1.jpg', 34),
+(101, '34_2.jpg', 34),
+(102, '34_3.jpg', 34),
+(103, '35_1.jpg', 35),
+(104, '35_2.jpg', 35),
+(105, '35_3.jpg', 35),
+(106, '36_1.jpg', 36),
+(107, '36_2.jpg', 36),
+(108, '36_3.jpg', 36);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `donhang`
 --
 
@@ -61,6 +178,7 @@ CREATE TABLE `khachhang` (
   `id_kh` int(5) NOT NULL,
   `ten_kh` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `dia_chi` varchar(255) NOT NULL,
   `dien_thoai` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -120,7 +238,7 @@ INSERT INTO `sanpham` (`id_sp`, `ten_sp`, `gia`, `url_hinh`, `mo_ta`, `so_luong_
 (3, 'iPhone 7 Plus 32GB\r\n', '19999000', 'A-iphone7.jpg\r\n', '\"ROM : 32 GB\r\nĐộ phân giải màn hình : 1920 x 1080 pixels\r\nCamera sau : Dual 12.0 MP\r\nCamera trước : 7.0 MP\r\nKích thước : 158.2 x 77.9 x 7.3 mm\r\nChipset : A10\r\nChip đồ họa (GPU) : M10\r\nTốc độ CPU : 2.3 GHz\r\nRAM : 3 GB\r\nSố nhân : 4 Nhân\"\r\n', 100, 1, 0, 0, 1, '2018-04-02 08:12:10', '0000-00-00 00:00:00'),
 (4, 'iPhone 6s Plus 32GB\r\n', '13999000', 'A-iphone6splus.jpg\r\n', '\"Độ phân giải màn hình : 1080 x 1920 pixels\r\nCamera trước : 5.0 MP\r\nCamera sau : 12.0 MP\r\nTốc độ CPU : 1.8 GHz\r\nSố nhân : 2 Nhân\r\nChipset : Apple A9\r\nRAM : 2 GB\r\nChip đồ họa (GPU) : PowerVR GT7600\r\nROM : 32 GB\r\nKích thước : 158.2 x 77.9 x 7.3 mm\"\r\n', 100, 0, 0, 0, 1, '2018-04-02 14:06:31', '0000-00-00 00:00:00'),
 (5, 'iPhone 6 32GB\r\n', '7999000', 'A-iphone6.jpg\r\n', '\"Độ phân giải màn hình : 1334 x 750 pixels\r\nCamera trước : 1.2 MP\r\nCamera sau : 8.0 MP\r\nTốc độ CPU : 1.4 GHz\r\nSố nhân : 2 Nhân\r\nChipset : Apple A8\r\nRAM : 1GB\r\nChip đồ họa (GPU) : PowerVR GX6450\r\nROM : 32 GB\r\nKích thước : 138.1 x 67 x 6.9 mm\"\r\n', 100, 0, 0, 0, 1, '2018-04-02 14:06:50', '0000-00-00 00:00:00'),
-(6, 'Samsung Galaxy S9+ 128GB\r\n', '24990000', 'A-samsunggalaxys9plus.jpg\r\n', '\"Độ phân giải màn hình : 2K (1440 x 2960 Pixels)\r\nCamera trước : 8 MP\r\nCamera sau : 2 camera 12 MP\r\nTốc độ CPU : 4 nhân 2.8 GHz & 4 nhân 1.7 GHz\r\nSố nhân : 4 nhân 2.8 GHz & 4 nhân 1.7 GHz\r\nChipset : Exynos 9810 8 nhân 64 bit\r\nRAM : 6 GB\r\nChip đồ họa (GPU) : Mali-G72 MP18\r\nROM : 128 GB\r\nKích thước : Dài 158.1 mm - Ngang 73.8 mm - 8.5 mm\r\nHệ điều hành : Android 8.0\"\r\n', 100, 1, 1, 0, 1, '2018-03-31 15:38:52', '0000-00-00 00:00:00'),
+(6, 'Samsung Galaxy S9+\r\n', '24990000', 'A-samsunggalaxys9plus.jpg\r\n', '\"Độ phân giải màn hình : 2K (1440 x 2960 Pixels)\r\nCamera trước : 8 MP\r\nCamera sau : 2 camera 12 MP\r\nTốc độ CPU : 4 nhân 2.8 GHz & 4 nhân 1.7 GHz\r\nSố nhân : 4 nhân 2.8 GHz & 4 nhân 1.7 GHz\r\nChipset : Exynos 9810 8 nhân 64 bit\r\nRAM : 6 GB\r\nChip đồ họa (GPU) : Mali-G72 MP18\r\nROM : 128 GB\r\nKích thước : Dài 158.1 mm - Ngang 73.8 mm - 8.5 mm\r\nHệ điều hành : Android 8.0\"\r\n', 100, 1, 1, 0, 1, '2018-04-07 16:36:56', '0000-00-00 00:00:00'),
 (7, 'Samsung Galaxy Note 8\r\n', '22490000', 'A-samsunggalaxynote8.jpg\r\n', '\"Độ phân giải màn hình : 2960 x 1440 pixels\r\nCamera trước : 8.0 MP\r\nCamera sau : Dual 12.0 MP\r\nTốc độ CPU : 4 nhân 2.3 GHz và 4 nhân 1.7 GHz\r\nSố nhân : 8 Nhân\r\nChipset : Exynos 8895\r\nRAM : 6 GB\r\nChip đồ họa (GPU) : Mali™ G71\r\nROM : 64 GB\r\nKích thước : 162.5 x 74.8 x 8.6 mm\"\r\n', 100, 1, 1, 20490000, 1, '2018-04-02 08:12:40', '0000-00-00 00:00:00'),
 (8, 'Samsung Galaxy S7 Edge\r\n', '12990000', 'A-samsunggalaxys7.jpg\r\n', '\"Độ phân giải màn hình : 1440 x 2560 pixels\r\nCamera trước : 5.0 MP\r\nCamera sau : 12.0 MP\r\nTốc độ CPU : Octa-core\r\nSố nhân : 8 Nhân\r\nChipset : Exynos 8890\r\nRAM : 4 GB\r\nChip đồ họa (GPU) : Mali-T880 MP12\r\nROM : 32 GB\r\nKích thước : 150.9 x 72.6 x 7.7 mm\"\r\n', 100, 0, 1, 0, 1, '2018-03-31 15:39:51', '0000-00-00 00:00:00'),
 (9, 'Samsung Galaxy A8\r\n', '10990000', 'A-samsunggalaxya8.jpg\r\n', '\"Độ phân giải màn hình : 1080 x 2220 pixels\r\nCamera trước : 16 MP và 8 MP\r\nCamera sau : 16 MP\r\nTốc độ CPU : 1.6 GHz\r\nSố nhân : 8 nhân\r\nChipset : Exynos 7885 Octa, Dual 2.2 + Hexa 1.6\r\nRAM : 4 GB\r\nChip đồ họa (GPU) : Mali™ G71\r\nROM : 32 GB\r\nKích thước : 149,2 x 70,6 x 8,4 mm\r\nHệ điều hành : Android 7\"\r\n', 100, 0, 0, 0, 1, '2018-03-31 15:40:13', '0000-00-00 00:00:00'),
@@ -132,9 +250,6 @@ INSERT INTO `sanpham` (`id_sp`, `ten_sp`, `gia`, `url_hinh`, `mo_ta`, `so_luong_
 (15, 'OPPO F1s 2017\r\n', '5690000', 'A-oppof1s.jpg\r\n', '\"Độ phân giải màn hình : 1280 x 720 pixels\r\nCamera trước : 16.0 MP\r\nCamera sau : 13.0 MP\r\nTốc độ CPU : 1.5 GHz\r\nSố nhân : 8 Nhân\r\nChipset : MTK MT6750\r\nRAM : 4 GB\r\nChip đồ họa (GPU) : Mali-T860 MP2\r\nROM : 64 GB\r\nKích thước : 154.5 x 76 x 7.38 mm\r\n\"\r\n', 100, 0, 0, 0, 1, '2018-03-31 15:42:41', '0000-00-00 00:00:00'),
 (16, 'Smart Tivi LG 55 inch 55UJ632T Model 2017 \r\n', '15099000', 'B-smart-tivi-lg-55-inch.jpg', '\"Kết nối Internet:Cổng LAN, Wifi\r\nCổng AV:Có cổng Composite và cổng Component\r\nCổng HDMI:3 cổng\r\nCổng xuất âm thanh:Jack 3.5 mm (cắm loa, tai nghe), Cổng Optical (Digital Audio Out)\r\nCổng VGA:Không\r\nUSB:2 cổng\r\nĐịnh dạng video TV đọc được:WMV, AVI, FLV, M4V, MKV, MP4, WebM, MOV, MPEG, DivX HD\r\nĐịnh dạng phụ đề TV đọc được:SRT\r\nĐịnh dạng hình ảnh TV đọc được:PNG, MPO, JPG, JPEG, JPS\r\nĐịnh dạng âm thanh TV đọc được:WAV, MID, MIDI, MKA, AC3, WMA, AAC, MPA, M4A, MP3\r\nTích hợp đầu thu kỹ thuật số:DVB', 100, 1, 1, 14099000, 2, '2018-04-01 15:49:05', '0000-00-00 00:00:00'),
 (17, 'tivi asanzo - ti asanzo 25200\r\n', '2350000', 'B-tivi-asanzo-1m4G3_800x1200_max.jpg\r\n', '\"\r\nSKU AS791ELAA1GDD6VNAMZ-2317684\r\n3D TV No\r\nMàu Black\r\nCổng kết nối HDMI\r\nCurved TV No\r\nĐộ phân giải màn hình (pixels) 1366 x 768\r\nKích thước màn hình 25.0\r\nMẫu mã 25S200\r\nKích thước sản phẩm (D x R x C cm) 56 x 7 x 33.5\r\nProduct Type Tivi LED\r\nTrọng lượng (KG) 5\r\nSản xuất tại Việt Nam\r\nThời gian bảo hành 2 năm\r\nLoại hình bảo hành Bằng Hóa đơn mua hàng\r\n\r\n\"\r\n', 100, 1, 1, 2350000, 2, '2018-04-01 15:50:00', '0000-00-00 00:00:00'),
-(18, 'Internet Tivi Sony 40 Inch KDL-40W660E - Model 2017 - 40W660E', '9190000', 'B-internet-tivi-sony-40-inch-2017-1m4G3-7E9rVN.jpg', '\"Công suất:60W\r\nKích thước có chân, đặt bàn:Ngang 91 cm - Cao 59.1 cm - Dày 20.8 cm\r\nKhối lượng có chân:8.7 kg\r\nKích thước không chân, treo tường:Ngang 91 cm - Cao 54.3 cm - Dày 7 cm\r\nKhối lượng không chân:8.1 kg\r\nNơi sản xuất:Malaysia\"', 100, 0, 1, 0, 2, '2018-04-01 15:50:52', '0000-00-00 00:00:00'),
-(19, 'SMART tivi cong S32CS6000 - AS 32cs6000\r\n', '4100000', 'B-tivicongS32CS6000.PNG', '\"\r\nĐộ phân giải màn hình (pixels) 1366 x 768\r\nKích thước màn hình 32\r\nMẫu mã AS32CS6000\r\nKích thước sản phẩm (D x R x C cm) 89 x 55.5 x 18\r\nTrọng lượng (KG) 7\r\nSản xuất tại Việt Nam\r\nThời gian bảo hành 2 năm\"', 100, 1, 0, 0, 2, '2018-04-01 15:51:19', '0000-00-00 00:00:00'),
-(20, 'TIVI LED ASANZO 50 INCH - 50E890', '7540000', 'B-TIVI-LED-ASANZO-50INCH - 50E890.PNG\r\n', '\"\r\nSKU\r\nAS791ELAA1GITXVNAMZ-2326242\r\nKích thước màn hình\r\n50.0\r\nLoại hình bảo hành\r\nBằng Hóa đơn mua hàng\r\nTrọng lượng (KG)\r\n18\r\nThời gian bảo hành\r\n2 năm\r\nĐộ phân giải màn hình (pixels)\r\n1920 x 1080\r\nKích thước sản phẩm (D x R x C cm)\r\n104 x 9 x 66\r\nSản xuất tại\r\nViệt Nam\r\nCurved TV\r\nNo\r\nMàu\r\nBlack\r\nProduct Type\r\nTivi LED\r\nMẫu mã\r\n50E890\r\n3D TV\r\nNo\"\r\n', 100, 0, 0, 0, 2, '2018-04-01 15:51:46', '0000-00-00 00:00:00'),
 (21, 'tivi asanzo - tivi asanzo32t650\r\n', '3300000', 'B-tivi-asanzo-1m4G3.jpg', '\"\r\n- Màn hình: 32 inches\r\n- Độ phân giải  HD\r\n- Độ tương phản động: 5.000.000:1\r\n- Tần số quét TruMotion 100Hz\r\n- Chương trình kiểm soát hình ảnh Picture Wizard II\r\n- Cảm ứng màu thông minh\r\n- Hệ thống loa ẩn (5W + 5W)\r\n- Chế độ âm thanh Infinite\r\n- Kết nối USB 2.0 (HD DivX, MP3, MP4, FLV, MKV, Jpeg play)\r\n- Chế độ siêu tiết kiệm điện\r\n- Tích hợp truyền hình kỹ thuật số mặt đất.\"\r\n', 100, 1, 0, 3200000, 2, '2018-04-01 15:52:37', '0000-00-00 00:00:00'),
 (22, 'tivi asanzo 32 - asanzo 32s610\r\n', '3150000', 'B-tivi-asanzo-32-1m4G3-rW2Lxs_simg_d0daf0_800x1200_max.jpg', '\"1 x TV\r\nĐặc điểm chính:\r\nSKU AS791ELAA166G1VNAMZ-1724594\r\nĐộ phân giải màn hình (pixels) 1366 x 768\r\nTechnology LCD\r\nLoại màn hình LED\r\nKích thước màn hình 32.0\r\nTrọng lượng (KG) 5.2\r\nThời gian bảo hành 2 năm\r\nProduct Type TV LED\r\nSản xuất tại Việt Nam\r\nCurved TV No\r\nKích thước sản phẩm (D x R x C cm) 74 x 48 x 8\r\nMẫu mã 32S610\r\nLoại hình bảo hành Bằng Phiếu bảo hành và Hóa đơn\r\nMàu Đen\r\n3D TV No\"\r\n', 100, 0, 1, 0, 2, '2018-04-01 15:53:11', '0000-00-00 00:00:00'),
 (23, 'Tivi Darling 55 inches 55HD955T2 - 55HD955T2\r\n', '9299000', 'B-tivi-darling-55-inches-1m4G3.jpg', '\"\r\nModel               \r\n55HD955T2\r\nHãng sản xuất\r\nDarling\r\nBảo hành\r\n24 tháng chính hãng\r\nTính năng nổi bật\r\n- Màn hình: 55 inch sử dụng đèn nền LED.\r\n- Độ phân giải:1920 x 1080p\r\n- Kích thước sản phẩm: 1250 x 264 x 770.5\r\n- Công suất tiêu thụ: 135W.\r\n- Hỗ trợ 2 cổng HDMI, 1 cổng kết nối USB\r\n và 1 cổng kết nối PC\r\n- Sản xuất tại Việt Nam\r\n- Công nghệ Nhật Bản\"\r\n', 100, 0, 0, 0, 2, '2018-04-01 15:53:36', '0000-00-00 00:00:00'),
@@ -173,6 +288,31 @@ INSERT INTO `slide` (`id_slide`, `link`, `image`) VALUES
 (2, '', 'cosmetics.jpg'),
 (3, '', 'baby.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `full_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `phone`, `address`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyễn Đức Toàn', 'nguyenductoann@gmail.com', '$2y$10$c22LImJcqp8BRDFpQ6CpzezlPkWDd5cq81ZAsH7j5dg/LEXcV7DT6', '962525359', '457A Điện Biên Phủ , Phường 25 , Bình Thanh,Hô Chí Minh,Vietnam', 'q8ml2GMvqd0XRCrQdUNwvHdscfnln21idu5FWIGITBlvhp58Ovkw9pWn76Kz', '2018-04-08 01:57:02', '2018-04-08 01:57:02');
+
 --
 -- Indexes for dumped tables
 --
@@ -184,6 +324,13 @@ ALTER TABLE `chitietdonhang`
   ADD PRIMARY KEY (`id_ctdh`),
   ADD KEY `id_sp` (`id_sp`),
   ADD KEY `id_dh` (`id_dh`);
+
+--
+-- Indexes for table `chitiethinhanh`
+--
+ALTER TABLE `chitiethinhanh`
+  ADD PRIMARY KEY (`id_hinh`),
+  ADD KEY `id_sp` (`id_sp`);
 
 --
 -- Indexes for table `donhang`
@@ -218,6 +365,13 @@ ALTER TABLE `slide`
   ADD PRIMARY KEY (`id_slide`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -226,6 +380,12 @@ ALTER TABLE `slide`
 --
 ALTER TABLE `chitietdonhang`
   MODIFY `id_ctdh` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `chitiethinhanh`
+--
+ALTER TABLE `chitiethinhanh`
+  MODIFY `id_hinh` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `donhang`
@@ -237,7 +397,7 @@ ALTER TABLE `donhang`
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `id_kh` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kh` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `loaisanpham`
@@ -258,6 +418,12 @@ ALTER TABLE `slide`
   MODIFY `id_slide` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -267,6 +433,12 @@ ALTER TABLE `slide`
 ALTER TABLE `chitietdonhang`
   ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`id_dh`) REFERENCES `donhang` (`id_dh`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `chitietdonhang_ibfk_2` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `chitiethinhanh`
+--
+ALTER TABLE `chitiethinhanh`
+  ADD CONSTRAINT `chitiethinhanh_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`);
 
 --
 -- Constraints for table `donhang`

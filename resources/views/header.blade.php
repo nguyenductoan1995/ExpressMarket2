@@ -75,7 +75,7 @@
                                                 
                                                 <div class="box-wrapper no-border">
                                                 	<a class="button pull-right parent-background" href="#">Mua hàng</a>
-													<a class="button pull-right" href="order_info.html">Xem giỏ hàng</a>
+													<a class="button pull-right" href="{{route('cart')}}">Xem giỏ hàng</a>
                                                 </div>
 											</li>
 										</ul>
@@ -86,17 +86,22 @@
 									@endif
 									<li class="login-create purple">
                                     	<i class="icons icon-user"></i>
-                                        <p>Xin chào! <a href="#">Đăng nhập</a> hoặc<br><a href="#">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
-										<ul id="login-dropdown" class="box-dropdown">
+										@if( Auth::check() )
+										<p>Xin chào! {{ Auth::user()->full_name}}<br><a href="{{route('logout')}}">Đăng xuất</a></p>
+										@else
+										<p>Xin chào! <a href="{{route('login')}}">Đăng nhập</a> hoặc<br><a href="{{route('createaccount')}}">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
+										@endif
+										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
+											<form action="{{route('login')}}" method="post" >
                                             	<div class="box-wrapper">
                                                     <h4>LOGIN</h4>
                                                     <div class="iconic-input">
-                                                        <input type="text" placeholder="Username">
+                                                        <input type="text" placeholder="Email" name="email">
                                                         <i class="icons icon-user-3"></i>
                                                     </div>
                                                     <div class="iconic-input">
-                                                        <input type="text" placeholder="Password">
+                                                        <input type="password" placeholder="Password" name="password">
                                                         <i class="icons icon-lock"></i>
                                                     </div>
                                                     <input type="checkbox" id="loginremember"> <label for="loginremember">Remember me</label>
@@ -113,12 +118,13 @@
                                                     </div>
                                                     <br class="clearfix">
                                                 </div>
+											</form>
 												<div class="footer">
 													<h4 class="pull-left">NEW CUSTOMER?</h4>
-													<a class="button pull-right" href="create_an_account.html">Create an account</a>
+													<a class="button pull-right" href="{{route('createaccount')}}">Create an account</a>
 												</div>
 											</li>
-										</ul>
+										</ul> -->
                                     </li>
 								</ul>
 							</nav>

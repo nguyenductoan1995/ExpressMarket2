@@ -26,20 +26,20 @@
 		
 			<div class="form-group">
 			<label >Tên sản phẩm:</label>
-			<input class="form-control" name="ten_sp"  value="{{$sanpham -> ten_sp}}" />
+			<input class="form-control" name="ten_sp"  placeholder="{{$sanpham -> ten_sp}}" />
 			</div><div class="form-group">
 			<label >Giá:</label>
-			<input class="form-control" type="number" name="gia"  value="{{$sanpham->gia}}" />
+			<input class="form-control" type="number" name="gia"  placeholder="{{$sanpham->gia}}" />
 			</div><div class="form-group">
 			<label >Ảnh</label>
 			<img widh="100px" height="100px" src="source/img/products/{{$sanpham -> url_hinh}}" />
-			<input type="file" name="urlanh"/>
+			<input type="file" name="{{$sanpham->url_anh}}"/>
 			</div><div class="form-group">
 			<label >Mô Tả</label>
 			<textarea name="mota" id="demo" class ="form-controle ckeditor" row="3" >{{$sanpham->mo_ta}}</textarea>
 			</div><div class="form-group">
 			<label >Số Lượng</label>
-			<input type="number" class="form-control" name="soluong" value="{{$sanpham->so_luong_ton}}" />
+			<input type="number" class="form-control" name="soluong" placeholder="{{$sanpham->so_luong_ton}}" />
 			</div><div class="form-group">
 			<label >Mới : </label>
 			<label class="radio-inline">
@@ -71,7 +71,7 @@
 			</label>
 			</div><div class="form-group">
 			<label >Giá khuyễn mãi</label>
-			<input type="number" class="form-control" name="sale" value="{{$sanpham->sale}}"  />
+			<input type="number" class="form-control" name="sale" placeholder="{{$sanpham->sale}}"  />
 		
 
 			</div>

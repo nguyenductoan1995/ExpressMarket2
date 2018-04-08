@@ -47,9 +47,10 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 product">
                             
                             <div class="product-image">
-							<a href = "<?php echo e(route('chitietsanpham',$sp->id_sp)); ?>">
                                 <img src="source/img/products/<?php echo e($sp -> url_hinh); ?>" alt="Product1">
-                              </a>
+                                <a href="<?php echo e(route('chitietsanpham',$sp->id_sp)); ?>" class="product-hover">
+														<i class="icons icon-eye-1"></i> Xem ngay
+													</a>
                             </div>
                             
                             <div class="product-info">

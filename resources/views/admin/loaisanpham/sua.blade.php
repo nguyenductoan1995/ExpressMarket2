@@ -13,7 +13,7 @@
 		<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="form-group">
 				<label >Tên Thể Loại: </label>
-				<input class="form-control" name="tenloai"  value=" {{$loaisanpham-> ten_loai}}" 
+				<input class="form-control" name="tenloai"  placeholder=" {{$loaisanpham-> ten_loai}}" 
 				value="{{$loaisanpham -> ten_loai}}" />
 			</div>
 		
