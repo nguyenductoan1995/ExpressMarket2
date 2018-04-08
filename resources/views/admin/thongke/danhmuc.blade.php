@@ -1,105 +1,149 @@
 @extends('admin.layout.index')
+
 @section('content')
-<!DOCTYPE html>
+<?php
+
+    class FusionCharts {
+        
+        private $constructorOptions = array();
+
+        private $constructorTemplate = '
+        <script type="text/javascript">
+            FusionCharts.ready(function () {
+                new FusionCharts(__constructorOptions__);
+            });
+        </script>';
+
+        private $renderTemplate = '
+        <script type="text/javascript">
+            FusionCharts.ready(function () {
+                FusionCharts("__chartId__").render();
+            });
+        </script>
+        ';
+
+        // constructor
+        function __construct($type, $id, $width = 400, $height = 300, $renderAt, $dataFormat, $dataSource) {
+            isset($type) ? $this->constructorOptions['type'] = $type : '';
+            isset($id) ? $this->constructorOptions['id'] = $id : 'php-fc-'.time();
+            isset($width) ? $this->constructorOptions['width'] = $width : '';
+            isset($height) ? $this->constructorOptions['height'] = $height : '';
+            isset($renderAt) ? $this->constructorOptions['renderAt'] = $renderAt : '';
+            isset($dataFormat) ? $this->constructorOptions['dataFormat'] = $dataFormat : '';
+            isset($dataSource) ? $this->constructorOptions['dataSource'] = $dataSource : '';
+
+            $tempArray = array();
+            foreach($this->constructorOptions as $key => $value) {
+                if ($key === 'dataSource') {
+                    $tempArray['dataSource'] = '__dataSource__';
+                } else {
+                    $tempArray[$key] = $value;
+                }
+            }
+            
+            $jsonEncodedOptions = json_encode($tempArray);
+            
+            if ($dataFormat === 'json') {
+                $jsonEncodedOptions = preg_replace('/\"__dataSource__\"/', $this->constructorOptions['dataSource'], $jsonEncodedOptions);
+            } elseif ($dataFormat === 'xml') { 
+                $jsonEncodedOptions = preg_replace('/\"__dataSource__\"/', '\'__dataSource__\'', $jsonEncodedOptions);
+                $jsonEncodedOptions = preg_replace('/__dataSource__/', $this->constructorOptions['dataSource'], $jsonEncodedOptions);
+            } elseif ($dataFormat === 'xmlurl') {
+                $jsonEncodedOptions = preg_replace('/__dataSource__/', $this->constructorOptions['dataSource'], $jsonEncodedOptions);
+            } elseif ($dataFormat === 'jsonurl') {
+                $jsonEncodedOptions = preg_replace('/__dataSource__/', $this->constructorOptions['dataSource'], $jsonEncodedOptions);
+            }
+            $newChartHTML = preg_replace('/__constructorOptions__/', $jsonEncodedOptions, $this->constructorTemplate);
+
+            echo $newChartHTML;
+        }
+
+        // render the chart created
+        // It prints a script and calls the FusionCharts javascript render method of created chart
+        function render() {
+           $renderHTML = preg_replace('/__chartId__/', $this->constructorOptions['id'], $this->renderTemplate);
+           echo $renderHTML;
+        }
+
+    }
+
+/* Include the `fusioncharts.php` file that contains functions    to embed the charts. */
+
+
+/* The following 4 code lines contain the database connection information. Alternatively, you can move these code lines to a separate file and include the file here. You can also modify this code based on your database connection. */
+
+   $hostdb = "localhost";  // MySQl host
+   $userdb = "root";  // MySQL username
+   $passdb = "";  // MySQL password
+   $namedb = "expressmarket";  // MySQL database name
+
+   // Establish a connection to the database
+   $dbhandle = new mysqli($hostdb, $userdb, $passdb, $namedb);
+
+   /*Render an error message, to avoid abrupt failure, if the database connection parameters are incorrect */
+   if ($dbhandle->connect_error) {
+      exit("There was an error with your connection: ".$dbhandle->connect_error);
+   }
+?>
+
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
-    <script src="admin/assets/js/Chart.min.js"></script>
-</head>
-<body>
-   {{!!$stas_loaisanpham!!}}
-<!-- line chart canvas element -->
-        <canvas id="buyers" width="600" height="400"></canvas>
-        <!-- pie chart canvas element -->
-        <canvas id="countries" width="600" height="400"></canvas>
-        <!-- bar chart canvas element -->
-        <canvas id="income" width="600" height="400"></canvas>
-    
-</br></br></br>
-</br></br></br>
-<script>
+   <head>
+      <title>FusionCharts XT - Column 2D Chart - Data from a database</title>
+    <link  rel="stylesheet" type="text/css" href="css/style.css" />
 
-	// line chart data
-	var buyerData = {
-		labels : ["January","February","March","April","May","June"],
-		datasets : [
-		{
-				fillColor : "rgba(172,194,132,0.4)",
-				strokeColor : "#ACC26D",
-				pointColor : "#fff",
-				pointStrokeColor : "#9DB86D",
-				data : [203,156,99,251,305,247]
-			}
-		]
-	}
-	
-	// get line chart canvas
-	var buyers = document.getElementById('buyers').getContext('2d');
+      <!-- You need to include the following JS file to render the chart.
+      When you make your own charts, make sure that the path to this JS file is correct.
+      Else, you will get JavaScript errors. -->
 
-	// draw line chart
-	new Chart(buyers).Line(buyerData);
-	
-	// pie chart data
-	var pieData = [
-		
-		{
-			value: 20,
-			color:"#878BB6",
-		},
-		{
-			value : 40,
-			color : "#4ACAB4"
-		},
-		{
-			value : 10,
-			color : "#FF8153"
-		},
-		{
-			value : 30,
-			color : "#FFEA88"
-		}
-	];
+      <script src="js/fusioncharts.js"></script>
+  </head>
 
-	// pie chart options
-	var pieOptions = {
-		segmentShowStroke : false,
-		animateScale : true
-	}
-	
-	// get pie chart canvas
-	var countries= document.getElementById("countries").getContext("2d");
-	
-	// draw pie chart
-	new Chart(countries).Pie(pieData, pieOptions);
-	
-	// bar chart data
-	var barData = {
-	labels : ["January","February","March","April","May","June"],
-	datasets : [
-		{
-			fillColor : "#48A497",
-			strokeColor : "#48A4D1",
-			data : [456,479,324,569,702,600]
-		},
-		{
-			fillColor : "rgba(73,188,170,0.4)",
-			strokeColor : "rgba(72,174,209,0.4)",
-			data : [364,504,605,400,345,320]
-		}
-		]
-	}
-	
-	// get bar chart canvas
-	var income = document.getElementById("income").getContext("2d");
-	
-	// draw bar chart
-	new Chart(income).Bar(barData);
+   <body>
+   <?php
+        /**
+         *  Step 3: Create a `columnChart` chart object using the FusionCharts PHP class constructor. 
+         *  Syntax for the constructor: `FusionCharts("type of * chart", "unique chart id", "width of chart", 
+         *  "height of chart", "div id to render the chart", "data format", "data source")`
+         */
+        $columnChart = new FusionCharts("Column2D", "myFirstChart" , 600, 300, "chart-1", "json",
+            '{
+                "chart": {
+                    "caption": "Monthly revenue for last year",
+                    "subCaption": "Harry\’s SuperMart",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenues (In USD)",
+                    "numberPrefix": "$",
+                    "theme": "zune"
+                },
+                "data": [
+                        {"label": "Jan", "value": "420000"}, 
+                        {"label": "Feb", "value": "810000"},
+                        {"label": "Mar", "value": "720000"},
+                        {"label": "Apr", "value": "550000"},
+                        {"label": "May", "value": "910000"},
+                        {"label": "Jun", "value": "510000"},
+                        {"label": "Jul", "value": "680000"},
+                        {"label": "Aug", "value": "620000"},
+                        {"label": "Sep", "value": "610000"},
+                        {"label": "Oct", "value": "490000"},
+                        {"label": "Nov", "value": "900000"},
+                        {"label": "Dec", "value": "730000"}
+                    ]
+                }');
+        /**
+         *  Because we are using JSON/XML to specify chart data, `json` is passed as the value for the data
+         *   format parameter of the constructor. The actual chart data, in string format, is passed as the value
+         *   for the data source parameter of the constructor. Alternatively, you can store this string in a 
+         *   variable and pass the variable to the constructor.
+         */
 
-</script>
-    
-</body>
+        /**
+         * Step 4: Render the chart
+         */
+        $columnChart->render();
+    ?>
+    <div id="chart-1"><!-- Fusion Charts will render here--></div>
+   </body>
+
 </html>
-
 @endsection
