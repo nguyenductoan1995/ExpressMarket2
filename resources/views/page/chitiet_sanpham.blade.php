@@ -150,14 +150,25 @@
 										<i class="icons icon-down-dir"></i>
 									</span>
 								</div>
-								<a href="{{route('themgiohang',$sp -> id_sp)}}">
+								@if(Session::has('cart'))
+								<a>
 									<span class="add-to-cart">
-										<span class="action-wrapper">
+										<span class="action-wrapper"  onclick="AddToCart({{$sp->id_sp}},{{Session('cart')->totalQty}})">
 											<i class="icons icon-basket-2"></i>
 											<span class="action-name">+ Giỏ hàng</span>
 										</span>
 									</span>
 								</a>
+								@else
+								<a>
+									<span class="add-to-cart">
+										<span class="action-wrapper" onclick="AddToCart({{$sp->id_sp}},0)">
+											<i class="icons icon-basket-2"></i>
+											<span class="action-name">+ Giỏ hàng</span>
+										</span>
+									</span>
+								</a>
+								@endif
 							</td>
 						</tr>
 					</table>
