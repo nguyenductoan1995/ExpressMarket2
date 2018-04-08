@@ -7,7 +7,7 @@
 
 		</div>
 	<?php endif; ?>
-	<form action="admin/anh/them" method="POST" enctype="multipart/form-data">
+	<form action="admin/anh/sua/<?php echo e($img->id_hinh); ?>" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
 			<div class="form-group">
 				<label >Chọn sản phẩm: </label>

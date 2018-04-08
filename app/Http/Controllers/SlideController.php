@@ -45,12 +45,13 @@ class SlideController extends Controller
         {
             $file  = $request ->file('image');
             $name = $file-> getClientOriginalName();
-            $image = str_random(3)."_".$name;
-            $file ->move("source/img/products", $image);
-            unlink("source/img/products/".$slide->image);
-            $slide -> image = $image;
-            dd($slide -> image);
-            exit();
+            $new_name=str_random(4)."_".$name;
+            while(file_exists("source/img/products/".$new_name))
+            {
+              $new_name=str_random(4)."@". $name;
+            }
+            $file->move("source/img/products/",$new_name);
+            $slide -> image = $new_name;
         };
         $slide -> save();
         return redirect('admin/slide/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');

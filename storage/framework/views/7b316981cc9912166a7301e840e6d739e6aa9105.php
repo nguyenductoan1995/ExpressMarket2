@@ -32,7 +32,7 @@
 						<i class="ace-icon fa fa-undo bigger-110"></i>	Nhập lại </button>
 				</div>
 			</div>
-	</form>				
+	</form>					
 </div>									
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

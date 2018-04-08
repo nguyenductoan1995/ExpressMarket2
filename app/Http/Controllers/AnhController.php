@@ -38,50 +38,39 @@ class AnhController extends Controller
 
     public function postSuaAnh(Request $request, $id)
     {
-        $sp = SanPham::all();
-        $anh = Anh:: where('id_hinh','=',$id) ->first();
-        $anh-> link = $request -> link;
+        $sp =SanPham::all();
+        $img = Anh:: where('id_hinh','=',$id) ->first();
         if($request->hasFile('image'))
         {
             $file  = $request ->file('image');
             $name = $file-> getClientOriginalName();
             $image = str_random(3)."_".$name;
             $file ->move("source/img/products/chitiet/", $image);
-            unlink("source/img/products/chitiet/".$anh->$url_hinh);
-            $anh -> url_hinh = $image;
+            //unlink("source/img/products/chitiet/".$img->url_hinh);
+            $img->url_hinh= $image;
         };
-        $anh -> save();
+        $img->id_sp = $request ->idsp;
+        
+        $img -> save();
         return redirect('admin/anh/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemAnh(Request $request)
     {
-        $this -> validate($request,
-        [
-            'ten_anh' => 'required|min:3| max:100'
-        ],
-        [
-            'ten_anh.required' => 'Bạn chưa nhập tên loại',
-            'ten_anh.min' => 'Tên loại sản phẩm có độ dài từ 3 tới 100 ký tự!',
-            'ten_anh.max' => 'Tên loại sản phẩm có độ dài từ 3 tới 100 ký tự!'
-        ]);
-        $img = new Anh;
+        $sld = new Anh;
         if($request->hasFile('image'))
         {
             $file  = $request ->file('image') ;
             $name = $file-> getClientOriginalName();
             $image = str_random(3)."_".$name;
             $file ->move("source/img/products/chitiet/", $image);
-            $img -> url_hinh = $image;
+            $sld -> url_hinh = $image;
         }
         else    
-        $img -> url_hinh =" ";
-        $img-> id_sp = $request -> id_sp;      
-        dd('$img');
-        exit();  
-        $img -> save();
-        return redirect('admin/anh/them') -> with('thongbao', 'Thêm Thành Công!');
-
-
+        $sld -> url_hinh =" ";
+        $sld-> id_sp = $request ->id_sp;
+        $sld -> save();
+        return redirect('admin/slide/them') -> with('thongbao', 'Thêm Thành Công!');
     }
+    
 }

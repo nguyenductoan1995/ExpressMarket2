@@ -13,13 +13,13 @@
 		<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="form-group">
 				<label >Đường dẫn: </label>
-				<input class="form-control" name="link"  placeholder=" {{$sld-> link}}" 
+				<input class="form-control" name="link"  value=" {{$sld-> link}}" 
 				value="{{$sld-> link}}" />
 			</div>
             <div class="form-group">
 			<label >Ảnh</label>
 			<img widh="100px" height="100px" src="source/img/products/{{$sld -> image}}" />
-			<input type="file" name="{{$sld -> image}}"/>
+			<input type="file" name="image"/>
 			</div>
 		
 			</div>

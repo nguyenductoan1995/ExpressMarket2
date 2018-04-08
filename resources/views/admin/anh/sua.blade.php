@@ -8,10 +8,10 @@
 			{{session('thongbao')}}
 		</div>
 	@endif
-	<form action="admin/anh/them" method="POST" enctype="multipart/form-data">
+	<form action="admin/anh/sua/{{$img->id_hinh}}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="form-group">
-				<label >Chọn sản phẩm: </label>
+				<label >Hình này thuộc sản phẩm nào? </label>
 				<select class="form-control" name ="idsp">
 					<option value="0">Chọn sản phẩm</option>
 					@foreach($sanpham as $sp)

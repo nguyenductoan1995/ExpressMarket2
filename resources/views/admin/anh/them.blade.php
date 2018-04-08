@@ -11,7 +11,7 @@
 	<form action="admin/anh/them" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="form-group">
-				<label >Chọn sản phẩm: </label>
+				<label >Hình này thuộc sản phẩm nào? </label>
 				<select class="form-control" name ="id_sp">
 					<option value="0">Chọn sản phẩm</option>
 					@foreach($sanpham as $sp)
@@ -33,6 +33,6 @@
 						<i class="ace-icon fa fa-undo bigger-110"></i>	Nhập lại </button>
 				</div>
 			</div>
-	</form>				
+	</form>					
 </div>									
 @endsection

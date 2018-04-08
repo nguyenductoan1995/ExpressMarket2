@@ -26,14 +26,14 @@
 		
 			<div class="form-group">
 			<label >Tên sản phẩm:</label>
-			<input class="form-control" name="ten_sp"  placeholder="<?php echo e($sanpham -> ten_sp); ?>" />
+			<input class="form-control" name="ten_sp"  value="<?php echo e($sanpham -> ten_sp); ?>" />
 			</div><div class="form-group">
 			<label >Giá:</label>
 			<input class="form-control" type="number" name="gia"  placeholder="<?php echo e($sanpham->gia); ?>" />
 			</div><div class="form-group">
 			<label >Ảnh</label>
 			<img widh="100px" height="100px" src="source/img/products/<?php echo e($sanpham -> url_hinh); ?>" />
-			<input type="file" name="<?php echo e($sanpham->url_anh); ?>"/>
+			<input type="file" name="urlanh"/>
 			</div><div class="form-group">
 			<label >Mô Tả</label>
 			<textarea name="mota" id="demo" class ="form-controle ckeditor" row="3" ><?php echo e($sanpham->mo_ta); ?></textarea>

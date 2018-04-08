@@ -18,7 +18,7 @@
             <div class="form-group">
 			<label >Ảnh</label>
 			<img widh="100px" height="100px" src="source/img/products/<?php echo e($sld -> image); ?>" />
-			<input type="file" name="<?php echo e($sld -> image); ?>"/>
+			<input type="file" name="image"/>
 			</div>
 		
 			</div>
