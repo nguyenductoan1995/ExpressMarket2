@@ -35,7 +35,7 @@
 		<div class="row">
 
 			<div class="col-lg-12 col-md-12 col-sm-12">
-
+				@if(Session::has('cart'))
 				<table class="order-table">
 
 					<tr>
@@ -45,7 +45,7 @@
 						<th>Thành tiền</th>
 						<th>Tùy chọn</th>
 					</tr>
-					@if(Session::has('cart'))
+					
 					<tr>
 					@foreach($product_cart as $p)
 					<td class="order-number">
@@ -75,10 +75,19 @@
 					</tr>
 				</table>
 				<div class="box-wrapper no-border">
-					<a class="button pull-right parent-background" href="#">Mua hàng</a>
+					<a class="button pull-right parent-background" href="{{route('dathangmaster')}}">Mua hàng</a>
                 </div>
 				@else
-					<div>Chưa có quần què gì trong giỏ hàng hết!</div>
+				<table class="order-table">
+
+						<tr>
+							<th>Tên sản phẩm</th>
+							<th>Hình ảnh</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+							<th>Tùy chọn</th>
+						</tr>
+				</table>
 				@endif
 			</div>
 

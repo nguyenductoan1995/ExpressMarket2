@@ -138,6 +138,12 @@ Route::get('cart',[
     'as'=> 'cart',
     'uses'=>'PageController@cart'
 ]);
+// Đặt hàng
+Route::get('dat-hang',[
+    'as'=> 'dathangmaster',
+    'uses'=>'PageController@postCheckout'
+]);
+
 
 
 

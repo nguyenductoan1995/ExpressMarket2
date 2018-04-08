@@ -5,6 +5,8 @@ use App\Slide;
 use App\SanPham;
 use App\LoaiSanPham;
 use App\Cart;
+use App\DonHang;
+use App\ChiTietDonHang;
 use Session;
 use App\KhachHang;
 use Illuminate\Http\Request;
@@ -194,5 +196,34 @@ class PageController extends Controller
           return view('page.cart',compact('search_type','product_cart','totalPrice','totalQty'));
         }
         return view('page.cart',compact('search_type'));
+    }
+    // Đặt hàng
+    public function postCheckout(Request $req) {
+        // region get cart
+        $cart = Session::get('cart');
+       // dd($cart);
+        $product_cart = $cart -> items;
+        $totalPrice = $cart->totalPrice;
+        $totalQty = $cart->totalQty;
+        // end region get cart
+        $donhang = new DonHang;
+        // get id customer :  $donhang->id
+        $donhang->id = 1;
+        $donhang->ngay_dat = date('Y-m-d');
+        $donhang->tong_tien =  $totalPrice;
+        $donhang->save();
+
+        // detail order
+        foreach ($cart->items as $key => $value) {
+            $cidh = new ChiTietDonHang;
+            $cidh->id_dh = $donhang->id;
+            $cidh->id_sp = $key;
+            $cidh->so_luong = $value['qty'];
+            $cidh->thanh_tien = $value['price'];
+            $cidh->save();
+        }
+        Session::forget('cart');
+        return redirect()->back();
+       
     }
 }
