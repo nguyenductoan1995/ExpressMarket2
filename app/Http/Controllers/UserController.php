@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function getXoaUser($id)
     {
-        $User = User:: where('id_User','=',$id) ;
+        $User = User:: where('id','=',$id) ;
         $User ->delete();
         return redirect('admin/user/danhsach') -> with('thongbao', 'Xoá Thành Công!');
     }
@@ -32,19 +32,17 @@ class UserController extends Controller
     public function getSuaUser($id)
     {
         
-        $User = User:: where('id_User','=',$id) ->first();
-        return view ('admin.user.sua',['User' => $User]);
+        $user = User:: where('id','=',$id) ->first();
+        return view ('admin.user.sua',['user' => $user]);
     }
 
     public function postSuaUser(Request $request, $id)
     {
-        $User = User:: where('id_User','=',$id) ->first();
-        return view ('admin.user.sua',['User' => $User]);
-
-        $User = new User;
-        $User-> ten_User = $request -> tenUser;
-        $User -> save();
-        return redirect('admin/user/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        $user = User:: where('id','=',$id) ->first();
+        $user -> status = $request -> status;
+        $user -> role = $request -> role;
+        $user ->save();
+        return redirect('admin/user/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function postThemUser(Request $request)

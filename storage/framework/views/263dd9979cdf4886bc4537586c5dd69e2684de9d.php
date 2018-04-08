@@ -1,12 +1,11 @@
+<?php $__env->startSection('content'); ?>
 
-@extends('admin.layout.index')
-@section('content')
-
-@if(session('thongbao'))
+<?php if(session('thongbao')): ?>
 		<div class= "alert alert-success">
-			{{session('thongbao')}}
+			<?php echo e(session('thongbao')); ?>
+
 		</div>
-	@endif
+	<?php endif; ?>
 <div class="col-xs-12">
 	<h3 class="header smaller lighter blue">Danh sách Slide</h3>
 
@@ -34,54 +33,65 @@
             <th> Thao Tác</th>
         </tr>
 
-	  		  @foreach ($User as $u)
+	  		  <?php $__currentLoopData = $User; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr class="info">
                 <td>
-                {{$u -> id}}
+                <?php echo e($u -> id); ?>
+
                 </td>
                 <td>
-				{{$u ->full_name}}
+				<?php echo e($u ->full_name); ?>
+
                 </td>
                 <td>
-				<img widh="100px" height="100px" src="source/img/users/{{$u->image}}" />
+				<img widh="100px" height="100px" src="source/img/users/<?php echo e($u->image); ?>" />
                 </td>
                 <td>
-				{{$u ->email}}
+				<?php echo e($u ->email); ?>
+
                 </td>
                 <td>
-				{{$u ->address}}
+				<?php echo e($u ->address); ?>
+
                 </td>
                 <td>
-				{{$u ->phone}}
+				<?php echo e($u ->phone); ?>
+
                 </td>
-                <td>@if($u ->status == 0)
-				{{'Đang hoạt động'}}
-				@else
-				{{'Bị Khóa'}}
-				@endif
-                </td>
-                <td>
-				@if($u ->role == 0)
-				{{'User'}}
-				@else
-				{{'Admin'}}
-				@endif
+                <td><?php if($u ->status == 0): ?>
+				<?php echo e('Đang hoạt động'); ?>
+
+				<?php else: ?>
+				<?php echo e('Bị Khóa'); ?>
+
+				<?php endif; ?>
                 </td>
                 <td>
-				{{$u ->created_at}}
+				<?php if($u ->role == 0): ?>
+				<?php echo e('User'); ?>
+
+				<?php else: ?>
+				<?php echo e('Admin'); ?>
+
+				<?php endif; ?>
+                </td>
+                <td>
+				<?php echo e($u ->created_at); ?>
+
                 </td>
                 <td>
                     <button class="btn btn-info">
-					<a href="admin/user/sua/{{$u->id}}">Sửa</a>
+					<a href="admin/user/sua/<?php echo e($u->id); ?>">Sửa</a>
                     </button>
                     <button class="btn btn-danger">
-					<a href="admin/user/xoa/{{$u->id}}">Xoá</a>
+					<a href="admin/user/xoa/<?php echo e($u->id); ?>">Xoá</a>
                     </button>
 				</td>
                
             </tr>
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
     </table><div class="container">				
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -26,7 +26,7 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::get('xoa/{id}','LoaispController@getXoaLoai');
         Route::get('sua/{id}','LoaispController@getSuaLoai');
         Route::post('them','LoaispController@postThemLoai');
-        Route::post('sua/{id}','LoaispController@postSuaLoai');
+        Route::post('sua/{id}','LoaispControll  er@postSuaLoai');
     });
     Route::group(['prefix'=> 'sanpham'],function(){
         Route::get('danhsach','SanPhamController@getDanhSach');
@@ -67,6 +67,13 @@ Route::group(['prefix'=> 'admin'], function(){
 
     Route::group(['prefix'=> 'thongke'],function(){
         Route::get('sanpham','ThongKeController@getSanPham');
+        Route::get('doanhthu','ThongKeController@getDoanhThu');
+    });
+
+    Route::group(['prefix'=> 'donhang'],function(){
+        Route::get('danhsach','DonHangController@getDanhSach');
+        Route::get('sua/{id}','DonHangController@getSuaDS');
+        Route::post('sua/{id}','DonHangtroller@postSuaDS');
     });
 
 });

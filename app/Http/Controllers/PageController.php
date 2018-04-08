@@ -140,8 +140,11 @@ class PageController extends Controller
 
             $user = new User();
             $user -> full_name = $req -> fullname;
+            $user -> image ="";
             $user -> password = Hash::make($req -> password);
             $user -> email = $req -> email;
+            $user -> status = 0;
+            $user -> role = 0;
             $user -> address = $req -> address.','.$req -> city.','.$req->country ;
             $user -> phone = $req -> phone; 
             $user ->save();

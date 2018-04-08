@@ -1,6 +1,4 @@
-@extends('admin.layout.index')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <?php
 
     class FusionCharts {
@@ -150,4 +148,5 @@
         <div id="chart-1">Fusion Charts will render here</div>
     </body>
 </html>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

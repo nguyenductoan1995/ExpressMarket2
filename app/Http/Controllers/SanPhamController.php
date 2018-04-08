@@ -68,10 +68,8 @@ class SanPhamController extends Controller
 
     public function postSuaSp(Request $request, $id)
     {
-        $sp = SanPham:: where('id_sp','=',$id)->first() ;
-        return view ('admin.sanpham.sua',['sanpham' => $sp]);
+        $sanpham = SanPham:: where('id_sp','=',$id)->first() ;
 
-        $sanpham = new SanPham;
         $sanpham-> ten_sp = $request -> ten_sp;
         $sanpham-> gia  = $request ->gia ;
         if($request->hasFile('urlanh'))
@@ -80,7 +78,6 @@ class SanPhamController extends Controller
             $name = $file-> getClientOriginalName();
             $urlanh = str_random(3)."_".$name;
             $file ->move("source/img/products", $urlanh);
-            unlink("source/img/products/".$sanpham->$url_hinh);
             $sanpham -> url_hinh = $urlanh;
         }
         
@@ -91,7 +88,7 @@ class SanPhamController extends Controller
         $sanpham-> sp_sale = $request ->sale ;
         $sanpham-> id_loai = $request -> idloai; 
         $sanpham -> save();
-        return redirect('admin/sanpham/sua'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        return redirect('admin/sanpham/sua/'.$id) -> with('thongbao', 'Sửa Thành Công!');
     }
 
     public function getXoaSp($id)
