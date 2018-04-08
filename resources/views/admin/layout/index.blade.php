@@ -314,17 +314,9 @@
 							
 							</li>
 
+						
 							<li class="">
-								<a href="admin/thongke/user">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Người Dùng
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="admin/thongke/danhthu">
+								<a href="admin/thongke/doanhthu">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Doanh Thu
 								</a>

@@ -194,6 +194,30 @@
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon glyphicon glyphicon-pencil"></i>
+							<span class="menu-text"> Đơn Hàng</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="admin/donhang/danhsach">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Danh sách
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+						
+						</ul>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon glyphicon glyphicon-facetime-video"></i>
 							<span class="menu-text"> Slide</span>
 
@@ -290,17 +314,9 @@
 							
 							</li>
 
+						
 							<li class="">
-								<a href="admin/thongke/user">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Người Dùng
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="admin/thongke/danhthu">
+								<a href="admin/thongke/doanhthu">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Doanh Thu
 								</a>

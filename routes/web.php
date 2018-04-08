@@ -67,6 +67,13 @@ Route::group(['prefix'=> 'admin'], function(){
 
     Route::group(['prefix'=> 'thongke'],function(){
         Route::get('sanpham','ThongKeController@getSanPham');
+        Route::get('doanhthu','ThongKeController@getDoanhThu');
+    });
+
+    Route::group(['prefix'=> 'donhang'],function(){
+        Route::get('danhsach','DonHangController@getDanhSach');
+        Route::get('sua/{id}','DonHangController@getSuaDS');
+        Route::post('sua/{id}','DonHangtroller@postSuaDS');
     });
 
 });

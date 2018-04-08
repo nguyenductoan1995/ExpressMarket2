@@ -85,64 +85,68 @@
 ?>
 
 <html>
-   <head>
-      <title>FusionCharts XT - Column 2D Chart - Data from a database</title>
-    <link  rel="stylesheet" type="text/css" href="css/style.css" />
+<head>
+   <title>FusionCharts XT - Column 2D Chart - Data from a database</title>
+ <link  rel="stylesheet" type="text/css" href="css/style.css" />
 
-      <!-- You need to include the following JS file to render the chart.
-      When you make your own charts, make sure that the path to this JS file is correct.
-      Else, you will get JavaScript errors. -->
+   <!-- You need to include the following JS file to render the chart.
+   When you make your own charts, make sure that the path to this JS file is correct.
+   Else, you will get JavaScript errors. -->
 
-      <script src="js/fusioncharts.js"></script>
-  </head>
+   <script src="js/fusioncharts.js"></script>
+</head>
 
-   <body>
-   <?php
-        /**
-         *  Step 3: Create a `columnChart` chart object using the FusionCharts PHP class constructor. 
-         *  Syntax for the constructor: `FusionCharts("type of * chart", "unique chart id", "width of chart", 
-         *  "height of chart", "div id to render the chart", "data format", "data source")`
-         */
-        $columnChart = new FusionCharts("Column2D", "myFirstChart" , 600, 300, "chart-1", "json",
-            '{
-                "chart": {
-                    "caption": "Monthly revenue for last year",
-                    "subCaption": "Harry\’s SuperMart",
-                    "xAxisName": "Month",
-                    "yAxisName": "Revenues (In USD)",
-                    "numberPrefix": "$",
-                    "theme": "zune"
-                },
-                "data": [
-                        {"label": "Jan", "value": "420000"}, 
-                        {"label": "Feb", "value": "810000"},
-                        {"label": "Mar", "value": "720000"},
-                        {"label": "Apr", "value": "550000"},
-                        {"label": "May", "value": "910000"},
-                        {"label": "Jun", "value": "510000"},
-                        {"label": "Jul", "value": "680000"},
-                        {"label": "Aug", "value": "620000"},
-                        {"label": "Sep", "value": "610000"},
-                        {"label": "Oct", "value": "490000"},
-                        {"label": "Nov", "value": "900000"},
-                        {"label": "Dec", "value": "730000"}
-                    ]
-                }');
-        /**
-         *  Because we are using JSON/XML to specify chart data, `json` is passed as the value for the data
-         *   format parameter of the constructor. The actual chart data, in string format, is passed as the value
-         *   for the data source parameter of the constructor. Alternatively, you can store this string in a 
-         *   variable and pass the variable to the constructor.
-         */
+    <body>
+        <?php
+       // $sp1 = SELECT COUNT(*) FROM sanpham WHERE id_loai=8;
+            /* `$arrData` is the associative array that is initialized to store the chart attributes. */
+            $arrData = array(
+                "chart" => array(
+                    "caption"=> "Thống kê sản phẩm ",
+                    "subCaption"=> "Theo loại sản phẩm",
+                    "enableSmartLabels"=> "0",
+                    "showPercentValues"=> "1",
+                    "showLegend"=> "1",
+                    "decimals"=> "1",
+                    "theme"=> "zune"
+                )
+            );
+            /*
+                The data to be plotted on the chart is stored in the `$actualData` array in the key-value form.
+            */
+            $actualData = array(
+                "{$ten->ten_loai}" => $sanpham,
+                "{$ten2->ten_loai}" => $sanpham2,
+                "{$ten3->ten_loai}" => $sanpham3,
+               // "Senior" => 491000
+            );
+            /*
+                Convert the data in the `$actualData` array into a format that can be consumed by FusionCharts. The data for the chart should be in an array wherein each element of the array is a JSON object having the "label" and “value” as keys.
+            */
+            $arrData['data'] = array();
+            // Iterate through the data in `$actualData` and insert in to the `$arrData` array.
+            foreach ($actualData as $key => $value) {
+                array_push($arrData['data'],
+                    array(
+                        'label' => $key,
+                        'value' => $value
+                    )
+                );
+            }
 
-        /**
-         * Step 4: Render the chart
-         */
-        $columnChart->render();
-    ?>
-    <div id="chart-1"><!-- Fusion Charts will render here--></div>
-   </body>
-
+            /*
+                JSON Encode the data to retrieve the string containing the JSON representation of the data in the array.
+            */
+            $jsonEncodedData = json_encode($arrData);
+            /*
+                Create an object for the pie chart  using the FusionCharts PHP class constructor. Syntax for the constructor is ` FusionCharts("type of chart", "unique chart id", width of the chart, height of the chart, "div id to render the chart", "data format", "data source")`. Because we are using JSON data to render the chart, the data format will be `json`. The variable `$jsonEncodeData` holds all the JSON data for the chart, and will be passed as the value for the data source parameter of the constructor.
+            */
+            $pieChart = new FusionCharts("pie2D", "myFirstChart" , 1000, 500, "chart-1", "json", $jsonEncodedData);
+            // Render the chart
+            $pieChart->render();
+        ?>
+        <div id="chart-1">Fusion Charts will render here</div>
+    </body>
 </html>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
