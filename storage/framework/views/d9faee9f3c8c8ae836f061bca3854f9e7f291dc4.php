@@ -390,7 +390,7 @@
 						<div class="product">
 
 							<div class="product-image">
-								<a href="<?php echo e(route('chitietsanpham',$cl->id_sp)); ?>">
+								<a href="<?php echo e(route('chitietsanpham',$hot->id_sp)); ?>">
 									<img src="source/img/products/<?php echo e($hot->url_hinh); ?>" alt="Product1">
 								</a>
 							</div>
