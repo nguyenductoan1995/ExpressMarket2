@@ -4,15 +4,13 @@
 	<section class="main-content col-lg-12 col-md-12 col-sm-12">
 
 		<!-- Slider -->
-		<div class="iosSlider">
+		<div class="iosSlider" >
 			<div class="slider">
 
 				<div class="item" id="item1">
 
 					<div class="image">
-						<div class>
-
-						</div>
+						<div class="bg"></div>
 
 					</div>
 
@@ -117,20 +115,20 @@
 				<i class="icons icon-phone-outline"></i>
 			</div>
 
-			<a href="#">
+			
 				<div class="middle-banner banner-item icon-on-left light-blue">
 					<h4>Miễn phí giao hàng </h4>
 					<p>cho hoá đơn trên 1.000.000 vnđ</p>
 					<i class="icons icon-truck-1"></i>
 				</div>
-			</a>
+			
 
-			<a href="#">
+			
 				<div class="right-side-banner banner-item orange">
 					<h4>Fast Sale</h4>
 					<p>on selected items</p>
 				</div>
-			</a>
+		
 
 		</section>
 		<!-- /Banner -->
@@ -409,9 +407,9 @@
 					<!-- Slide -->
 					<div>
 						<div class="product">
-							<a href="">
+							
 								<img src="source/img/logo.png" alt="Brand1">
-							</a>
+							
 						</div>
 					</div>
 					<!-- /Slide -->

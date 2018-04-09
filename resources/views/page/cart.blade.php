@@ -42,6 +42,7 @@
 						<th>Tên sản phẩm</th>
 						<th>Hình ảnh</th>
 						<th>Số lượng</th>
+						<th>Đơn giá</th>
 						<th>Thành tiền</th>
 						<th>Tùy chọn</th>
 					</tr>
@@ -60,6 +61,9 @@
 						</td>
 						<td>
 							<p>{{$p['qty']}}</p>
+						</td>
+						<td>
+							<span class="price">{{ number_format($p['item']['gia'])}}</span>
 						</td>
 						<td>
 							<span class="price">{{number_format($p['item']['gia'] * $p['qty'])}}</span>
@@ -83,12 +87,14 @@
 						<th>Tên sản phẩm</th>
 						<th>Hình ảnh</th>
 						<th>Số lượng</th>
+						<th>đơn giá</th>
 						<th>Thành tiền</th>
 						<th>Tùy chọn</th>
 					</tr>
 				</table>
 				@endif
 			</div>
+
 			<!-- // -- Thông tin giao hàng -- // -->
 			@if(Session::has('cart'))
 			<div class="row">
@@ -106,11 +112,11 @@
 								</div>
 								@if(Auth::check())
 								<div class="col-lg-8 col-md-8 col-sm-8">
-									<input name='email' type="text"  value ="{{ Auth::user()->email}}" required >
+									<input name='email' type="text" value="{{ Auth::user()->email}}" required>
 								</div>
 								@else()
 								<div class="col-lg-8 col-md-8 col-sm-8">
-									<input name='email' type="text" required >
+									<input name='email' type="text" required>
 								</div>
 								@endif
 							</div>
@@ -121,7 +127,7 @@
 								</div>
 								@if(Auth::check())
 								<div class="col-lg-8 col-md-8 col-sm-8">
-									<input type="text" name='fullname' required value ="{{ Auth::user()->full_name}}">
+									<input type="text" name='fullname' required value="{{ Auth::user()->full_name}}">
 								</div>
 								@else
 								<div class="col-lg-8 col-md-8 col-sm-8">
@@ -137,7 +143,7 @@
 								</div>
 								@if( Auth::check() &&strlen(Auth::user()->address) > 2)
 								<div class="col-lg-8 col-md-8 col-sm-8">
-									<input type="text" name='address' value ="{{ Auth::user()->address}}" required>
+									<input type="text" name='address' value="{{ Auth::user()->address}}" required>
 								</div>
 								@else
 								<div class="col-lg-8 col-md-8 col-sm-8">
@@ -164,7 +170,7 @@
 
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<div class="box-wrapper no-border" type ='submit'>
+									<div class="box-wrapper no-border" type='submit'>
 										<button class="button pull-right parent-background">Mua hàng</button>
 									</div>
 								</div>
@@ -179,11 +185,9 @@
 			<!-- //----------------------------// -->
 		</div>
 
-@endif
+		@endif
 	</section>
 	<!-- /Main Content -->
-
-
 	<!-- Sidebar -->
 	<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
 
