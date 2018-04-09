@@ -1,12 +1,11 @@
-
-@extends('admin.layout.index')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container">		
-@if(session('thongbao'))
+<?php if(session('thongbao')): ?>
 		<div class= "alert alert-success">
-			{{session('thongbao')}}
+			<?php echo e(session('thongbao')); ?>
+
 		</div>
-	@endif
+	<?php endif; ?>
 <div class="col-xs-12">
 	<h3 class="header smaller lighter blue">Danh sách đơn hàng</h3>
 
@@ -38,46 +37,53 @@
             </th>
         </tr>
 
-	  		  @foreach ($donhang as $donhang)
+	  		  <?php $__currentLoopData = $donhang; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $donhang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   
             <tr class="info">
                 <td>
-                {{$donhang -> id_dh}}
+                <?php echo e($donhang -> id_dh); ?>
+
                 </td>
               
 				<td>
-				{{number_format($donhang -> tong_tien)}} VNĐ
+				<?php echo e(number_format($donhang -> tong_tien)); ?> VNĐ
                 </td>
                 <td>
-				{{$donhang ->sdt}}
+				<?php echo e($donhang ->sdt); ?>
+
                 </td>
                 <td>
-				{{$donhang -> address}}
+				<?php echo e($donhang -> address); ?>
+
                 </td>
                 <td>
-				{{$donhang -> ngay_dat}}
+				<?php echo e($donhang -> ngay_dat); ?>
+
                 </td>
                 <td>
-				@if($donhang -> status == 0)
-				{{'Chưa Duyệt'}}
-				@else
-				{{'Đã Duyệt'}}
-				@endif
+				<?php if($donhang -> status == 0): ?>
+				<?php echo e('Chưa Duyệt'); ?>
+
+				<?php else: ?>
+				<?php echo e('Đã Duyệt'); ?>
+
+				<?php endif; ?>
                 </tD>
                 <td>
                     <button class="btn btn-info">
-					<a href="admin/donhang/chitiet/{{$donhang->id_dh}}">Chi Tiết</a>
+					<a href="admin/donhang/chitiet/<?php echo e($donhang->id_dh); ?>">Chi Tiết</a>
                     
                     </button>
                     <button class="btn btn-danger">
-					<a href="admin/donhang/duyet/{{$donhang->id_dh}}">Duyệt</a>
+					<a href="admin/donhang/duyet/<?php echo e($donhang->id_dh); ?>">Duyệt</a>
                     
                     </button>
                  
 				</td>
             </tr>
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
     </table>		
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
