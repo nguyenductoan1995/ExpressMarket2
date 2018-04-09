@@ -104,20 +104,30 @@
 								<div class="col-lg-4 col-md-4 col-sm-4">
 									<p>Email*</p>
 								</div>
+								@if(Auth::check())
 								<div class="col-lg-8 col-md-8 col-sm-8">
-									<input name='email' type="text" required value ="{{ Auth::user()->email}}" required >
+									<input name='email' type="text"  value ="{{ Auth::user()->email}}" required >
 								</div>
-
+								@else()
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input name='email' type="text" required >
+								</div>
+								@endif
 							</div>
 
 							<div class="row">
-
 								<div class="col-lg-4 col-md-4 col-sm-4">
 									<p>Full name*</p>
 								</div>
+								@if(Auth::check())
 								<div class="col-lg-8 col-md-8 col-sm-8">
 									<input type="text" name='fullname' required value ="{{ Auth::user()->full_name}}">
 								</div>
+								@else
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='fullname' required>
+								</div>
+								@endif
 
 							</div>
 							<div class="row">
@@ -125,7 +135,7 @@
 								<div class="col-lg-4 col-md-4 col-sm-4">
 									<p>Address </p>
 								</div>
-								@if(strlen(Auth::user()->address) > 2)
+								@if( Auth::check() &&strlen(Auth::user()->address) > 2)
 								<div class="col-lg-8 col-md-8 col-sm-8">
 									<input type="text" name='address' value ="{{ Auth::user()->address}}" required>
 								</div>
@@ -141,10 +151,15 @@
 								<div class="col-lg-4 col-md-4 col-sm-4">
 									<p>Phone</p>
 								</div>
+								@if(Auth::check())
 								<div class="col-lg-8 col-md-8 col-sm-8">
 									<input type="text" name='phone' value="{{ Auth::user()->phone}}" required>
 								</div>
-
+								@else
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='phone' required>
+								</div>
+								@endif
 							</div>
 
 							<div class="row">

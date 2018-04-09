@@ -214,7 +214,12 @@ class PageController extends Controller
         // end region get cart
         $donhang = new DonHang;
         // get id customer :  $donhang->id
-        $donhang->id =Auth::user()->id ;
+        if(Auth::check()){
+            $donhang->id =Auth::user()->id ;
+        }
+        else{
+            $donhang->id = 1;
+        }
         $donhang->ngay_dat = Carbon\Carbon::now();
       //  $donhang->ngay_dat = new Datetime();
         $donhang->tong_tien =  $totalPrice;
