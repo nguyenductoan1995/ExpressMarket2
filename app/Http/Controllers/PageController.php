@@ -61,6 +61,7 @@ class PageController extends Controller
         $SanPhamCL = SanPham::where('id_loai',$SanPham[0]->id_loai)->where('id_sp','!=',$type)->get();
         // các sản phẩm hot
         $SanPhamHot = SanPham::where('sp_hot',1)->where('sp_moi',1)->get();
+        //
         return view('page.chitiet_sanpham',compact('SanPham','SanPhamCL','SanPhamHot','search_type','typeProduct'));
     }
     // lien he
@@ -225,7 +226,7 @@ class PageController extends Controller
         // detail order
         foreach ($cart->items as $key => $value) {
             $cidh = new ChiTietDonHang;
-            $cidh->id_dh = $donhang->id;
+            $cidh->id_dh = $donhang->id_dh;
             $cidh->id_sp = $key;
             $cidh->so_luong = $value['qty'];
             $cidh->thanh_tien = $value['price'];
