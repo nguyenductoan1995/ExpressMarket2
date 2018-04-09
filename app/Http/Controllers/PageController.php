@@ -8,7 +8,7 @@ use App\Cart;
 use App\DonHang;
 use App\ChiTietDonHang;
 use Session;
-use App\KhachHang;
+//use App\KhachHang;
 use Illuminate\Http\Request;
 use App\User;
 use Hash ;
@@ -113,7 +113,7 @@ class PageController extends Controller
     {
         $this ->validate($req,
             [
-                'email' => 'required|email|unique:khachhang,email',
+                'email' => 'required|email|unique:users,email',
                 'password' => 'required|min:6|max:20',
                 'fullname' => 'required',
                 're_password' => 'required|same:password',
