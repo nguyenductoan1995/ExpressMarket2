@@ -2237,17 +2237,30 @@ input[type="checkbox"]:checked + label.color-checkbox{
 
 .pagination{
 	float:right;	
-	margin-bottom:20px;
+	/* margin-bottom:20px; */
+	background-color: white;
+	/* align-items: center */
 }
-
+.pagination>li {
+	list-style: none;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: blue;
+	font-weight: bold;
+	/* font-size: 130%; */
+	font-family: 'Times New Roman', Times, serif;
+	/* align-items: center; */
+	/* justify-content: space-around */
+}
 .category-results .selectboxit, .category-results .selectboxit-list{
 	width:70px!important;	
 	margin:-5px 5px 0;
 }
 
 .pagination>a>div{
-	width:40px;
-	height:40px;
+	/* width:40px; */
+	/* height:40px; */
 	float:left;	
 	background:#f7f7f7;
 	text-align:center;
