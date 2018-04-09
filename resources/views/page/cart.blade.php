@@ -59,7 +59,7 @@
 							<img style="width:100px;height:120px" src="source/img/products/{{$p['item']['url_hinh']}}" alt="Flowers in Chania">
 						</td>
 						<td>
-							<p>{{$totalQty}}</p>
+							<p>{{$p['item']['so_luong']}}</p>
 						</td>
 						<td>
 							<span class="price">{{$totalPrice}}</span>

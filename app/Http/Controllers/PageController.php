@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash ;
 use Auth;
+use Carbon;
+use Datetime;
 class PageController extends Controller
 {
     public function getIndex() {
@@ -212,8 +214,12 @@ class PageController extends Controller
         $donhang = new DonHang;
         // get id customer :  $donhang->id
         $donhang->id = 1;
-        $donhang->ngay_dat = date('Y-m-d');
+        $donhang->ngay_dat = Carbon\Carbon::now();
+      //  $donhang->ngay_dat = new Datetime();
         $donhang->tong_tien =  $totalPrice;
+        $donhang->status = 1;
+        $donhang->sdt = '0962525359';
+        $donhang->address = "457A";
         $donhang->save();
 
         // detail order
