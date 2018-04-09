@@ -45,10 +45,10 @@
 						<th>Thành tiền</th>
 						<th>Tùy chọn</th>
 					</tr>
-					
+
 					<tr>
-					@foreach($product_cart as $p)
-					<td class="order-number">
+						@foreach($product_cart as $p)
+						<td class="order-number">
 							<p>
 								<a href="#">
 									<p>{{$p['item']['ten_sp']}}</p>
@@ -59,41 +59,112 @@
 							<img style="width:100px;height:120px" src="source/img/products/{{$p['item']['url_hinh']}}" alt="Flowers in Chania">
 						</td>
 						<td>
-							<p>{{$p['item']['so_luong']}}</p>
+							<p>{{$p['qty']}}</p>
 						</td>
 						<td>
-							<span class="price">{{$totalPrice}}</span>
+							<span class="price">{{number_format($p['item']['gia'] * $p['qty'])}}</span>
 						</td>
 						<td>
-							
+							<a href="{{route('xoagiohang',$p['item']['id_sp'])}}" class="parent-color">Xóa</a>
 						</td>
 					</tr>
 					@endforeach
 					<tr>
 						<td class="align-right" colspan="5">TỔNG TIỀN</td>
-						<td><strong>{{$totalPrice}} VND</strong></td>
+						<td>
+							<strong>{{number_format($totalPrice)}} VND</strong>
+						</td>
 					</tr>
 				</table>
-				<div class="box-wrapper no-border">
-					<a class="button pull-right parent-background" href="{{route('dathangmaster')}}">Mua hàng</a>
-                </div>
+
 				@else
 				<table class="order-table">
-
-						<tr>
-							<th>Tên sản phẩm</th>
-							<th>Hình ảnh</th>
-							<th>Số lượng</th>
-							<th>Thành tiền</th>
-							<th>Tùy chọn</th>
-						</tr>
+					<tr>
+						<th>Tên sản phẩm</th>
+						<th>Hình ảnh</th>
+						<th>Số lượng</th>
+						<th>Thành tiền</th>
+						<th>Tùy chọn</th>
+					</tr>
 				</table>
 				@endif
 			</div>
+			<!-- // -- Thông tin giao hàng -- // -->
+			@if(Session::has('cart'))
+			<div class="row">
+				<form action="{{route('dathangmaster')}}" method="post">
+					<input type='hidden' name='_token' value="{{csrf_token()}}">
+					<div class="col-lg-12 col-md-12 col-sm-12 register-account">
+						<br/>
+						<div class="carousel-heading no-margin">
+							<h4>Thông tin giao hàng</h4>
+						</div>
+						<div class="page-content">
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<p>Email*</p>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input name='email' type="text" required value ="{{ Auth::user()->email}}" required >
+								</div>
 
+							</div>
+
+							<div class="row">
+
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<p>Full name*</p>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='fullname' required value ="{{ Auth::user()->full_name}}">
+								</div>
+
+							</div>
+							<div class="row">
+
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<p>Address </p>
+								</div>
+								@if(strlen(Auth::user()->address) > 2)
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='address' value ="{{ Auth::user()->address}}" required>
+								</div>
+								@else
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='address' required>
+								</div>
+								@endif
+
+							</div>
+							<div class="row">
+
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<p>Phone</p>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<input type="text" name='phone' value="{{ Auth::user()->phone}}" required>
+								</div>
+
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<div class="box-wrapper no-border" type ='submit'>
+										<button class="button pull-right parent-background">Mua hàng</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<!-- //----------------------------// -->
 		</div>
 
-
+@endif
 	</section>
 	<!-- /Main Content -->
 

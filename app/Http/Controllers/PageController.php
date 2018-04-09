@@ -213,13 +213,13 @@ class PageController extends Controller
         // end region get cart
         $donhang = new DonHang;
         // get id customer :  $donhang->id
-        $donhang->id = 1;
+        $donhang->id =Auth::user()->id ;
         $donhang->ngay_dat = Carbon\Carbon::now();
       //  $donhang->ngay_dat = new Datetime();
         $donhang->tong_tien =  $totalPrice;
         $donhang->status = 1;
-        $donhang->sdt = '0962525359';
-        $donhang->address = "457A";
+        $donhang->sdt = $req->phone;
+        $donhang->address = $req->address;
         $donhang->save();
 
         // detail order
