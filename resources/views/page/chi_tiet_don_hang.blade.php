@@ -4,10 +4,11 @@
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<div class="breadcrumbs">
 			<p>
-                <a href="{{route('trang-chu')}}">Trang chủ</a>
-                <i class="icon-right-dir">
-                <a href"={{route('tinhtrangdonhang')}}">Trình trạng đơn hàng</a></i>
-                <i class="icons icon-right-dir"></i>Chi tiết đơn hàng</p>    
+				<a href="{{route('trang-chu')}}">Trang chủ</a>
+				<i class="icon-right-dir">
+					<a href ="{{route('tinhtrangdonhang')}}">Trình trạng đơn hàng</a>
+				</i>
+				<i class="icons icon-right-dir"></i>Chi tiết đơn hàng</p>
 		</div>
 	</div>
 
@@ -22,7 +23,7 @@
 				<div class="carousel-heading">
 					<h4>Chi Tiết đơn hàng</h4>
 					<div class="carousel-arrows">
-							<i class="icons icon-reply"></i>
+						<i class="icons icon-reply"></i>
 					</div>
 				</div>
 
@@ -42,13 +43,13 @@
 						<th>ID</th>
 						<th>Tên Sản Phẩm</th>
 						<th>Số Lượng</th>
-                        <th>Thành Tiền</th>
+						<th>Thành Tiền</th>
 					</tr>
 
 					<tr>
 						@foreach($ct as $ct)
 						<td class="order-number">
-									<p>{{$ct->id_ctdh}}</p>	
+							<p>{{$ct->id_ctdh}}</p>
 						</td>
 						<td>
 							<p>{{$ct->ten_sp}}</p>
@@ -57,7 +58,7 @@
 							<p>{{$ct->so_luong}}</p>
 						</td>
 						<td>
-                                <span class = "price">{{number_format($ct->thanh_tien)}}</span>
+							<span class="price">{{number_format($ct->thanh_tien)}}</span>
 						</td>
 					</tr>
 					@endforeach
@@ -79,7 +80,7 @@
 
 		</div>
 
-	
+
 	</section>
 	<!-- /Main Content -->
 	<!-- Sidebar -->
