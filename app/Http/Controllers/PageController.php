@@ -241,4 +241,21 @@ class PageController extends Controller
         return redirect()->back();
        
     }
+    // Tinh Trang Đơn Hàng
+    public function getStatus()
+    {
+        $search_type =LoaiSanPham::all();
+        $dh = DonHang::where('id',Auth::user()->id)->get();
+        return view('page.tinh_trang_don_hang',compact('search_type','dh'));
+    }
+    //Chi Tiet Don hang
+    public function getDetailBil($type)
+    {
+        $ct = ChiTietDonHang:: join('sanpham','sanpham.id_sp','=','chitietdonhang.id_sp')->where('id_dh',$type)->get();
+     //   $ct2 = table('ChiTietDonHang')->leftJoin('SanPham', 'chitietdonhang.id_sp', '=', 'sanpham.id_sp')->get();
+      // $ct3 = SanPham::join('$ct3', 'sanpham.id_sp', '=', 'ct3.id_sp')->get();
+    //   print_r($ct3);
+        $search_type =LoaiSanPham::all();
+        return view('page.chi_tiet_don_hang',compact('search_type','ct'));
+    }
 }

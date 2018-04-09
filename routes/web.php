@@ -156,7 +156,16 @@ Route::post('dat-hang',[
     'as'=> 'dathangmaster',
     'uses'=>'PageController@postCheckout'
 ]);
-
+// Tình Trạng đơn Hàng
+Route::get('tinh-trang-don-hang',[
+    'as'=> 'tinhtrangdonhang',
+    'uses'=> 'PageController@getStatus'
+]);
+// chi tiet don hang
+Route::get('chi-tiet-don-hang/{type}',[
+    'as'=> 'chitietdonhang',
+    'uses'=> 'PageController@getDetailBil'
+]);
 
 
 
