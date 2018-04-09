@@ -13,4 +13,5 @@ class DonHang extends Model
     public function chitietdonhang(){
         return $this-> hasMany('app/chitietdonhang','id_donhang','id_ctdh');
     }
+    public $timestamps = false;
 }

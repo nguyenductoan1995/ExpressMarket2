@@ -2,15 +2,14 @@
 			<header class="row">
 				
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					
-					<!-- Top Header -->
+					<!-- Top Header
 					<div id="top-header" class="style2">
 						
 						<div class="row">
 							
 							<nav id="top-navigation" class="col-lg-12 col-md-12 col-sm-12">
 								<ul class="pull-right">
-									<li><a href="create_an_account.html">My Account</a></li>
+									<li><a href="create_an_account.html">XXXX</a></li>
 									<li><a href="orders_list.html">List Order</a></li>
 									<li><a href="order_info.html">Checkout</a></li>
 									<li><a href="text_page.html">About Us</a></li>
@@ -21,16 +20,17 @@
 						</div>
 						
 					</div>
-		
-					<!-- /Top Header -->
-					
+					 -->
 					
 					
 					<!-- Main Header -->
 					<div id="main-header" class="style2">
 						
 						<div class="row">
-							
+							<!-- Region ajax -->
+								<input type="hidden" id="temp" value="-1"/>
+							<!-- End region ajax -->
+
 							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
 								<a href="<?php echo e(route('trang-chu')); ?>"><img src="source/img/logo.png" alt="Logo"></a>
 							</div>
@@ -38,7 +38,9 @@
 							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
 								<ul class="pull-right">
 									<?php if(Session::has('cart')): ?>
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i><?php echo e(Session('cart')->totalQty); ?></a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart"><?php echo e(Session('cart')->totalQty); ?></div>
+									</a>
                                     	<ul id="cart-dropdown" class="box-dropdown parent-arrow">
 											<li>
                                             	<div class="box-wrapper parent-border">
@@ -75,28 +77,37 @@
                                                 
                                                 <div class="box-wrapper no-border">
                                                 	<a class="button pull-right parent-background" href="#">Mua hàng</a>
-													<a class="button pull-right" href="order_info.html">Xem giỏ hàng</a>
+													<a class="button pull-right" href="<?php echo e(route('cart')); ?>">Xem giỏ hàng</a>
                                                 </div>
 											</li>
 										</ul>
                                     </li>
 									<?php else: ?>
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>0</a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart">0</div>
+									</a>
                                     </li>
 									<?php endif; ?>
+									<?php if( Auth::check() ): ?>
 									<li class="login-create purple">
-                                    	<i class="icons icon-user"></i>
-                                        <p>Xin chào! <a href="#">Đăng nhập</a> hoặc<br><a href="#">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
-										<ul id="login-dropdown" class="box-dropdown">
+                                    	<i class="icons "> <img class="nav-user-photo" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" weight="30px" height="30px" /></i>
+										
+										<p>Xin chào!
+										<i class="ace-icon fa fa-user"></i> <?php echo e(Auth::user()->full_name); ?><br></a><?php if(Auth::user()-> role==1): ?><b><a href="admin/trangchu">Admin</a></b>||<?php endif; ?><a href="<?php echo e(route('logout')); ?>">Đăng xuất</a></p>
+										<?php else: ?>
+										<p>Xin chào! <a href="<?php echo e(route('login')); ?>">Đăng nhập</a> hoặc<br><a href="<?php echo e(route('createaccount')); ?>">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
+										<?php endif; ?>
+										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
+											<form action="<?php echo e(route('login')); ?>" method="post" >
                                             	<div class="box-wrapper">
                                                     <h4>LOGIN</h4>
                                                     <div class="iconic-input">
-                                                        <input type="text" placeholder="Username">
+                                                        <input type="text" placeholder="Email" name="email">
                                                         <i class="icons icon-user-3"></i>
                                                     </div>
                                                     <div class="iconic-input">
-                                                        <input type="text" placeholder="Password">
+                                                        <input type="password" placeholder="Password" name="password">
                                                         <i class="icons icon-lock"></i>
                                                     </div>
                                                     <input type="checkbox" id="loginremember"> <label for="loginremember">Remember me</label>
@@ -113,12 +124,13 @@
                                                     </div>
                                                     <br class="clearfix">
                                                 </div>
+											</form>
 												<div class="footer">
 													<h4 class="pull-left">NEW CUSTOMER?</h4>
-													<a class="button pull-right" href="create_an_account.html">Create an account</a>
+													<a class="button pull-right" href="<?php echo e(route('createaccount')); ?>">Create an account</a>
 												</div>
 											</li>
-										</ul>
+										</ul> -->
                                     </li>
 								</ul>
 							</nav>
@@ -230,14 +242,14 @@
 							</li>
 							
 							<li class="green">
-								<a href="blog.html">
+								<a href="<?php echo e(route('blog')); ?>">
 									<span class="nav-caption">Giới Thiệu</span>
 									<span class="nav-description">Express market</span>
 								</a>
 							</li>
 							
 							<li class="purple">
-								<a href="contact.html">
+								<a href="<?php echo e(route('lienhe')); ?>">
 									<span class="nav-caption">Liên hệ</span>
 									<span class="nav-description">19001060</span>
 								</a>
@@ -271,9 +283,8 @@
 								</div>
 								
 								<div id="search-button" type ="submit" >
-									<!-- <i class="icons icon-search-1" action = "submit" ></i> -->
-									<input type="submit"  value = "" />
-									
+									<input type="submit"  value = ""/>	
+									<!-- <div class="icons icon-search-1" type ='submit' / > -->
 								</div>
 								</form>
 							</div>

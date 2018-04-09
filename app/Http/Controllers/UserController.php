@@ -71,4 +71,32 @@ class UserController extends Controller
 
 
     }
+    public function getSuattUser($id)
+    {
+        
+        $user = User:: where('id','=',$id) ->first();
+        return view ('admin.user.suatt',['user' => $user]);
+    }
+
+    public function postSuattUser(Request $request, $id)
+    {
+        $user = User:: where('id','=',$id) ->first();
+        if($request->hasFile('urlanh'))
+        {
+            $file  = $request ->file('urlanh') ;
+            $name = $file-> getClientOriginalName();
+            $urlanh = str_random(3)."_".$name;
+            $file ->move("source/img/users/", $urlanh);
+            $user-> image = $urlanh;
+        }
+        else    
+        $user -> image = $user -> image;
+        $user -> full_name=$request -> ten;
+        $user -> email = $request -> email;
+        $user -> status = $request -> status;
+        $user -> role = $request -> role;
+        $user ->save();
+        return redirect('admin/user/suatt/'.$id) -> with('thongbao', 'Sửa Thành Công!');
+    }
+
 }
