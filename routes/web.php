@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/trangchu', function () {
-    return view('admin.index');
-});
+
 
 Route::group(['prefix'=> 'admin'], function(){
     Route::group(['prefix'=> 'loaisanpham'],function(){
@@ -53,6 +51,8 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::get('sua/{id}','UserController@getSuaUser');
         Route::post('them','UserController@postThemUser');
         Route::post('sua/{id}','UserController@postSuaUser');
+        Route::get('suatt/{id}','UserController@getSuattUser');
+        Route::post('suatt/{id}','UserController@postSuattUser');
     });
 
     Route::group(['prefix'=> 'anh'],function(){
@@ -75,6 +75,11 @@ Route::group(['prefix'=> 'admin'], function(){
         Route::get('sua/{id}','DonHangController@getSuaDS');
         Route::post('sua/{id}','DonHangtroller@postSuaDS');
     });
+
+    Route::group(['prefix'=> ''],function(){
+        Route::get('trangchu','AdminController@getAdmin');
+    });
+    
 
 });
 

@@ -88,10 +88,12 @@
 									</a>
                                     </li>
 									@endif
+									@if( Auth::check() )
 									<li class="login-create purple">
-                                    	<i class="icons icon-user"></i>
-										@if( Auth::check() )
-										<p>Xin chào! {{ Auth::user()->full_name}}<br><a href="{{route('logout')}}">Đăng xuất</a></p>
+                                    	<i class="icons "> <img class="nav-user-photo" src="source/img/users/{{Auth::user()->image}}" alt="ảnh đại diện" weight="30px" height="30px" /></i>
+										
+										<p>Xin chào!
+										<i class="ace-icon fa fa-user"></i> {{ Auth::user()->full_name}}<br></a>@if(Auth::user()-> role==1)<b><a href="admin/trangchu">Admin</a></b>||@endif<a href="{{route('logout')}}">Đăng xuất</a></p>
 										@else
 										<p>Xin chào! <a href="{{route('login')}}">Đăng nhập</a> hoặc<br><a href="{{route('createaccount')}}">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
 										@endif

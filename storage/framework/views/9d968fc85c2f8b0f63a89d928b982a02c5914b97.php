@@ -43,6 +43,15 @@
 		<script src="admin/assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
+	<?php if(Auth::user()->role==0): ?>
+	<?php
+	//dd(Auth::user()-> role ==0);
+	echo "<div class='h2'>Bạn không có quyền truy cập!</h2>";
+	exit();
+
+	?>
+
+	<?php endif; ?>
 
 	<body class="no-skin">
 		<?php echo $__env->make('admin.layout.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -168,7 +177,7 @@
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<i class="menu-icon glyphicon glyphicon-user"></i>
 							<span class="menu-text"> Người dùng</span>
 
 							<b class="arrow fa fa-angle-down"></b>
@@ -178,7 +187,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="form-elements.html">
+								<a href="admin/user/danhsach">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Danh sách
 								</a>
@@ -186,19 +195,27 @@
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="form-elements-2.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Thêm 
-								</a>
+						
 
-								<b class="arrow"></b>
-							</li>
+						
+						</ul>
+					</li>
 
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon glyphicon glyphicon-pencil"></i>
+							<span class="menu-text"> Đơn Hàng</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
 							<li class="">
-								<a href="form-wizard.html">
+								<a href="admin/donhang/danhsach">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Phân Quyền
+									Danh sách
 								</a>
 
 								<b class="arrow"></b>
@@ -207,6 +224,39 @@
 						
 						</ul>
 					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon glyphicon glyphicon-facetime-video"></i>
+							<span class="menu-text"> Slide</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="admin/slide/danhsach">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Danh sách
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="admin/slide/them">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Thêm 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						
+						</ul>
+					</li>
+
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
@@ -222,7 +272,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/anh/danhsach" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Danh Sách
@@ -235,7 +285,7 @@
 							</li>
 
 							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/anh/them">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Thêm
 								</a>
@@ -247,7 +297,7 @@
 					</li>
 
 
-<li class="">
+					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text">
@@ -261,7 +311,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="admin/loaisanpham/danhsach" >
+								<a href="admin/thongke/sanpham" >
 									<i class="menu-icon fa fa-caret-right"></i>
 
 									Sản Phẩm
@@ -273,17 +323,9 @@
 							
 							</li>
 
+						
 							<li class="">
-								<a href="admin/loaisanpham/them">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Người Dùng
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="admin/loaisanpham/them">
+								<a href="admin/thongke/doanhthu">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Doanh Thu
 								</a>
@@ -377,7 +419,7 @@
 		<!-- ace scripts -->
 		<script src="admin/assets/js/ace-elements.min.js"></script>
 		<script src="admin/assets/js/ace.min.js"></script>
-
+		<script src='admin/assets/js/Chart.min.js'></script>
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
