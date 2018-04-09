@@ -93,7 +93,7 @@
                                     	<!-- <i class="icons "> <img class="nav-user-photo" src="source/img/users/{{Auth::user()->image}}" alt="ảnh đại diện" weight="30px" height="30px" /></i> -->
 										
 										<p>Xin chào!
-										<i class="ace-icon fa fa-user"><img class="nav-user-photo" weight="30px" height="30px" src="source/img/users/{{Auth::user()->image}}" alt="ảnh đại diện" /> </i> {{ Auth::user()->full_name}}<br></a>@if(Auth::user()-> role==1)<b><a href="admin/trangchu">Admin</a></b> || <a href="{{route('logout')}}"><span class="price">Đăng xuất</span></a> || <a href="{{route('tinhtrangdonhang')}}"><span class="price">Đơn hàng</span></a></p>@endif
+										<i class="ace-icon fa fa-user"><img class="nav-user-photo" weight="30px" height="30px" src="source/img/users/{{Auth::user()->image}}" alt="ảnh đại diện" /> </i> {{ Auth::user()->full_name}}<br></a>@if(Auth::user()-> role==1)<b><a href="admin/trangchu">Admin</a></b> ||@endif <a href="{{route('logout')}}"><span class="price">Đăng xuất</span></a> || <a href="{{route('tinhtrangdonhang')}}"><span class="price">Đơn hàng</span></a></p>
 										@else
 										<li class="login-create purple">
 										<p>Xin chào! <a href="{{route('login')}}">Đăng nhập</a> hoặc<br><a href="{{route('createaccount')}}">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
