@@ -318,6 +318,7 @@
 								<?php else: ?>
 										<p>Xin chào! <a href="<?php echo e(route('login')); ?>">Đăng nhập</a> hoặc<br><a href="<?php echo e(route('createaccount')); ?>">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
 										<?php endif; ?>
+										
 							</ul>
 						</li>
 					</ul>

@@ -72,8 +72,8 @@ Route::group(['prefix'=> 'admin'], function(){
 
     Route::group(['prefix'=> 'donhang'],function(){
         Route::get('danhsach','DonHangController@getDanhSach');
-        Route::get('sua/{id}','DonHangController@getSuaDS');
-        Route::post('sua/{id}','DonHangtroller@postSuaDS');
+        Route::get('duyet/{id}','DonHangController@getSuaDH');
+        Route::post('duyet/{id}','DonHangtroller@postSuaDH');
     });
 
     Route::group(['prefix'=> ''],function(){

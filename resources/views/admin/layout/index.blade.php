@@ -50,7 +50,7 @@
 	exit();
 
 	?>
-
+	
 	@endif
 
 	<body class="no-skin">

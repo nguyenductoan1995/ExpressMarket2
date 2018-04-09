@@ -50,7 +50,7 @@
 	exit();
 
 	?>
-
+	
 	<?php endif; ?>
 
 	<body class="no-skin">

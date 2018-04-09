@@ -318,6 +318,7 @@
 								@else
 										<p>Xin chào! <a href="{{route('login')}}">Đăng nhập</a> hoặc<br><a href="{{route('createaccount')}}">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
 										@endif
+										
 							</ul>
 						</li>
 					</ul>

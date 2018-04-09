@@ -142,7 +142,7 @@ class PageController extends Controller
 
             $user = new User();
             $user -> full_name = $req -> fullname;
-            $user -> image ="";
+            $user -> image ="user.jpg";
             $user -> password = Hash::make($req -> password);
             $user -> email = $req -> email;
             $user -> status = 0;
