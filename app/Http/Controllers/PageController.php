@@ -37,7 +37,7 @@ class PageController extends Controller
     // loai san pham
     public function getCategory($type) {
         // sản phẩm theo loại
-        $sp_theoloai = SanPham::where('id_loai',$type) -> paginate(6);
+        $sp_theoloai = SanPham::where('id_loai',$type) -> paginate(9);
         // tên sản phẩm theo loại
         $ten_theoloai = LoaiSanPham::where('id_loai',$type) -> get(['ten_loai']);
        // print_r($ten_theoloai);
