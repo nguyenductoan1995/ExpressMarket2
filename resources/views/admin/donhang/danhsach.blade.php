@@ -18,14 +18,9 @@
             <th>
                 ID
             </th>
+          
             <th>
-                Tên Sản Phẩm
-            </th>
-            <th>
-                Số Lượng
-            </th>
-            <th>
-                Thành Tiền
+                Đơn Giá
             </th>
 			<th>
                 SĐT Người Nhận
@@ -49,12 +44,7 @@
                 <td>
                 {{$donhang -> id_dh}}
                 </td>
-                <td>
-                {{$donhang -> id_dh}}
-                </td>
-                <td>
-                {{$donhang -> id_dh}}
-                </td>
+              
 				<td>
 				{{number_format($donhang -> tong_tien)}} VNĐ
                 </td>
@@ -76,7 +66,7 @@
                 </tD>
                 <td>
                     <button class="btn btn-info">
-					<a href="admin/donhang/duyet/{{$donhang->id_dh}}">Sửa</a>
+					<a href="admin/donhang/duyet/{{$donhang->id_dh}}">Chi Tiết</a>
                     
                     </button>
                  

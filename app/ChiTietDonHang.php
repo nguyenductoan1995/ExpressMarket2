@@ -8,9 +8,9 @@ class ChiTietDonHang extends Model
 {
     protected $table ="chitietdonhang";
     public function donhang(){
-        return $this->belongTo('app/donhang','id_donhang','id_donhang');
+        return $this->belongsTo('app/donhang','id_donhang','id_donhang');
     }
     public function sanpham(){
-        return $this->belongTo('app/sanpham','id_sp','id_ctdh');
+        return $this->belongsTo('app/sanpham','id_sp','id_ctdh');
     }
 }
