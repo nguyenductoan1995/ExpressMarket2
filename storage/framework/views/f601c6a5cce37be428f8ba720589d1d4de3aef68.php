@@ -179,17 +179,29 @@
 								<span class="price"><?php echo e(number_format($new1->gia,0)); ?> vnđ</span>
 								<div class="rating readonly-rating" data-score="4"></div>
 							</div>
-
+							<?php if(Session::has('cart')): ?>
 							<div class="product-actions">
 								<span class="add-to-cart">
-									<span class="action-wrapper">
-										<a href="<?php echo e(route('themgiohang',$new1 -> id_sp)); ?>">
+									<span class="action-wrapper" onclick="AddToCart(<?php echo e($new1->id_sp); ?>,<?php echo e(Session('cart')->totalQty); ?>)">
+										<a>
 											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
 											<span class="action-name">Add to cart</span>
 										</a>
 									</span>
 								</span>
 							</div>
+							<?php else: ?>
+							<div class="product-actions">
+								<span class="add-to-cart" onclick="AddToCart(<?php echo e($new1->id_sp); ?>,0)">
+									<span class="action-wrapper">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
+									</span>
+								</span>
+							</div>
+							<?php endif; ?>
 
 						</div>
 						<!-- /Carousel Item -->
@@ -216,7 +228,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 
 				<div class="carousel-heading">
-					<h4>Tự sửa lại nha</h4>
+					<h4>TIVI</h4>
 					<div class="carousel-arrows">
 						<i class="icons icon-left-dir"></i>
 						<i class="icons icon-right-dir"></i>
@@ -251,29 +263,29 @@
 								<div class="rating readonly-rating" data-score="4"></div>
 							</div>
 
+							<?php if(Session::has('cart')): ?>
 							<div class="product-actions">
 								<span class="add-to-cart">
-									<a href="<?php echo e(route('themgiohang',$new2 -> id_sp)); ?>">
-										<span class="action-wrapper">
-											<i class="icons icon-basket-2"></i>
+									<span class="action-wrapper" onclick="AddToCart(<?php echo e($new2->id_sp); ?>,<?php echo e(Session('cart')->totalQty); ?>)">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
 											<span class="action-name">Add to cart</span>
-										</span>
-									</a>
-								</span>
-								<span class="add-to-favorites">
-									<span class="action-wrapper">
-										<i class="icons icon-heart-empty"></i>
-										<span class="action-name">Add to wishlist</span>
-									</span>
-								</span>
-								<span class="add-to-compare">
-									<span class="action-wrapper">
-										<i class="icons icon-docs"></i>
-										<span class="action-name">Add to Compare</span>
+										</a>
 									</span>
 								</span>
 							</div>
-
+							<?php else: ?>
+							<div class="product-actions">
+								<span class="add-to-cart" onclick="AddToCart(<?php echo e($new2->id_sp); ?>,0)">
+									<span class="action-wrapper">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
+									</span>
+								</span>
+							</div>
+							<?php endif; ?>
 						</div>
 						<!-- /Carousel Item -->
 					</div>
@@ -297,7 +309,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 
 				<div class="carousel-heading">
-					<h4>Tự sửa lại nha </h4>
+					<h4>Phụ kiện công nghệ</h4>
 					<div class="carousel-arrows">
 						<i class="icons icon-left-dir"></i>
 						<i class="icons icon-right-dir"></i>
@@ -331,26 +343,29 @@
 								<div class="rating readonly-rating" data-score="4"></div>
 							</div>
 
+							<?php if(Session::has('cart')): ?>
 							<div class="product-actions">
 								<span class="add-to-cart">
-									<span class="action-wrapper">
-										<i class="icons icon-basket-2"></i>
-										<span class="action-name">Add to cart</span>
-									</span>
-								</span>
-								<span class="add-to-favorites">
-									<span class="action-wrapper">
-										<i class="icons icon-heart-empty"></i>
-										<span class="action-name">Add to wishlist</span>
-									</span>
-								</span>
-								<span class="add-to-compare">
-									<span class="action-wrapper">
-										<i class="icons icon-docs"></i>
-										<span class="action-name">Add to Compare</span>
+									<span class="action-wrapper" onclick="AddToCart(<?php echo e($new3->id_sp); ?>,<?php echo e(Session('cart')->totalQty); ?>)">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
 									</span>
 								</span>
 							</div>
+							<?php else: ?>
+							<div class="product-actions">
+								<span class="add-to-cart" onclick="AddToCart(<?php echo e($new3->id_sp); ?>,0)">
+									<span class="action-wrapper">
+										<a>
+											<i class="icons icon-basket-2"> Thêm vào giỏ hàng</i>
+											<span class="action-name">Add to cart</span>
+										</a>
+									</span>
+								</span>
+							</div>
+							<?php endif; ?>
 
 						</div>
 						<!-- /Carousel Item -->

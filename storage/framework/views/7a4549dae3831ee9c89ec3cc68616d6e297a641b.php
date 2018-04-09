@@ -43,6 +43,15 @@
 		<script src="admin/assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
+	<?php if(Auth::user()->role==0): ?>
+	<?php
+	//dd(Auth::user()-> role ==0);
+	echo "<div class='h2'>Bạn không có quyền truy cập!</h2>";
+	exit();
+
+	?>
+	
+	<?php endif; ?>
 
 	<body class="no-skin">
 		<?php echo $__env->make('admin.layout.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -11,6 +11,7 @@
 	<h3 class="header smaller lighter blue">Danh sách đơn hàng</h3>
 
 </div>
+
 <div class="container">
     <table class="table table-bordered">
         <tr class="success">
@@ -19,23 +20,19 @@
                 ID
             </th>
           
-            <th>
-                Đơn Giá
-            </th>
+          
 			<th>
-                SĐT Người Nhận
+                Tên Sản Phẩm
             </th>
             <th>
-                Địa Chỉ Người Nhận
+                Số Lượng
             </th>
-            <th> Ngày Giao</th>
-				
+            <th> Thành Tiền</th>
+           
 			<th>
-                Trạng Thái
+                Ngày Đặt
             </th>
-			<th>
-                Thao Tác
-            </th>
+			
         </tr>
 
 	  		  @foreach ($ctdh as $ctdh)
@@ -45,35 +42,24 @@
                 {{$ctdh -> id_ctdh}}
                 </td>
               
-				<td>
+				
+                <td>
+				{{$ctdh ->id_sp}}
+                </td>
+                <td>
+				{{$ctdh -> so_luong}}
+                </td>   
+                <td>
 				{{number_format($ctdh -> thanh_tien)}} VNĐ
-                </td>
-                <td>
-				{{$ctdh ->sdt}}
-                </td>
-                <td>
-				{{$ctdh -> adress}}
                 </td>
                 <td>
 				{{$ctdh -> created_at}}
                 </td>
-                <td>
-				@if($ctdh -> status == 0)
-				{{'Chưa Duyệt'}}
-				@else
-				{{'Đã Duyệt'}}
-				@endif
-                </tD>
-                <td>
-                    <button class="btn btn-info">
-					<a href="admin/ctdh/duyet/{{$ctdh->id_dh}}">Chi Tiết</a>
-                    
-                    </button>
-                 
-				</td>
+              
             </tr>
 			@endforeach
 
 
     </table>		
+    <a href="admin/donhang/danhsach"><button type="button" class="btn btn-default navbar-btn pull-left" >Trở Về</button></a>
 @endsection

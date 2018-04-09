@@ -13,4 +13,6 @@ class ChiTietDonHang extends Model
     public function sanpham(){
         return $this->belongsTo('app/sanpham','id_sp','id_ctdh');
     }
+    protected $primaryKey = "id_ctdh";
 }
+

@@ -2,15 +2,14 @@
 			<header class="row">
 				
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					
-					<!-- Top Header -->
+					<!-- Top Header
 					<div id="top-header" class="style2">
 						
 						<div class="row">
 							
 							<nav id="top-navigation" class="col-lg-12 col-md-12 col-sm-12">
 								<ul class="pull-right">
-									<li><a href="create_an_account.html">My Account</a></li>
+									<li><a href="create_an_account.html">XXXX</a></li>
 									<li><a href="orders_list.html">List Order</a></li>
 									<li><a href="order_info.html">Checkout</a></li>
 									<li><a href="text_page.html">About Us</a></li>
@@ -21,16 +20,17 @@
 						</div>
 						
 					</div>
-		
-					<!-- /Top Header -->
-					
+					 -->
 					
 					
 					<!-- Main Header -->
 					<div id="main-header" class="style2">
 						
 						<div class="row">
-							
+							<!-- Region ajax -->
+								<input type="hidden" id="temp" value="-1"/>
+							<!-- End region ajax -->
+
 							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
 								<a href="<?php echo e(route('trang-chu')); ?>"><img src="source/img/logo.png" alt="Logo"></a>
 							</div>
@@ -38,7 +38,9 @@
 							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
 								<ul class="pull-right">
 									<?php if(Session::has('cart')): ?>
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i><?php echo e(Session('cart')->totalQty); ?></a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart"><?php echo e(Session('cart')->totalQty); ?></div>
+									</a>
                                     	<ul id="cart-dropdown" class="box-dropdown parent-arrow">
 											<li>
                                             	<div class="box-wrapper parent-border">
@@ -81,13 +83,17 @@
 										</ul>
                                     </li>
 									<?php else: ?>
-									<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>0</a>
+									<li class="orange"><a><i class="icons icon-basket-2"></i>
+										<div id="quantityCart">0</div>
+									</a>
                                     </li>
 									<?php endif; ?>
+									<?php if( Auth::check() ): ?>
 									<li class="login-create purple">
-                                    	<i class="icons icon-user"></i>
-										<?php if( Auth::check() ): ?>
-										<p>Xin chào! <?php echo e(Auth::user()->full_name); ?><br><a href="<?php echo e(route('logout')); ?>">Đăng xuất</a></p>
+                                    	<!-- <i class="icons "> <img class="nav-user-photo" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" weight="30px" height="30px" /></i> -->
+										
+										<p>Xin chào!
+										<i class="ace-icon fa fa-user"><img class="nav-user-photo" weight="30px" height="30px" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" /> </i> <?php echo e(Auth::user()->full_name); ?><br></a><?php if(Auth::user()-> role==1): ?><b><a href="admin/trangchu">Admin</a></b>||<?php endif; ?><a href="<?php echo e(route('logout')); ?>">Đăng xuất</a></p>
 										<?php else: ?>
 										<p>Xin chào! <a href="<?php echo e(route('login')); ?>">Đăng nhập</a> hoặc<br><a href="<?php echo e(route('createaccount')); ?>">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
 										<?php endif; ?>

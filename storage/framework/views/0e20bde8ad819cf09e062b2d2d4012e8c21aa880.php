@@ -1,3 +1,5 @@
+
+	
 <div id="navbar" class="navbar navbar-default          ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
 				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -278,10 +280,13 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/19598806_1664747923637928_6783697668629122671_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeE63p-De2YqyO3po82DOOKlWrhP10_HV_9cGd0DXzasOdtxBABp9dUhWLyJ3XXaKU50JGu2MjYp6NSDcLxJ-pJiJfLicVq2CJzVWZbl81vMRA&oh=38f597e1352e9283291b8259b0b5e085&oe=5B6C644C" alt="Jason's Photo" />
+							<?php if( Auth::check() ): ?>
+								<img class="nav-user-photo" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" />
 								<span class="user-info">
-									<small>Welcome,</small>
-									Ka3L~
+								
+										<p>Xin chào! <?php echo e(Auth::user()->full_name); ?><br></p>
+									
+									
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -291,25 +296,29 @@
 								<li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
-										Settings
+										Cài Đặt
 									</a>
 								</li>
 
 								<li>
-									<a href="profile.html">
+									<a href="admin/user/suatt/<?php echo e(Auth::user()->id); ?>">
 										<i class="ace-icon fa fa-user"></i>
-										Profile
+										Thông tin cá nhân
 									</a>
 								</li>
-
+							
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="<?php echo e(route('logout')); ?>">
 										<i class="ace-icon fa fa-power-off"></i>
-										Logout
+										Đăng xuất
 									</a>
 								</li>
+								<?php else: ?>
+										<p>Xin chào! <a href="<?php echo e(route('login')); ?>">Đăng nhập</a> hoặc<br><a href="<?php echo e(route('createaccount')); ?>">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
+										<?php endif; ?>
+										
 							</ul>
 						</li>
 					</ul>

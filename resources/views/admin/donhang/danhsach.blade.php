@@ -66,7 +66,11 @@
                 </tD>
                 <td>
                     <button class="btn btn-info">
-					<a href="admin/donhang/duyet/{{$donhang->id_dh}}">Chi Tiết</a>
+					<a href="admin/donhang/chitiet/{{$donhang->id_dh}}">Chi Tiết</a>
+                    
+                    </button>
+                    <button class="btn btn-danger">
+					<a href="admin/donhang/duyet/{{$donhang->id_dh}}">Duyệt</a>
                     
                     </button>
                  

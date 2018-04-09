@@ -25,23 +25,26 @@ class DonHangController extends Controller
 
 
     
+    public function getChiTietDH($id)
+    {
+        $ctdh = ChiTietDonHang::where('id_dh','=',$id)->get();
+        //dd($ctdh);
+        return view ('admin.donhang.sua',['ctdh'=>$ctdh]);
+    }
+
     public function getSuaDH($id)
     {
-        
-        $donhang = DonHang:: where('id','=',$id) ->first();
-        return view ('admin.donhang.sua',['donhang' => $donhang]);
+        $donhang = DonHang:: where('id_dh','=',$id) ->first();
+        //dd($ctdh);
+        return view ('admin.donhang.duyet',['donhang'=>$donhang]);
     }
 
     public function postSuaDH(Request $request, $id)
     {
         $donhang = DonHang:: where('id_dh','=',$id) ->first();
-       
-        $donhang -> full_name=$request -> ten;
-        $donhang -> email = $request -> email;
         $donhang -> status = $request -> status;
-        $donhang -> role = $request -> role;
         $donhang ->save();
-        return redirect('admin/user/suatt/'.$id) -> with('thongbao', 'Sửa Thành Công!');
+        return redirect('admin/donhang/duyet/'.$id) -> with('thongbao', 'Đã Duyệt Đơn Hàng Thành Công!');
     }
 
 }
