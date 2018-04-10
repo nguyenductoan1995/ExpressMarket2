@@ -93,8 +93,9 @@
                                     	<!-- <i class="icons "> <img class="nav-user-photo" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" weight="30px" height="30px" /></i> -->
 										
 										<p>Xin chào!
-										<i class="ace-icon fa fa-user"><img class="nav-user-photo" weight="30px" height="30px" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" /> </i> <?php echo e(Auth::user()->full_name); ?><br></a><?php if(Auth::user()-> role==1): ?><b><a href="admin/trangchu">Admin</a></b>||<?php endif; ?><a href="<?php echo e(route('logout')); ?>">Đăng xuất</a></p>
+										<i class="ace-icon fa fa-user"><img class="nav-user-photo" weight="30px" height="30px" src="source/img/users/<?php echo e(Auth::user()->image); ?>" alt="ảnh đại diện" /> </i> <?php echo e(Auth::user()->full_name); ?><br></a><?php if(Auth::user()-> role==1): ?><b><a href="admin/trangchu">Admin</a></b> ||<?php endif; ?> <a href="<?php echo e(route('logout')); ?>"><span class="price">Đăng xuất</span></a> || <a href="<?php echo e(route('tinhtrangdonhang')); ?>"><span class="price">Đơn hàng</span></a></p>
 										<?php else: ?>
+										<li class="login-create purple">
 										<p>Xin chào! <a href="<?php echo e(route('login')); ?>">Đăng nhập</a> hoặc<br><a href="<?php echo e(route('createaccount')); ?>">Đăng ký</a> để chúng tôi được phụ vụ bạn tốt hơn</p>
 										<?php endif; ?>
 										<!-- <ul id="login-dropdown" class="box-dropdown">

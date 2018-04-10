@@ -62,11 +62,9 @@
                 </td>
                 <td>
 				<?php if($donhang -> status == 0): ?>
-				<?php echo e('Chưa Duyệt'); ?>
-
+				<span class="label label-danger"><?php echo e('Chưa Duyệt'); ?></span>
 				<?php else: ?>
-				<?php echo e('Đã Duyệt'); ?>
-
+				<span class="label label-primary"><?php echo e('Đã Duyệt'); ?></span>
 				<?php endif; ?>
                 </tD>
                 <td>

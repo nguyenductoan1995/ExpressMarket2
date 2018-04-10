@@ -55,16 +55,16 @@
 				{{$u ->phone}}
                 </td>
                 <td>@if($u ->status == 0)
-				{{'Đang hoạt động'}}
+				<span class="label label-primary">{{'Đang hoạt động'}}</span>
 				@else
-				{{'Bị Khóa'}}
+				<span class="label label-danger">{{'Bị Khóa'}}</span>
 				@endif
                 </td>
                 <td>
 				@if($u ->role == 0)
-				{{'User'}}
+				<span class="label label-success">{{'User'}}</span>
 				@else
-				{{'Admin'}}
+				<span class="label label-warning">{{'Admin'}}</span>
 				@endif
                 </td>
                 <td>

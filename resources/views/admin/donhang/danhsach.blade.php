@@ -59,9 +59,9 @@
                 </td>
                 <td>
 				@if($donhang -> status == 0)
-				{{'Chưa Duyệt'}}
+				<span class="label label-danger">{{'Chưa Duyệt'}}</span>
 				@else
-				{{'Đã Duyệt'}}
+				<span class="label label-primary">{{'Đã Duyệt'}}</span>
 				@endif
                 </tD>
                 <td>

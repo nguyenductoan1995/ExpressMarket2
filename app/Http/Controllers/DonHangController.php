@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\SanPham;
+use App\LoaiSanPham;
 use App\Cart;
 use App\DonHang;
 use App\ChiTietDonHang;
@@ -27,9 +28,12 @@ class DonHangController extends Controller
     
     public function getChiTietDH($id)
     {
-        $ctdh = ChiTietDonHang::where('id_dh','=',$id)->get();
-        //dd($ctdh);
-        return view ('admin.donhang.sua',['ctdh'=>$ctdh]);
+        $ctdh = ChiTietDonHang:: join('sanpham','sanpham.id_sp','=','chitietdonhang.id_sp')->where('id_dh',$id)->get();
+        //   $ct2 = table('ChiTietDonHang')->leftJoin('SanPham', 'chitietdonhang.id_sp', '=', 'sanpham.id_sp')->get();
+         // $ct3 = SanPham::join('$ct3', 'sanpham.id_sp', '=', 'ct3.id_sp')->get();
+       //   print_r($ct3);
+           $search_type =LoaiSanPham::all();
+           return view('admin.donhang.sua',compact('search_type','ct'));
     }
 
     public function getSuaDH($id)

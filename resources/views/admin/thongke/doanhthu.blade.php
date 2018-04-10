@@ -103,10 +103,10 @@
 $jsontest = ["chart" => 
                 [
                     "caption" => "Doanh thu",
-                    "subCaption" => "năm 2018",
+                    "subCaption" => "nam 2018",
                     "xAxisName" => "Day",
-                    "yAxisName" => "Tổng thu( VNĐ)",
-                    "numberPrefix" => "",
+                    "yAxisName" => "T?ng thu( VNÐ)",
+                    "numberPrefix" => "usd",
                     "theme" => "zune"
                 ],
             "data" =>   [
@@ -129,7 +129,6 @@ $jsontest = ["chart" =>
                         ]
                 ];
 $cover  = json_encode($jsontest);
-//var_dump($cover);
 
     /*
         Create a `area2DChart` chart object using the FusionCharts PHP class constructor. Syntax for the constructor is `FusionCharts("type of chart", "unique chart id", "width of chart", "height of chart", "div id to render the chart", "data format", "data source")`. To load data from a JSON string, `json` is passed as the value for the data format parameter of the constructor. The actual JSON data for the chart is passed as a string to the constructor.

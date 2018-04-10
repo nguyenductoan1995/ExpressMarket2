@@ -44,7 +44,7 @@
               
 				
                 <td>
-				<?php echo e($ctdh ->id_sp); ?>
+				<?php echo e($ctdh ->ten_sp); ?>
 
                 </td>
                 <td>

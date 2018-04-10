@@ -59,20 +59,16 @@
 
                 </td>
                 <td><?php if($u ->status == 0): ?>
-				<?php echo e('Đang hoạt động'); ?>
-
+				<span class="label label-primary"><?php echo e('Đang hoạt động'); ?></span>
 				<?php else: ?>
-				<?php echo e('Bị Khóa'); ?>
-
+				<span class="label label-danger"><?php echo e('Bị Khóa'); ?></span>
 				<?php endif; ?>
                 </td>
                 <td>
 				<?php if($u ->role == 0): ?>
-				<?php echo e('User'); ?>
-
+				<span class="label label-success"><?php echo e('User'); ?></span>
 				<?php else: ?>
-				<?php echo e('Admin'); ?>
-
+				<span class="label label-warning"><?php echo e('Admin'); ?></span>
 				<?php endif; ?>
                 </td>
                 <td>

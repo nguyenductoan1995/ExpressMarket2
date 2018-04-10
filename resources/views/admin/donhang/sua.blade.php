@@ -44,7 +44,7 @@
               
 				
                 <td>
-				{{$ctdh ->id_sp}}
+				{{$ctdh ->ten_sp}}
                 </td>
                 <td>
 				{{$ctdh -> so_luong}}
