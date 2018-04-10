@@ -33,7 +33,7 @@ class DonHangController extends Controller
          // $ct3 = SanPham::join('$ct3', 'sanpham.id_sp', '=', 'ct3.id_sp')->get();
        //   print_r($ct3);
            $search_type =LoaiSanPham::all();
-           return view('admin.donhang.sua',compact('search_type','ct'));
+           return view('admin.donhang.sua',compact('search_type','ctdh'));
     }
 
     public function getSuaDH($id)
