@@ -223,7 +223,7 @@ class PageController extends Controller
         $donhang->ngay_dat = Carbon\Carbon::now();
       //  $donhang->ngay_dat = new Datetime();
         $donhang->tong_tien =  $totalPrice;
-        $donhang->status = 1;
+        $donhang->status = 0;
         $donhang->sdt = $req->phone;
         $donhang->address = $req->address;
         $donhang->save();

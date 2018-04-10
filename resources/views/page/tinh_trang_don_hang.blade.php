@@ -57,7 +57,7 @@
 							<p>{{$dh->ngay_dat}}</p>
 						</td>
 						<td>
-                            @if($dh->status == 1)
+                            @if($dh->status == 0)
                                 <p>Đang chờ duyệt</p>
                             @else
                                 <span class = "price">Đã Duyệt</span>
